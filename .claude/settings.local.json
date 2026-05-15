@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(open http://localhost:3000)",
+      "Bash(xargs ls)",
+      "Bash(curl -s http://localhost:3000)",
+      "mcp__Claude_in_Chrome__list_connected_browsers",
+      "Bash(curl -s --max-time 10 http://localhost:3000)",
+      "Bash(curl -v --max-time 15 http://localhost:3000/)",
+      "Bash(ulimit -n)",
+      "Bash(kill 22046 20425)",
+      "Bash(curl -s --max-time 20 http://localhost:3000)",
+      "Bash(git init *)",
+      "Bash(git remote *)",
+      "Bash(ls -la .gitignore)",
+      "Bash(cat .gitignore)",
+      "Bash(git add *)"
+    ]
+  }
+}

@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompting GPT Image 2 — A Field Guide for Architects & Interior Designers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #131313;
+    --paper-deep: #1b1c1c;
+    --ink: #ffffff;
+    --ink-soft: #a3a3a3;
+    --muted: #737373;
+    --rule: #2a2a2a;
+    --accent: #efbc98;
+    --accent-soft: #7c5639;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Manrope', sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1000;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.01) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(255,255,255,0.01) 0%, transparent 50%);
+    mix-blend-mode: multiply;
+  }
+
+  .serif { font-family: 'Fraunces', serif; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  /* PAGE STRUCTURE */
+  .page {
+    position: relative;
+    min-height: 100vh;
+    padding: 80px 7vw 120px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .page-marker {
+    position: absolute;
+    top: 40px;
+    right: 7vw;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .page-label {
+    position: absolute;
+    top: 40px;
+    left: 7vw;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* COVER */
+  .cover {
+    min-height: 100vh;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover-text {
+    padding: 60px 5vw 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--paper);
+    position: relative;
+  }
+
+  .cover-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .cover-title-block h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(48px, 6.5vw, 92px);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 32px;
+  }
+
+  .cover-title-block h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .cover-subtitle {
+    font-family: 'Manrope', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 420px;
+    letter-spacing: 0.01em;
+  }
+
+  .cover-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .cover-image {
+    background-color: var(--rule);
+    background-image:
+      linear-gradient(135deg, rgba(0,0,0,0.15), rgba(0,0,0,0.35)),
+      url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1800&q=85');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+
+  .cover-caption {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.75);
+    text-transform: uppercase;
+    z-index: 2;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+
+  /* TYPOGRAPHY */
+  h2.section-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(36px, 4.5vw, 60px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 40px;
+    max-width: 850px;
+  }
+
+  h2.section-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  h3.principle-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(28px, 3vw, 38px);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin-bottom: 20px;
+    max-width: 720px;
+  }
+
+  h3.principle-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  h4.workflow-heading {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--accent);
+    margin-bottom: 12px;
+    letter-spacing: 0;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  p { margin-bottom: 1.1em; font-size: 16px; line-height: 1.7; color: var(--ink-soft); }
+
+  p.lead {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(20px, 1.9vw, 26px);
+    line-height: 1.45;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+    max-width: 800px;
+  }
+
+  p.lead em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  em.prompt-text {
+    font-style: italic;
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  /* DROP CAP */
+  .drop-cap::first-letter {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 5.5em;
+    line-height: 0.85;
+    float: left;
+    margin: 0.05em 0.1em -0.1em 0;
+    color: var(--accent);
+  }
+
+  /* GRIDS */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1400px;
+  }
+
+  .three-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1400px;
+  }
+
+  .wide-container { max-width: 1400px; }
+  .narrow-container { max-width: 780px; }
+
+  /* PRINCIPLES */
+  .principle {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 60px;
+    padding: 60px 0;
+    border-top: 1px solid var(--rule);
+    align-items: start;
+  }
+
+  .principle:first-of-type {
+    border-top: 2px solid var(--ink);
+  }
+
+  .principle-number {
+    font-family: 'Fraunces', serif;
+    font-weight: 200;
+    font-size: 120px;
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    position: relative;
+  }
+
+  .principle-number::after {
+    content: attr(data-roman);
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    margin-top: 12px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .principle-body {
+    max-width: 780px;
+  }
+
+  .principle-body p {
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  /* PROMPT CALLOUT */
+  .prompt-block {
+    background: var(--paper-deep);
+    border-left: 3px solid var(--accent);
+    padding: 28px 32px;
+    margin: 28px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--ink);
+    position: relative;
+  }
+
+  .page[style*="paper-deep"] .prompt-block {
+    background: var(--paper);
+  }
+
+  .prompt-block::before {
+    content: 'PROMPT';
+    position: absolute;
+    top: -10px;
+    left: 24px;
+    background: var(--accent);
+    color: var(--paper);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    padding: 3px 10px;
+  }
+
+  .prompt-block .prompt-label {
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    text-transform: uppercase;
+    display: block;
+    margin: 8px 0 4px;
+  }
+
+  .prompt-block .prompt-label:first-child {
+    margin-top: 0;
+  }
+
+  /* PULL QUOTE */
+  .pull-quote {
+    padding: 60px 0;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin: 80px 0;
+  }
+
+  .pull-quote blockquote {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(28px, 3.2vw, 42px);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    max-width: 950px;
+    margin: 0 auto;
+  }
+
+  .pull-quote blockquote em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  /* IMAGE BLOCKS */
+  .image-block {
+    margin: 40px 0;
+    position: relative;
+  }
+
+  .image-block .caption {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .image-full {
+    margin-left: -7vw;
+    margin-right: -7vw;
+    height: 70vh;
+    min-height: 480px;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--rule);
+    position: relative;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    filter: saturate(0.9) contrast(1.02);
+  }
+
+  .image-square {
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--rule);
+    filter: saturate(0.9) contrast(1.02);
+  }
+
+  .image-portrait {
+    aspect-ratio: 3 / 4;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--rule);
+    filter: saturate(0.9) contrast(1.02);
+  }
+
+  .image-landscape {
+    aspect-ratio: 16 / 10;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--rule);
+    filter: saturate(0.9) contrast(1.02);
+  }
+
+  /* SPECS */
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin: 40px 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .spec {
+    padding: 24px 20px;
+    border-right: 1px solid var(--rule);
+  }
+
+  .spec:last-child { border-right: none; }
+
+  .spec-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .spec-value {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 1.1;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  .spec-note {
+    font-family: 'Manrope', sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  /* CLOSING */
+  .closing {
+    background: var(--paper-deep);
+    color: var(--ink);
+    padding: 120px 7vw;
+    margin-bottom: 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: none;
+    position: relative;
+  }
+
+  .closing .eyebrow {
+    color: var(--accent);
+  }
+
+  .closing .eyebrow::before {
+    background: var(--accent);
+  }
+
+  .closing h2 {
+    color: var(--ink);
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(36px, 4.2vw, 56px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 40px;
+    max-width: 950px;
+  }
+
+  .closing h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .closing p {
+    color: var(--ink-soft);
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  .closing-footer {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .closing .page-label, .closing .page-marker {
+    color: var(--muted);
+  }
+
+  /* PITFALLS */
+  .pitfall-list {
+    list-style: none;
+    padding: 0;
+    margin: 40px 0;
+  }
+
+  .pitfall-list li {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 24px;
+    align-items: baseline;
+  }
+
+  .pitfall-list li .pitfall-num {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 32px;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .pitfall-list li .pitfall-text {
+    color: var(--ink-soft);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .pitfall-list li .pitfall-text strong {
+    color: var(--ink);
+  }
+
+  /* KEY FACTS */
+  .key-facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    margin: 40px 0;
+  }
+
+  .key-fact {
+    background: var(--paper);
+    padding: 28px 24px;
+  }
+
+  .page[style*="paper-deep"] .key-fact {
+    background: var(--paper-deep);
+  }
+
+  .key-fact-num {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 42px;
+    line-height: 1;
+    color: var(--accent);
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+
+  .key-fact-label {
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  /* SECTION NUMBER STRIP */
+  .section-number-strip {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .section-number-strip .big-num {
+    font-family: 'Fraunces', serif;
+    font-weight: 200;
+    font-style: italic;
+    font-size: 100px;
+    line-height: 0.8;
+    color: var(--accent);
+    letter-spacing: -0.04em;
+  }
+
+  .section-number-strip .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--muted);
+    text-transform: uppercase;
+    line-height: 1.6;
+  }
+
+  code.mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    background: rgba(239, 188, 152, 0.08);
+    padding: 2px 6px;
+    border-radius: 2px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .cover { grid-template-columns: 1fr; grid-template-rows: auto 50vh; }
+    .cover-image { order: -1; height: 50vh; }
+    .cover-text { padding: 40px 24px 60px; }
+    .page { padding: 70px 24px 90px; }
+    .page-marker, .page-label { top: 24px; }
+    .page-marker { right: 24px; }
+    .page-label { left: 24px; }
+    .two-col, .three-col { grid-template-columns: 1fr; gap: 40px; }
+    .principle { grid-template-columns: 1fr; gap: 16px; padding: 48px 0; }
+    .principle-number { font-size: 80px; }
+    .specs-grid { grid-template-columns: repeat(2, 1fr); }
+    .spec:nth-child(2n) { border-right: none; }
+    .spec:nth-child(-n+2) { border-bottom: 1px solid var(--rule); }
+    .image-full { margin-left: -24px; margin-right: -24px; height: 50vh; }
+    .closing { padding: 80px 24px; }
+    .key-facts { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<section class="cover">
+  <div class="cover-text">
+    <div class="cover-header">
+      <span>Field Guide № 01</span>
+      <span>April 2026</span>
+    </div>
+
+    <div class="cover-title-block">
+      <div class="eyebrow" style="margin-bottom:40px;">A Studio Primer</div>
+      <h1>Prompting<br><em>GPT Image 2</em></h1>
+      <p class="cover-subtitle">A working field guide for architects and interior designers — ten principles, three applied workflows, and the honest limits of a model that has finally learned to listen.</p>
+    </div>
+
+    <div class="cover-footer">
+      <span>Concept boards · Renders · Materials</span>
+      <span>↓ Begin</span>
+    </div>
+  </div>
+  <div class="cover-image">
+    <span class="cover-caption">OpenAI · Released 21 April 2026</span>
+  </div>
+</section>
+
+<!-- ============ PAGE 02 — FOREWORD ============ -->
+<section class="page">
+  <div class="page-label">Foreword</div>
+  <div class="page-marker">02 / 17</div>
+
+  <div class="narrow-container" style="padding-top: 60px;">
+    <div class="eyebrow">A note before we begin</div>
+    <p class="lead">OpenAI released <em>gpt-image-2</em> on <em>21 April 2026</em>, and for the first time architects and interior designers have a general-purpose image model that treats a prompt the way a drafting brief treats a drawing — with hierarchy, materials, constraints, and intent.</p>
+  </div>
+
+  <div class="two-col" style="margin-top: 80px;">
+    <div>
+      <p class="drop-cap">The model accepts flexible resolutions up to an experimental 2K, edits up to sixteen reference images in a single call, and — most relevant to design work — preserves everything outside the edit region with pixel-stable fidelity. Iterative material and furniture studies no longer redraw the room around you.</p>
+      <p>It ships in both the <code class="mono">/v1/images/generations</code> and <code class="mono">/v1/images/edits</code> endpoints, inside the Responses API, and through Codex. This guide distills OpenAI's official Cookbook, the developers.openai.com guides, and early field use from practicing architects into ten prompting principles and three applied workflows — tuned specifically for design practice.</p>
+    </div>
+    <div>
+      <p>What changed matters. Gpt-image-2 keeps the instruction-following strengths of its predecessors but retires the warm colour cast, lifts the resolution ceiling, improves text rendering to near-production accuracy, and — critically for iterative design work — preserves everything outside the edit region with structural fidelity.</p>
+      <p>Early case studies from Archtene, Rendair, and the fal.ai prompting guide converge on the same finding: the model rewards <strong>specific visual facts over adjectives</strong>, and rewards <strong>constraint language over decorative praise</strong>. OpenAI's own Cookbook is explicit — for photorealism, include the word "photorealistic" to engage the model's photorealistic mode; for edits, repeat what must be preserved on every turn.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 03 — SPECS ============ -->
+<section class="page" style="background: var(--paper-deep);">
+  <div class="page-label">The Essentials</div>
+  <div class="page-marker">03 / 17</div>
+
+  <div style="padding-top: 60px;">
+    <div class="eyebrow">Specifications at a glance</div>
+    <h2 class="section-title">Before a single prompt, <em>know the machine.</em></h2>
+
+    <p class="lead" style="margin-bottom: 50px;">Parameter-level realities you should internalise before writing a brief — because the quickest way to waste credits is to ask the model for something it structurally cannot do.</p>
+
+    <div class="specs-grid">
+      <div class="spec">
+        <div class="spec-label">Max Resolution</div>
+        <div class="spec-value">2560 × 1440</div>
+        <div class="spec-note">Edges in multiples of 16. Ratio ≤ 3:1. Longest edge &lt; 3840 px.</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Quality Tiers</div>
+        <div class="spec-value">low · med · high</div>
+        <div class="spec-note">High for client-facing, medium for sprints, low for ideation volume.</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Reference Images</div>
+        <div class="spec-value">Up to 16</div>
+        <div class="spec-note">Each processed at high fidelity. Address by index in the prompt.</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Cost / Render</div>
+        <div class="spec-value">~ $0.041</div>
+        <div class="spec-note">For a 1536×1024 high-quality landscape. Cheap enough for 20-image studies.</div>
+      </div>
+    </div>
+
+    <div class="key-facts" style="margin-top: 60px;">
+      <div class="key-fact">
+        <div class="key-fact-num">PNG · JPG</div>
+        <div class="key-fact-label"><strong>Default output.</strong> WebP and JPEG are faster and support output_compression. Transparent backgrounds are not supported — use background: "opaque" and remove downstream.</div>
+      </div>
+      <div class="key-fact">
+        <div class="key-fact-num">n = 4</div>
+        <div class="key-fact-label"><strong>Variant generation.</strong> One brief yields four parallel variants. Faster than writing four separate prompts. Best friend of concept-board work.</div>
+      </div>
+      <div class="key-fact">
+        <div class="key-fact-num">~ 2 min</div>
+        <div class="key-fact-label"><strong>Complex prompts.</strong> Can take up to two minutes. Plan iteration cycles accordingly; don't expect instant turnaround on heavy briefs.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 04 — PART ONE INTRO ============ -->
+<section class="page">
+  <div class="page-label">Part One — The Ten Principles</div>
+  <div class="page-marker">04 / 17</div>
+
+  <div class="narrow-container" style="padding-top: 60px;">
+    <div class="eyebrow">Part One</div>
+    <h2 class="section-title">Ten principles that <em>actually move</em> design output.</h2>
+    <p class="lead">The architects and designers getting useful work out of gpt-image-2 in its first week share a common practice: they treat a prompt like a specification document, not a wish. What follows are the ten rules their briefs have in common.</p>
+  </div>
+
+  <div class="image-full" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.08), rgba(0,0,0,0.08)), url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=2000&q=85');"></div>
+</section>
+
+<!-- ============ PAGE 05 — PRINCIPLES 01-03 ============ -->
+<section class="page">
+  <div class="page-label">Principles · 01 — 03</div>
+  <div class="page-marker">05 / 17</div>
+
+  <div class="wide-container" style="padding-top: 40px;">
+
+    <div class="principle">
+      <div class="principle-number" data-roman="I · Structure">01</div>
+      <div class="principle-body">
+        <h3 class="principle-title">Write in a <em>fixed order.</em> Scene → subject → details → constraints → use case.</h3>
+        <p>Both OpenAI's Cookbook and the fal.ai guide converge on this spine. For a render, scene is the site and time of day, subject is the building or room, key details are materials and camera framing, constraints are what must not change, and the use case — "competition board," "client presentation," "magazine editorial" — sets the polish level.</p>
+        <p>Use short labelled segments with line breaks, not a single run-on paragraph. The model treats a structured brief as a brief, and an adjective soup as an adjective soup.</p>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-number" data-roman="II · Specificity">02</div>
+      <div class="principle-body">
+        <h3 class="principle-title">Replace <em>style words</em> with their visual atoms.</h3>
+        <p>"Minimalist," "brutalist," and "Japandi" on their own are weak triggers. The fal.ai guide's "visual facts over vague praise" rule is the single highest-leverage technique for architectural output. Every canonical style compresses to a finite list of materials, palette, and silhouette rules — write those rules.</p>
+        <div class="prompt-block">
+          <span class="prompt-label">Instead of: "brutalist façade"</span>
+          Board-formed exposed concrete with visible wooden formwork striations, aggregate texture, cantilevers, deep recesses, raw concrete grey with rust staining, modular repetition, high-contrast raking shadows.
+          <span class="prompt-label">Instead of: "Japandi interior"</span>
+          Matte white walls, light oak floor, low black steel-frame furniture, handcrafted ceramics on slim shelves, noren curtain at the entrance, paper lantern diffusing soft indirect light, sand and beige palette.
+        </div>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-number" data-roman="III · Realism">03</div>
+      <div class="principle-body">
+        <h3 class="principle-title">Trigger photorealism by name — <em>then anchor it</em> with texture.</h3>
+        <p>The OpenAI Cookbook states directly: including "photorealistic" engages the photorealistic mode. Pair it with texture-forward nouns — "real skin texture, pores, subtle film grain, brushed aluminium with micro-scratches, weathered copper patina, chipped paint, worn travertine" — and explicit anti-CGI language: "no glamorisation, no heavy retouching, no cinematic colour grading, no studio polish, avoid plastic AI look."</p>
+        <p>Archtene's production phrasing — "smooth realistic quality like 3Ds Max and V-Ray rendering, accurate shadows, reflections and architectural realism, materials feel natural and premium, less plastic" — consistently pulls renders away from the default oversaturated gloss.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ PAGE 06 — PRINCIPLES 04-05 ============ -->
+<section class="page" style="background: var(--paper-deep);">
+  <div class="page-label">Principles · 04 — 05</div>
+  <div class="page-marker">06 / 17</div>
+
+  <div class="wide-container" style="padding-top: 40px;">
+
+    <div class="two-col">
+      <div>
+        <div style="border-top: 2px solid var(--ink); padding-top: 32px;">
+          <div class="principle-number" data-roman="IV · Framing" style="font-size: 90px;">04</div>
+          <h3 class="principle-title" style="margin-top: 24px;">Camera language <em>loosely.</em> Composition <em>precisely.</em></h3>
+          <p>The Cookbook warns that detailed camera specs are interpreted loosely: lens lengths influence look, not physics. A prompt like <em class="prompt-text">"medium close-up at eye level, 50mm lens feel, shallow depth of field, 35mm film aesthetic"</em> is more reliable than a sensor-and-aperture recipe.</p>
+          <p>For composition, be literal. "Corner perspective at eye level, slight three-quarter angle, hero object centred with generous negative space, horizon line in the lower third." Archtene notes corner perspectives outperform flat front elevations because they reveal depth and form.</p>
+        </div>
+      </div>
+      <div>
+        <div class="image-block" style="margin-top: 32px;">
+          <div class="image-portrait" style="background-image: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=85');"></div>
+          <div class="caption">
+            <span>Fig. 1</span>
+            <span>Corner perspective, eye level</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="principle" style="margin-top: 40px;">
+      <div class="principle-number" data-roman="V · Edits">05</div>
+      <div class="principle-body">
+        <h3 class="principle-title">Edits are a <em>two-column contract:</em> change <span style="color:var(--muted);">+</span> preserve.</h3>
+        <p>This is the most consequential discipline for design iteration. Every edit prompt should state explicitly what changes and — repeated every turn — what must be preserved.</p>
+        <div class="prompt-block">
+          <span class="prompt-label">OpenAI Cookbook template</span>
+          In this room photo, replace ONLY the white chairs with chairs made of wood. Preserve camera angle, room lighting, floor shadows, and surrounding objects. Keep all other aspects of the image unchanged. Photorealistic contact shadows and fabric texture.
+        </div>
+        <p>Without the preservation clause, the model drifts saturation, reflections, and background over multiple iterations. Without repeating it on every turn, the drift compounds.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ PAGE 07 — PRINCIPLES 06-07 ============ -->
+<section class="page">
+  <div class="page-label">Principles · 06 — 07</div>
+  <div class="page-marker">07 / 17</div>
+
+  <div class="wide-container" style="padding-top: 40px;">
+
+    <div class="principle" style="border-top: 2px solid var(--ink);">
+      <div class="principle-number" data-roman="VI · Cadence">06</div>
+      <div class="principle-body">
+        <h3 class="principle-title">Iterate with <em>one change per turn.</em></h3>
+        <p>Both fal.ai and Archtene arrived at the same workflow rule independently: a single surgical edit — "warm the lighting," "mature the trees," "soften the façade finish" — outperforms a large rewrite every time.</p>
+        <p>This compounds with Principle V: the preserve list stabilises what you already like while one knob moves. Think of it as CAD versioning, not wish-making.</p>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      <blockquote>
+        "A prompt is a <em>specification document,</em><br>not a wish."
+      </blockquote>
+    </div>
+
+    <div class="principle">
+      <div class="principle-number" data-roman="VII · Text">07</div>
+      <div class="principle-body">
+        <h3 class="principle-title">Treat in-image text as <em>typography,</em> not content.</h3>
+        <p>For signage mockups, wayfinding studies, or presentation boards with captions, put the literal string in quotes or ALL CAPS, specify font family (Inter, condensed sans, humanist serif), size, colour, placement, and kerning, and explicitly add "render the text exactly once, no duplicate text, no extra words."</p>
+        <p>Use <code class="mono">quality: "high"</code> for small text. PixVerse's informal fifty-prompt test found roughly nineteen of twenty generations returned fully legible first-pass text on gpt-image-2 when prompted this way.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ PAGE 08 — PRINCIPLES 08-10 ============ -->
+<section class="page" style="background: var(--paper-deep);">
+  <div class="page-label">Principles · 08 — 10</div>
+  <div class="page-marker">08 / 17</div>
+
+  <div class="wide-container" style="padding-top: 40px;">
+
+    <div class="principle" style="border-top: 2px solid var(--ink);">
+      <div class="principle-number" data-roman="VIII · Mode">08</div>
+      <div class="principle-body">
+        <h3 class="principle-title">Name the <em>render mode.</em> Photorealistic, or architectural?</h3>
+        <p>Use the word "photorealistic" for renders and "architectural render" for concept boards. Archtene's tested template — <em class="prompt-text">"[building type], [style], [materials], [camera angle], [lighting], [site context], architectural render, realistic proportions, clean presentation, design-focused composition"</em> — consistently produces the flat, even, competition-board aesthetic designers want for concept work.</p>
+        <p>"Photorealistic candid photograph" produces client-facing heroes with weather and atmosphere. Both modes exist. Name which one you want.</p>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-number" data-roman="IX · References">09</div>
+      <div class="principle-body">
+        <h3 class="principle-title">Reference images are <em>indexed inputs</em> — address them by number.</h3>
+        <p>For multi-reference compositions — a site photo plus a finishes board plus a furniture swatch — label them explicitly in the prompt.</p>
+        <div class="prompt-block">
+          Image 1 is the existing room to preserve. Image 2 is the wood grain reference. Image 3 is the sofa reference. Apply the wood from Image 2 to the flooring in Image 1; replace the sofa in Image 1 with the sofa from Image 3. Match scale, cast shadows, and white balance to Image 1.
+        </div>
+        <p>Gpt-image-2 accepts up to sixteen references per edit call and processes every one at high fidelity.</p>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-number" data-roman="X · Scale">10</div>
+      <div class="principle-body">
+        <h3 class="principle-title">Add <em>scale cues.</em> Do not trust proportion.</h3>
+        <p>The model does not render to construction dimensions and never will. Rendair's long-standing caution — "the model tends to dream over geometry" — still applies. Seed scale explicitly.</p>
+        <div class="prompt-block">
+          One parked car at the curb, two pedestrians walking at adult height, café tables and chairs on the terrace, bicycles against the wall, garden lighting at knee height.
+        </div>
+        <p>Human and object references calibrate the model's sense of storey height, door widths, and furniture depth more effectively than any numeric prompt.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ PAGE 09 — PART TWO INTRO ============ -->
+<section class="page">
+  <div class="page-label">Part Two — Applied Workflows</div>
+  <div class="page-marker">09 / 17</div>
+
+  <div class="narrow-container" style="padding-top: 80px;">
+    <div class="eyebrow">Three workflows</div>
+    <h2 class="section-title">From principles to <em>practice.</em></h2>
+    <p class="lead">The ten principles are a grammar. A grammar without sentences is inert. What follows are the three design workflows where gpt-image-2 most clearly earns its place inside a studio's existing process — concept boards, photoreal renders, and material studies.</p>
+  </div>
+</section>
+
+<!-- ============ PAGE 10 — CONCEPT BOARDS ============ -->
+<section class="page">
+  <div class="page-label">Workflow 01 · Concept Boards</div>
+  <div class="page-marker">10 / 17</div>
+
+  <div style="padding-top: 40px;">
+    <div class="section-number-strip">
+      <div class="big-num">01</div>
+      <div class="section-label">Concept boards<br>& ideation</div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <h4 class="workflow-heading">The digital sketchpad</h4>
+        <h3 class="principle-title" style="margin-bottom: 24px;">Generate four variants, <em>compare, commit.</em></h3>
+        <p>For early-stage ideation, gpt-image-2 functions as what Rendair calls a "digital sketchpad." The Cookbook's <code class="mono">n=4</code> parameter is the key — generating four variants from one brief and comparing them is faster than writing four separate prompts.</p>
+        <div class="prompt-block">
+          <span class="prompt-label">Competition-stage library, concept brief</span>
+          Scene: small coastal town site, autumn afternoon, overcast natural light.<br><br>
+          Subject: public library with timber louvered façade and a cantilevered reading room.<br><br>
+          Details: spotted gum battens with visible grain, blackened steel window frames, board-formed concrete plinth, clerestory glazing admitting raking light, mature fig trees framing entry.<br><br>
+          Use case: concept presentation board, architectural render, realistic proportions, clean presentation.<br><br>
+          Constraints: no text, no watermarks, no people, eye-level corner perspective.
+        </div>
+      </div>
+      <div>
+        <div class="image-block">
+          <div class="image-portrait" style="background-image: url('https://images.unsplash.com/photo-1542621334-a254cf47733d?w=1200&q=85');"></div>
+          <div class="caption">
+            <span>Fig. 2</span>
+            <span>Ideation, early stage</span>
+          </div>
+        </div>
+        <p style="margin-top: 32px;">For mood boards, shift the centre of gravity from geometry to <strong>atmosphere, palette, and texture.</strong> Ask for "a 2×2 grid of material vignettes: matte terracotta glaze against raw linen, polished black marble beside brushed brass, aged oak with natural oil finish, and rough-sawn spotted gum. Soft north-window light, flat-lay composition, magazine-quality editorial feel, no labels, no text."</p>
+        <p>Gpt-image-2's grid and image-set capabilities make this a single-call operation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 11 — PHOTOREAL RENDERS ============ -->
+<section class="page" style="background: var(--paper-deep);">
+  <div class="page-label">Workflow 02 · Photoreal Renders</div>
+  <div class="page-marker">11 / 17</div>
+
+  <div style="padding-top: 40px;">
+    <div class="section-number-strip">
+      <div class="big-num">02</div>
+      <div class="section-label">Photoreal renders<br>& visualisation</div>
+    </div>
+
+    <h3 class="principle-title" style="margin-bottom: 32px; max-width: 900px;">Turning Revit screenshots into <em>client-ready images.</em></h3>
+
+    <div class="image-full" style="height: 55vh; background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=2000&q=85'); margin-top: 40px; margin-bottom: 60px;"></div>
+
+    <div class="two-col">
+      <div>
+        <h4 class="workflow-heading">Sketch to render</h4>
+        <p>Archtene's published sketch-to-render recipe is the strongest documented workflow for turning Revit, SketchUp, Rhino, or Archicad screenshots into client-ready renders.</p>
+        <div class="prompt-block">
+          <span class="prompt-label">Upload source view, then</span>
+          Do a realistic render of this photo. Keep the same shapes and forms of buildings, fences, windows and doors. Add lush foliage to planter boxes and landscaping. Use a slightly blurred suburban streetscape background. Make materials feel natural and premium, less plastic. Smooth realistic quality like 3Ds Max and V-Ray rendering. Use accurate shadows, reflections and architectural realism.
+        </div>
+        <p>Then iterate one pass at a time — materials, then trees, then lighting, then glazing reflections, then detail sharpening.</p>
+      </div>
+      <div>
+        <h4 class="workflow-heading">Tested skeletons</h4>
+        <p>For exterior heroes, these fragments produce reliable output at 1536×1024 high-quality:</p>
+        <div class="prompt-block" style="font-size: 12.5px;">
+          Modern luxury home, travertine façade, warm lighting, premium landscaping, sunset mood.<br><br>
+          Contemporary coastal home, limestone textures, windswept grasses, soft ocean light.<br><br>
+          Mid-rise apartment façade, active ground floor, realistic pedestrians, urban streetscape.
+        </div>
+        <p>For interiors, expand <em class="prompt-text">"luxury minimalist kitchen, marble island, oak joinery, soft daylight, magazine-quality realism"</em> with specific stone (Calacatta Oro vs. Carrara vs. Taj Mahal quartzite), specific timber (rift-sawn white oak, spotted gum, American walnut), and specific light conditions.</p>
+      </div>
+    </div>
+
+    <div class="pull-quote" style="margin-top: 80px;">
+      <blockquote>
+        Gpt-image-2 is not replacing V-Ray.<br>It is replacing <em>the sketch phase.</em>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 12 — FLOORPLAN TO PERSPECTIVE ============ -->
+<section class="page">
+  <div class="page-label">Workflow 02 · Continued</div>
+  <div class="page-marker">12 / 17</div>
+
+  <div style="padding-top: 40px;">
+    <div class="two-col">
+      <div>
+        <h4 class="workflow-heading">Floorplan to perspective</h4>
+        <h3 class="principle-title" style="margin-bottom: 24px;">Draw an arrow. <em>Get a room.</em></h3>
+        <p>Floorplan-to-perspective remains one of the most valuable workflows for client presentation. The Architizer method — draw an arrow on the floorplan indicating camera position and direction, upload the annotated plan, and prompt the model — works reliably on gpt-image-2 because of the model's improved spatial reasoning.</p>
+        <div class="prompt-block">
+          <span class="prompt-label">After uploading annotated plan</span>
+          Create an image of a 3D space from the angle shown on the floorplan as if you are a human standing there.
+        </div>
+        <p>Boyuan Chen, the gpt-image-2 research lead, described the model's ability to handle "3D-style perspective shifts and complex spatial reasoning through simple text prompts" as a headline capability at launch.</p>
+      </div>
+      <div>
+        <div class="image-block">
+          <div class="image-landscape" style="background-image: url('https://images.unsplash.com/photo-1600566753086-00f18fe6ba68?w=1400&q=85');"></div>
+          <div class="caption">
+            <span>Fig. 3</span>
+            <span>Timber façade — exterior hero</span>
+          </div>
+        </div>
+        <div class="image-block" style="margin-top: 32px;">
+          <div class="image-landscape" style="background-image: url('https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=1400&q=85');"></div>
+          <div class="caption">
+            <span>Fig. 4</span>
+            <span>Material flat-lay, mood reference</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 13 — MATERIAL STUDIES ============ -->
+<section class="page" style="background: var(--paper-deep);">
+  <div class="page-label">Workflow 03 · Material Studies</div>
+  <div class="page-marker">13 / 17</div>
+
+  <div style="padding-top: 40px;">
+    <div class="section-number-strip">
+      <div class="big-num">03</div>
+      <div class="section-label">Material, finish<br>& detail studies</div>
+    </div>
+
+    <h3 class="principle-title" style="margin-bottom: 48px; max-width: 900px;">Where the edit endpoint <em>earns its cost.</em></h3>
+
+    <div class="two-col">
+      <div>
+        <p>Material studies are where gpt-image-2's edit endpoint earns its cost. The canonical pattern — tested across fal.ai, Archtene, and the OpenAI Cookbook — is a three-sentence structure: <strong>change, preserve, physical realism.</strong></p>
+        <div class="prompt-block">
+          <span class="prompt-label">Kitchen finish study</span>
+          Replace only the white cabinetry with natural oak with a matte finish and visible straight grain.<br><br>
+          Preserve the camera angle, table shape, window light, floor shadows, reflections on the countertop, refrigerator geometry, and all surrounding objects.<br><br>
+          Match lighting and contact shadows to the original photo; render believable oak grain with soft directional highlights.
+        </div>
+      </div>
+      <div>
+        <div class="image-block">
+          <div class="image-square" style="background-image: url('https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=1200&q=85');"></div>
+          <div class="caption">
+            <span>Fig. 5</span>
+            <span>Board-formed concrete — detail</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 80px;">
+      <h4 class="workflow-heading">Comparative studies</h4>
+      <p style="max-width: 780px;">Reuse the same source image across parallel prompts and change one material at a time. Each comparison should share its preserve clause <strong>verbatim</strong> so the room reads as one room with four finish schemes — rather than four different rooms.</p>
+
+      <div class="three-col" style="margin-top: 40px;">
+        <div>
+          <div class="key-fact-num" style="font-size: 32px;">Façade</div>
+          <div class="key-fact-label">Dark brick · off-form concrete · charcoal-stained timber battens · terracotta rainscreen — on the same building, same camera, same light.</div>
+        </div>
+        <div>
+          <div class="key-fact-num" style="font-size: 32px;">Kitchen</div>
+          <div class="key-fact-label">Sage green cabinets with terracotta tile · navy cabinets with Calacatta marble · warm oak cabinets with travertine.</div>
+        </div>
+        <div>
+          <div class="key-fact-num" style="font-size: 32px;">Light</div>
+          <div class="key-fact-label">Morning raking light · overcast midday · golden hour · blue hour with warm interior spill · rainy evening with neon reflection.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 14 — REFERENCE BOARDS ============ -->
+<section class="page">
+  <div class="page-label">Reference Boards</div>
+  <div class="page-marker">14 / 17</div>
+
+  <div style="padding-top: 40px;">
+    <div class="two-col">
+      <div>
+        <h4 class="workflow-heading">Edit modes</h4>
+        <h3 class="principle-title">Three modes for <em>most design work.</em></h3>
+        <p>Single-image edits use <code class="mono">/v1/images/edits</code> with the change-preserve-physics pattern. Multi-image composition passes an array of reference images and addresses each by index. Masked edits pass a mask image; the Cookbook notes masking on gpt-image-2 is "prompt-based" — the model treats the mask as guidance rather than strict boundary.</p>
+        <p><strong>Always reinforce the mask with words:</strong> <em class="prompt-text">"edit only the region under the mask; leave every other pixel unchanged."</em></p>
+      </div>
+      <div>
+        <h4 class="workflow-heading">Material transfer</h4>
+        <p>The highest-reliability workflow for material transfer: upload the existing room as Image 1, upload a tight product photo of the new finish as Image 2.</p>
+        <div class="prompt-block">
+          <span class="prompt-label">Material transfer prompt</span>
+          Apply the material shown in Image 2 to the floor surface in Image 1. Preserve the floor plan geometry, furniture positions, wall paint, window openings, and lighting direction. Match scale of the grain pattern to realistic plank dimensions. Render natural contact shadows and believable reflections consistent with the original lighting.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PAGE 15 — LIMITS ============ -->
+<section class="page" style="background: var(--paper-deep);">
+  <div class="page-label">The Honest Limits</div>
+  <div class="page-marker">15 / 17</div>
+
+  <div style="padding-top: 40px;">
+    <div class="eyebrow">What not to expect</div>
+    <h2 class="section-title">A CAD tool <em>it is not</em> — and never will be.</h2>
+    <p class="lead" style="max-width: 800px;">The short list of things gpt-image-2 genuinely cannot do, so you stop asking it to — and the two behavioural pitfalls that show up on nearly every design team's first week.</p>
+
+    <ul class="pitfall-list" style="margin-top: 60px;">
+      <li>
+        <div class="pitfall-num">i.</div>
+        <div class="pitfall-text"><strong>It dreams over geometry.</strong> Rendair's warning remains accurate for any prompt that asks for dimensional precision, exact floor plans, or repeating fenestration grids with consistent mullion spacing. If it has to be measured, it has to be modelled.</div>
+      </li>
+      <li>
+        <div class="pitfall-num">ii.</div>
+        <div class="pitfall-text"><strong>Logo reproduction is unreliable.</strong> Composite brand marks in Photoshop afterward rather than asking the model to render them. The same applies to any specific text longer than a short signage string.</div>
+      </li>
+      <li>
+        <div class="pitfall-num">iii.</div>
+        <div class="pitfall-text"><strong>Complex prompts can take two minutes.</strong> Plan your iteration cycles accordingly. Don't stack four agencies of change into a single brief and expect speed.</div>
+      </li>
+      <li>
+        <div class="pitfall-num">iv.</div>
+        <div class="pitfall-text"><strong>Overloaded prompts hurt output.</strong> Stacking "stunning, ultra-detailed, cinematic, masterpiece, 8K, award-winning" produces worse output than terse visual facts. Adjective inflation is not intensity — it is noise.</div>
+      </li>
+      <li>
+        <div class="pitfall-num">v.</div>
+        <div class="pitfall-text"><strong>Vague preservation compounds.</strong> A prompt that says "keep the room the same" while adding furniture will quietly shift the wall colour, floor reflection, and window framing. Name what must stay, and name it again on every iteration.</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ PAGE 16 — QUALITY DISCIPLINE ============ -->
+<section class="page">
+  <div class="page-label">Parameter Discipline</div>
+  <div class="page-marker">16 / 17</div>
+
+  <div style="padding-top: 40px;">
+    <h2 class="section-title">A brief word on <em>quality settings.</em></h2>
+
+    <div class="two-col" style="margin-top: 40px;">
+      <div>
+        <h4 class="workflow-heading">When to spend</h4>
+        <p>Use <code class="mono">quality: "high"</code> whenever text appears in the image, when small-scale details (door hardware, stair nosings, tile grout) carry the design, or when the render is client-facing.</p>
+        <p>Drop to <code class="mono">medium</code> for fast comparison sprints. Use <code class="mono">low</code> for ideation at volume.</p>
+      </div>
+      <div>
+        <h4 class="workflow-heading">Aspect & ratio</h4>
+        <p>Stay at or below 2560×1440 for reliable output; treat anything above as experimental. Use landscape for exteriors and interior wide shots, portrait for towers and tall interior details, and square only for social and mood-board tiles.</p>
+        <p>All edges must be multiples of 16. Ratio capped at 3:1.</p>
+      </div>
+    </div>
+
+    <div class="specs-grid" style="margin-top: 80px;">
+      <div class="spec">
+        <div class="spec-label">Client Hero</div>
+        <div class="spec-value">high · 1536×1024</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Comparison Sprint</div>
+        <div class="spec-value">medium · 1024×1024</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Ideation Volume</div>
+        <div class="spec-value">low · 1024×1024</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Mood Board</div>
+        <div class="spec-value">high · square</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<section class="page closing">
+  <div class="page-label">Closing the Loop</div>
+  <div class="page-marker">17 / 17</div>
+
+  <div style="padding-top: 80px;">
+    <div class="eyebrow">In conclusion</div>
+    <h2>The architects and designers getting useful work out of gpt-image-2 share a common practice: they treat a prompt <em>like a specification document, not a wish.</em></h2>
+
+    <div class="two-col" style="margin-top: 60px;">
+      <div>
+        <p>They write in a fixed order. They translate style names into material and palette rules. They name what preserves across iterations. They trigger photorealism by name and anchor it with honest texture language. They iterate one knob at a time.</p>
+      </div>
+      <div>
+        <p>Gpt-image-2 is not replacing V-Ray, Enscape, or the detail-level work of a visualiser. It is replacing the sketch phase, the comparison board, the first-pass material study, and the Monday-morning client conversation that used to take two days of modelling. Used that way — with the ten principles above as a checklist — it is the first general-purpose image model that genuinely fits inside a design studio's existing workflow rather than demanding a new one.</p>
+      </div>
+    </div>
+
+    <div class="closing-footer">
+      <span>Field Guide № 01 · April 2026</span>
+      <span>End</span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

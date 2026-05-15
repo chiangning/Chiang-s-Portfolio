@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap');
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-charter: "Charter", "Bitstream Charter", "Sitka Text", Cambria, serif;
+
+  --color-surface: #131313;
+  --color-surface-low: #1b1c1c;
+  --color-surface-high: #2a2a2a;
+  
+  --color-primary: #efbc98;
+  --color-inverse-primary: #7c5639;
+  
+  --color-on-surface: #ffffff;
+  --color-on-surface-variant: #a3a3a3;
+
+  --color-neo-bg: #E8E8E8;
+  --color-neo-text: #696969;
+  --color-secondary: #D6D9DD;
+
+  --spacing-10: 3.5rem;
+  --spacing-20: 7rem;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: var(--font-sans);
+  line-height: 1.0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-charter);
+  }
+}
+
+/* Typography Overrides for Design System */
+.prose p, 
+.prose li,
+.prose blockquote {
+  line-height: 1.0 !important;
+}
+
+.prose h1, 
+.prose h2, 
+.prose h3, 
+.prose h4 {
+  font-family: var(--font-charter) !important;
+}
+
+.prose h2 {
+  font-size: 2.25rem !important; /* 36px */
+  line-height: 1.2 !important;
+  margin-top: 2.5em !important;
+  margin-bottom: 1em !important;
+}
+
+.prose h3 {
+  font-size: 1.875rem !important; /* 30px */
+  line-height: 1.2 !important;
+  margin-top: 2em !important;
+  margin-bottom: 0.8em !important;
+}
+
+.prose h4 {
+  font-size: 1.5rem !important; /* 24px */
+  line-height: 1.2 !important;
+}
+
+/* Hide scrollbar for cleaner look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-high);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-on-surface-variant);
+}
+
+.neo-bg {
+  background-color: #E8E8E8;
+}
+
+.neo-raised {
+  background: #E8E8E8;
+  box-shadow:  20px 20px 60px #D3D3D3,
+               -20px -20px 60px #FFFFFF;
+  border: none;
+}
+
+.neo-raised-sm {
+  background: #E8E8E8;
+  box-shadow:  5px 5px 10px #D3D3D3,
+               -5px -5px 10px #FFFFFF;
+  border: none;
+}
+
+.neo-inset {
+  background: #E8E8E8;
+  box-shadow: inset 5px 5px 10px #D3D3D3,
+              inset -5px -5px 10px #FFFFFF;
+  border: none;
+}
+
+.neo-button {
+  background: #E8E8E8;
+  box-shadow:  5px 5px 10px #D3D3D3,
+               -5px -5px 10px #FFFFFF;
+  transition: all 0.2s ease;
+  border: none;
+  color: #696969;
+}
+
+.neo-button:hover {
+  box-shadow:  7px 7px 14px #D3D3D3,
+               -7px -7px 14px #FFFFFF;
+}
+
+.neo-button:active, .neo-button.active {
+  box-shadow: inset 5px 5px 10px #D3D3D3,
+              inset -5px -5px 10px #FFFFFF;
+}
+
+.neo-input {
+  background: #E8E8E8;
+  box-shadow: inset 5px 5px 10px #D3D3D3,
+              inset -5px -5px 10px #FFFFFF;
+  border: none;
+  outline: none;
+  transition: all 0.2s ease;
+  color: #696969;
+}
+
+.neo-input:focus {
+  box-shadow: inset 7px 7px 14px #D3D3D3,
+              inset -7px -7px 14px #FFFFFF;
+}
+
+.neo-text {
+  color: #696969;
+}

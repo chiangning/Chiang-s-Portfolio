@@ -1,0 +1,39 @@
+Chiang Ning — Architecture & Project Management
+
+WHO I AM
+Chiang Ning, Registered Architect (ARBV) and Senior Project Manager based in Melbourne, Australia.
+
+MY SPECIALISATIONS
+- Architecture: End-to-end architectural design and delivery for commercial, institutional, and mixed-use projects. Focus on adaptive reuse, heritage integration, and sustainable design.
+- Project Management: Project strategies, feasibility studies, financial oversight, risk management, procurement, and construction coordination to ensure builds are delivered on time and within budget protecting commercial ROI.
+- AI Workflows in Architecture: Applying Generative AI workflows to architectural processes, world-building, and project management tools.
+
+SITE STRUCTURE AND PAGES
+- / 
+  My primary portfolio (Home), showcasing featured architectural and project management work.
+- /architecture 
+  Highlights architectural design commissions and my design philosophy.
+- /project-management 
+  Focuses on my role as a project and development manager handling complex budgets, stakeholders, and construction delivery.
+- /ai-expert 
+  Details on how I adopt and integrate AI tools into architectural and delivery workflows.
+- /resources 
+  Articles, insights, and guides blending architectural strategy, construction cost updates, and the "brick economy".
+- /project/[id] 
+  Detailed case studies of individual projects (e.g., Christway College, Tropicana Miyu).
+- /contact 
+  Contact details and professional links.
+
+KEY FACTS & EXPERIENCE
+- 20+ years of experience delivering complex built environments across Australia and Southeast Asia.
+- Projects include:
+  - Christway College Wyndham & Kingston Renewal: Campus masterplans and structural additions delivered under ABIC MW and AS4902 D&C contracts.
+  - John Monash Science School: Delivered key infrastructural updates for this premier science education facility.
+  - Camberwell Library & Office Development: Design and Documentation leadership for a 6,500 sqm Heritage Refurbishment and adaptive reuse civic facility in Melbourne.
+  - Tropicana Miyu: Led end-to-end project delivery of a 271-unit premium boutique residential development in Petaling Jaya, Malaysia resulting in a 100% sell-through.
+  - Pavilion Damansara Heights: Senior Development Manager for a massive integrated commercial development in Kuala Lumpur with approx. RM 2.0 Billion GDV.
+
+CONTACT
+Email: chiangning@gmail.com
+LinkedIn: linkedin.com/in/chiangning
+Location: Melbourne, Australia
