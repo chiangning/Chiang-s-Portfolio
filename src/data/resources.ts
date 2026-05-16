@@ -22,7 +22,7 @@ export const resources: Resource[] = [
     date: "16/5/2026",
     tags: ["AI", "Architecture"],
     summary: "What happens when you put the architect back on site — using AI to make a 65-year-old building argue for itself again, in 30 seconds, in the language of 2026.",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Solomon_R._Guggenheim_Museum.jpg/1280px-Solomon_R._Guggenheim_Museum.jpg",
+    image: "https://res.cloudinary.com/dphq33wah/image/upload/v1775528113/Gemini_Generated_Image_be5zllbe5zllbe5z_kfhy44.jpg",
     content: `### *There is a building in New York that is a complete argument.*
 
 When I started thinking about how AI could be used to communicate architectural ideas — not just render them — I kept coming back to a simple question: what if you could put the architect back on site?

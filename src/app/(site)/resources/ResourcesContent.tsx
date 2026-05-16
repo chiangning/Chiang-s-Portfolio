@@ -84,7 +84,7 @@ export function ResourcesContent() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group flex flex-col"
             >
-              <Link href={`/resources/${resource.id}`} className="block relative overflow-hidden aspect-video bg-surface-variant z-10">
+              <Link href={`/resources/${resource.id}`} className="block relative overflow-hidden aspect-[4/3] bg-surface-variant z-10">
                 <img 
                   src={resource.image} 
                   alt={resource.title} 
@@ -105,7 +105,7 @@ export function ResourcesContent() {
                       {resource.date}
                     </span>
                   </div>
-                  <h2 className="text-base font-sans font-medium text-white group-hover:text-primary transition-colors pointer-events-auto">
+                  <h2 className="text-base font-sans font-medium text-white group-hover:text-primary transition-colors pointer-events-auto leading-[1.1]">
                     {resource.title}
                   </h2>
                 </div>
