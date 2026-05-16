@@ -17,6 +17,97 @@ export interface Resource {
 
 export const resources: Resource[] = [
   {
+    id: "flw-guggenheim-ai-film",
+    title: "30 Seconds, One Spiral: An AI Film About the Guggenheim",
+    date: "16/5/2026",
+    tags: ["AI", "Architecture"],
+    summary: "What happens when you put the architect back on site — using AI to make a 65-year-old building argue for itself again, in 30 seconds, in the language of 2026.",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Solomon_R._Guggenheim_Museum.jpg/1280px-Solomon_R._Guggenheim_Museum.jpg",
+    content: `### *There is a building in New York that is a complete argument.*
+
+When I started thinking about how AI could be used to communicate architectural ideas — not just render them — I kept coming back to a simple question: what if you could put the architect back on site?
+
+The Guggenheim project was an experiment. A 30-second cinematic film, generated entirely with AI, about Frank Lloyd Wright and the building he designed but never lived to see opened. Five shots. One spiral. A brief that forced me to develop a discipline I now apply to every AI workflow I run.
+
+---
+
+### The Anchor System
+
+Before any image was generated, I built a Narrative Anchor — a locked set of creative decisions that every subsequent generation is held accountable to.
+
+For Wright, this meant:
+
+- **Character:** 91 years old, warm and mischievously certain. A grandfatherly prairie philosopher.
+- **Wardrobe locked by HEX code:** Tweed #3D3328, cream shirt #F4EFE6, oxblood tie #7A2E1F, porkpie hat #1A1815, walking cane #8B6F47. Every shot. Every model. Non-negotiable.
+- **Singular Thesis:** A museum should not be a box of corridors. It should be one continuous space — a spiral temple where art and visitor ascend together.
+- **Anchor Phrase:** *"Form and function are one."*
+
+This is not about writing long prompts. It is about writing the right constraints before the generative process begins.
+
+---
+
+### Five Shots in 30 Seconds
+
+The film was structured as a five-act arc, each shot with a word-count cap on the dialogue to hit exactly 2.5 words per second:
+
+**Shot 01 — The Hook (5s)**
+Wide exterior, Fifth Avenue. Wright in foreground, the white rotunda rising behind him.
+
+> *"Form and function are one. So I drew them a spiral."*
+
+**Shot 02 — The Vision (6s)**
+Top-down on a drafting desk. Blueprints. The 3D model materialising out of the drawing itself.
+
+> *"They said you cannot hang a painting on a curve. I said: then build the curve."*
+
+**Shot 03 — The Context (6s)**
+Interior. Ground floor. Wright looking straight up the spiraling ramp toward the glass oculus.
+
+> *"No corridors. No corners. One ramp — a quarter mile of art unfurled by gravity."*
+
+**Shot 04 — The Impact (6s)**
+Visitors ascending, pausing at paintings tilted on the curved white walls. Wright watching at the rail.
+
+> *"You don't visit this museum. You climb it. The building does the walking with you."*
+
+**Shot 05 — The Outro (7s)**
+Drone pull-back revealing the white spiral against Manhattan's rigid grid of right angles. Fade to black.
+
+> *"They built a city of right angles. I left them one perfect spiral to argue with."*
+
+---
+
+### The Tools
+
+Two models drove the generation sequence.
+
+**Nano Banana 2** produced the locked start and end frames — the photographic anchors each shot had to resolve between. Each prompt included the full building name stated explicitly. Not "the museum." Not "the building." *Solomon R. Guggenheim Museum* — full name, every time.
+
+**Kling 3** handled the motion — slow dolly push-ins, vertical crane ascents along the central void, lateral tracking shots, and the final drone pull-back. The motion brief was written with the same specificity as the image prompts: not "move the camera" but *"slow dolly push-in past Wright as he gestures with the cane toward the spiraling facade."*
+
+---
+
+### The Anti-Drift Rule
+
+The biggest failure mode in multi-shot AI generation is drift. By shot four, the building starts to change. The character's costume mutates. The lighting becomes inconsistent. You are making a different film.
+
+The discipline that solved it was simple: state the anchor in every single prompt. Full name. Full wardrobe. Full lighting specification. Interior: 3000K key + blue fill, interior lights on. Exterior: pale golden hour. Locked across all five shots. No exceptions.
+
+Drift is not a model failure. It is a prompting failure.
+
+---
+
+### What This Means for Architecture
+
+The Guggenheim project was an experiment in architectural communication. Not about making a film. About using AI to put the designer's intent back into the documentation — to make a 65-year-old building argue for itself again, in the language of 2026.
+
+For practising architects, the workflow translates directly. The same anchor system applies to project pitches, planning submissions, and client presentations. Lock the design language first. Define the camera logic. Lock the material palette and the lighting. Then generate.
+
+The creative decisions should happen before the generation begins — not in response to whatever the model produces.
+
+*The building does the walking with you. You just have to tell it where to go.*`
+  },
+  {
     id: "arbv-reforms-2026",
     title: "The 2026 ARBV Reforms",
     date: "10/5/2026",

@@ -225,7 +225,7 @@ export function ResourceDetailContent({ resource }: { resource: Resource }) {
                         p: ({ node, children, ...props }) => {
                           const hasOnlyImage = node?.children?.every((c: any) => c.type === 'element' && c.tagName === 'img');
                           if (hasOnlyImage) return <p {...props}>{children}</p>;
-                          return <p className="font-sans font-normal text-[15px] leading-[1.45] mb-[1.5em] text-on-surface-variant" {...props}>{children}</p>;
+                          return <p className="font-sans font-normal text-[15px] leading-[1.45] mb-[0.9em] text-on-surface-variant" {...props}>{children}</p>;
                         },
                         hr: () => {
                           return <hr className="w-[40px] mx-auto border-t border-white/20 my-16 clear-both" />;
