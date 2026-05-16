@@ -20,7 +20,7 @@ export default function Home() {
         <Link href="/architecture" className="block w-full h-full relative z-10">
           <VideoPlayer
             src="https://res.cloudinary.com/dphq33wah/video/upload/v1775630027/Portrait4_jyncpd.mp4"
-            className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02] absolute inset-0 z-0"
+            className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02] absolute inset-0 z-0"
           />
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
