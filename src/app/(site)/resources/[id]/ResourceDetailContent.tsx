@@ -55,7 +55,7 @@ export function ResourceDetailContent({ resource }: { resource: Resource }) {
       };
       return parseDate(b.date) - parseDate(a.date);
     })
-    .slice(0, 4);
+    .slice(0, 3);
 
   return (
     <div className="flex-1 ml-0 md:ml-[33.333333%] lg:ml-80 min-h-screen bg-surface flex flex-col relative">

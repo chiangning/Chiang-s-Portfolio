@@ -10,7 +10,7 @@ import { VideoPlayer } from "@/components/VideoPlayer";
 export default function Home() {
   return (
     <div className="flex-1 ml-0 md:ml-[33.333333%] lg:ml-80 min-h-screen bg-surface grid grid-cols-1 md:grid-cols-2 gap-1 p-1">
-      {/* New AI Augmentation Tile */}
+      {/* AI Tile */}
       <motion.div
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -20,11 +20,10 @@ export default function Home() {
         <Link href="/architecture" className="block w-full h-full relative z-10">
           <VideoPlayer
             src="https://res.cloudinary.com/dphq33wah/video/upload/v1775528429/portrait1_ylnsze.mp4"
-            className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02] absolute inset-0 z-0"
+            className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02] absolute inset-0 z-0"
           />
           {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
-          
           {/* Text Overlay */}
           <div className="absolute inset-0 p-8 flex items-end z-20 pointer-events-none">
             <h2 className="text-white font-sans font-normal text-base md:text-lg leading-snug max-w-[95%]">

@@ -22,10 +22,13 @@ export function Sidebar() {
       className="md:fixed relative top-0 left-0 md:h-screen h-auto flex flex-col overflow-y-auto shrink-0 z-40 transition-all duration-500 w-full md:w-1/3 lg:w-80 bg-[#2a2a2a] p-8 md:p-12"
     >
       {/* Logo */}
-      <div>
+      <div className="flex flex-col gap-2">
         <Link href="/" className="text-[28px] font-sans font-medium tracking-tight text-white block leading-none">
           Chiang Ning
         </Link>
+        <span className="text-[10px] font-sans uppercase tracking-[0.15em] text-[#9ca3af] whitespace-nowrap">
+          Architect · PM · AI
+        </span>
       </div>
 
       {/* Bottom Section */}
@@ -41,8 +44,10 @@ export function Sidebar() {
                   key={link.name}
                   href={link.path}
                   className={cn(
-                    "text-[17px] leading-none transition-colors hover:text-white block w-full py-2",
-                    isActive ? "text-white font-medium" : "text-[#9ca3af]"
+                    "text-[17px] leading-none transition-all hover:text-white block w-full py-2 pl-3 border-l-2",
+                    isActive
+                      ? "text-white font-medium border-[#efbc98]"
+                      : "text-[#9ca3af] border-transparent hover:border-white/20"
                   )}
                 >
                   {link.name}

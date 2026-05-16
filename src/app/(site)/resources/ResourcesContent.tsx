@@ -75,7 +75,7 @@ export function ResourcesContent() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-1">
           {filteredAndSortedResources.map((resource, index) => (
             <motion.div
               key={resource.id}
@@ -84,7 +84,7 @@ export function ResourcesContent() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group flex flex-col"
             >
-              <Link href={`/resources/${resource.id}`} className="block relative overflow-hidden aspect-square bg-surface-variant z-10">
+              <Link href={`/resources/${resource.id}`} className="block relative overflow-hidden aspect-video bg-surface-variant z-10">
                 <img 
                   src={resource.image} 
                   alt={resource.title} 
@@ -92,7 +92,7 @@ export function ResourcesContent() {
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
-                <div className="absolute inset-0 p-6 flex flex-col justify-end z-20 pointer-events-none">
+                <div className="absolute inset-0 p-5 flex flex-col justify-end z-20 pointer-events-none">
                   <div className="flex items-center justify-between mb-3 overflow-hidden pointer-events-auto">
                     <div className="flex flex-nowrap overflow-hidden gap-2 pr-4 [mask-image:linear-gradient(to_right,black_80%,transparent_100%)]">
                       {resource.tags?.map(tag => (

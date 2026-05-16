@@ -24,7 +24,7 @@ export function AIExpertContent() {
               <VideoPlayer src="https://res.cloudinary.com/dphq33wah/video/upload/v1775630024/Portrait3_yzbgod.mp4" className="w-full h-auto block" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
               <div className="absolute inset-0 p-8 md:p-12 flex items-end">
-                <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white">
+                <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-none">
                   <span className="italic text-[#9ca3af] font-normal pr-2" style={{ fontFamily: 'Charter, "Bitstream Charter", "Sitka Text", Cambria, serif' }}>Unlock</span>
                   AI Expertise
                 </h1>
@@ -32,7 +32,7 @@ export function AIExpertContent() {
             </div>
 
             <div className="prose prose-invert prose-sm max-w-none text-on-surface-variant">
-              <p className="text-xl leading-snug mb-4 text-white font-sans font-normal">
+              <p className="text-xl leading-snug mb-4 text-white font-charter italic">
                 "I help architects & PMs unlock productivity through AI augmentation without replacing human accountability and creativity"
               </p>
               
@@ -44,7 +44,7 @@ export function AIExpertContent() {
                 By utilizing AI for fast iterations, I enable teams to explore a wider range of spatial configurations, material palettes, and environmental responses in a fraction of the time. This allows for more informed decision-making and ultimately leads to more innovative and optimized architectural solutions before moving into traditional documentation phases.
               </p>
               
-              <h2 className="text-4xl font-display font-bold text-white tracking-tight mt-8 mb-3">AI Capabilities</h2>
+              <h2 className="text-4xl font-display font-bold text-white tracking-tight mt-4 mb-2">AI Capabilities</h2>
               <ul className="list-disc pl-6 space-y-4 mb-8">
                 <li><strong>Rapid Concept Iteration:</strong> Utilizing AI image generators and spatial algorithms to quickly visualize and test multiple architectural massing and facade options.</li>
                 <li><strong>Design Optimization:</strong> Applying AI-driven analysis to evaluate environmental factors, daylighting, and spatial efficiency during the conceptual phase.</li>
