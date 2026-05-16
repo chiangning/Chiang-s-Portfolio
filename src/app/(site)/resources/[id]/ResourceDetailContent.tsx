@@ -102,7 +102,15 @@ export function ResourceDetailContent({ resource }: { resource: Resource }) {
         <div className="w-full flex-1">
           <iframe
             src={`/data/${resource.id}.html`}
-            className="w-full h-screen border-none"
+            className="w-full border-none"
+            style={{ height: '100vh', minHeight: '100vh' }}
+            onLoad={(e) => {
+              try {
+                const iframe = e.currentTarget;
+                const height = iframe.contentDocument?.documentElement?.scrollHeight;
+                if (height) iframe.style.height = height + 'px';
+              } catch {}
+            }}
             title={resource.title}
           />
         </div>
