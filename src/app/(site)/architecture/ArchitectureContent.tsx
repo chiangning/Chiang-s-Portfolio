@@ -32,19 +32,19 @@ export function ArchitectureContent() {
             </div>
 
             <div className="prose prose-invert prose-lg max-w-none text-on-surface-variant">
-              <p className="text-2xl leading-[1.0] mb-8 text-white font-sans font-normal">
+              <p className="text-2xl leading-relaxed mb-8 text-white font-sans font-normal">
                 Your project. Your budget. Unlocked.
               </p>
               
-              <p className="leading-[1.0] mb-6">
+              <p className="leading-relaxed mb-6">
                 I'm a Registered Architect (ARBV) and Senior Project Architect with 20+ years of experience delivering complex built environments across education, commercial, and residential sectors. I work with one clear goal: to help you extract maximum value from every stage of your project.
               </p>
               
               <h2 className="text-3xl font-display font-semibold text-white mt-12 mb-6">What I bring to your project:</h2>
-              <p className="leading-[1.0] mb-6">
+              <p className="leading-relaxed mb-6">
                 Through meticulous documentation optimisation and strategic planning, I have a proven track record of achieving tender prices up to 15% below budget — without compromising quality or compliance with planning schemes, the NCC, or Australian Standards.
               </p>
-              <p className="leading-[1.0] mb-8">
+              <p className="leading-relaxed mb-8">
                 My portfolio spans major education infrastructure, including <Link href="/project/christway-college" className="text-primary hover:text-white transition-colors underline decoration-primary/30 underline-offset-4">Christway College</Link> and John Monash Science School, large-scale commercial developments, and bespoke residential projects. This breadth means I bring a comprehensive understanding of diverse architectural typologies to every engagement.
               </p>
               

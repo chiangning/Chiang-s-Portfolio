@@ -23,7 +23,7 @@ export function Sidebar() {
     >
       {/* Logo */}
       <div>
-        <Link href="/" className="text-[22px] font-sans font-medium tracking-wide text-white block">
+        <Link href="/" className="text-[28px] font-sans font-medium tracking-tight text-white block leading-none">
           Chiang Ning
         </Link>
       </div>
@@ -41,7 +41,7 @@ export function Sidebar() {
                   key={link.name}
                   href={link.path}
                   className={cn(
-                    "text-[15px] leading-[1.0] transition-colors hover:text-white block w-full py-0.5",
+                    "text-[17px] leading-none transition-colors hover:text-white block w-full py-2",
                     isActive ? "text-white font-medium" : "text-[#9ca3af]"
                   )}
                 >

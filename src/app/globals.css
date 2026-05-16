@@ -36,7 +36,8 @@ body {
   background-color: var(--color-surface);
   color: var(--color-on-surface);
   font-family: var(--font-sans);
-  line-height: 1.0;
+  font-size: 1rem;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -48,10 +49,10 @@ body {
 }
 
 /* Typography Overrides for Design System */
-.prose p, 
+.prose p,
 .prose li,
 .prose blockquote {
-  line-height: 1.0 !important;
+  line-height: 1.6 !important;
 }
 
 .prose h1, 

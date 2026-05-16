@@ -42,7 +42,7 @@ export function ResourcesContent() {
             <h1 className="text-4xl md:text-5xl font-charter text-on-surface-variant mb-4">
               Resources
             </h1>
-            <p className="text-lg text-on-surface/70 leading-[1.0]">
+            <p className="text-lg text-on-surface/70 leading-relaxed">
               Articles, insights, and custom-built tools exploring the intersection of architecture, project management, and technology.
             </p>
           </div>

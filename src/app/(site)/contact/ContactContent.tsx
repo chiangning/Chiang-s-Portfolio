@@ -17,7 +17,7 @@ export function ContactContent() {
           Touch
         </h1>
         
-        <p className="text-xl md:text-2xl leading-[1.0] mb-16 text-on-surface-variant font-sans font-normal">
+        <p className="text-xl md:text-2xl leading-relaxed mb-16 text-on-surface-variant font-sans font-normal">
           Whether you're looking to discuss a potential project, explore AI integration in your architectural practice, or inquire about project management consultancy—I'm looking forward to connecting.
         </p>
         
@@ -27,7 +27,7 @@ export function ContactContent() {
               <Mail className="w-6 h-6 stroke-[1.5]" />
             </div>
             <div>
-              <span className="text-[11px] font-bold tracking-[0.15em] text-on-surface-variant uppercase block mb-1">Email</span>
+              <span className="text-[12px] font-bold tracking-[0.15em] text-on-surface-variant uppercase block mb-1">Email</span>
               <span className="text-xl md:text-2xl text-white group-hover:text-primary transition-colors font-medium">chiangning@gmail.com</span>
             </div>
           </a>
@@ -37,7 +37,7 @@ export function ContactContent() {
               <Linkedin className="w-6 h-6 stroke-[1.5]" />
             </div>
             <div>
-              <span className="text-[11px] font-bold tracking-[0.15em] text-on-surface-variant uppercase block mb-1">LinkedIn</span>
+              <span className="text-[12px] font-bold tracking-[0.15em] text-on-surface-variant uppercase block mb-1">LinkedIn</span>
               <span className="text-xl md:text-2xl text-white group-hover:text-primary transition-colors font-medium">linkedin.com/in/chiangning</span>
             </div>
           </a>
@@ -47,7 +47,7 @@ export function ContactContent() {
               <MapPin className="w-6 h-6 stroke-[1.5]" />
             </div>
             <div>
-              <span className="text-[11px] font-bold tracking-[0.15em] text-on-surface-variant uppercase block mb-1">Location</span>
+              <span className="text-[12px] font-bold tracking-[0.15em] text-on-surface-variant uppercase block mb-1">Location</span>
               <span className="text-xl md:text-2xl text-white font-medium">Melbourne, Australia</span>
             </div>
           </div>

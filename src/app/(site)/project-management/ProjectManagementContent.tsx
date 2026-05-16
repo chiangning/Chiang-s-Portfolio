@@ -24,7 +24,7 @@ export function ProjectManagementContent() {
               <VideoPlayer src="https://res.cloudinary.com/dphq33wah/video/upload/v1775630027/Portrait4_jyncpd.mp4" className="w-full h-auto block" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
               <div className="absolute inset-0 p-8 md:p-12 flex items-end">
-                <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.0]">
+                <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-relaxed">
                   <span className="italic text-[#9ca3af] font-normal pr-2" style={{ fontFamily: 'Charter, "Bitstream Charter", "Sitka Text", Cambria, serif' }}>Unlock</span>
                   <span className="md:hidden">Project Management</span>
                   <span className="hidden md:inline">Project<br />Management</span>
@@ -33,19 +33,19 @@ export function ProjectManagementContent() {
             </div>
 
             <div className="prose prose-invert prose-lg max-w-none text-on-surface-variant">
-              <p className="text-2xl leading-[1.0] mb-8 text-white font-sans font-normal">
+              <p className="text-2xl leading-relaxed mb-8 text-white font-sans font-normal">
                 Your portfolio. Your capital. Unlocked.
               </p>
               
-              <p className="leading-[1.0] mb-6">
+              <p className="leading-relaxed mb-6">
                 I'm a Project Management Professional (PMP) specialising in portfolio oversight, capital planning, and project governance for large-scale developments. I work with one clear goal: to bring discipline, clarity, and strategic alignment to your most complex projects.
               </p>
               
               <h2 className="text-3xl font-display font-semibold text-white mt-12 mb-6">What I bring to your organisation:</h2>
-              <p className="leading-[1.0] mb-6">
+              <p className="leading-relaxed mb-6">
                 As General Manager (Project) for <Link href="/project/tropicana-miyu" className="text-primary hover:text-white transition-colors underline decoration-primary/30 underline-offset-4">Tropicana Corporation</Link> and Senior Development Manager for <Link href="/project/pavilion-damansara-heights" className="text-primary hover:text-white transition-colors underline decoration-primary/30 underline-offset-4">Pavilion Damansara Heights</Link>, I have held direct accountability for the governance and oversight of concurrent capital portfolios. My focus is on balancing resources, cash flow, and delivery priorities to ensure your projects align with both strategic and financial objectives — at every stage.
               </p>
-              <p className="leading-[1.0] mb-8">
+              <p className="leading-relaxed mb-8">
                 I excel in standardising project management frameworks, directing capital prioritisation workshops, and maintaining rigorous oversight across cost, time, quality, and risk. The result is consistent, accountable delivery from inception to completion.
               </p>
               

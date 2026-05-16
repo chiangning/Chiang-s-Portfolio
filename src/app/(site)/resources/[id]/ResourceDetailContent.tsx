@@ -124,7 +124,7 @@ export function ResourceDetailContent({ resource }: { resource: Resource }) {
           >
             <div className="flex flex-col min-w-0 w-full">
               <div className="mb-12 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto w-full pt-6 md:pt-12 lg:pt-24 border-b border-white/10 pb-12">
-                <h1 className="font-charter text-[40px] md:text-[64px] font-normal leading-[1.0] tracking-[-0.015em] text-left text-white mb-6">
+                <h1 className="font-charter text-[40px] md:text-[64px] font-normal leading-tight tracking-[-0.015em] text-left text-white mb-6">
                   {resource.title}
                 </h1>
                 
@@ -215,17 +215,17 @@ export function ResourceDetailContent({ resource }: { resource: Resource }) {
                         h3: ({ node, children, ...props }) => {
                           const isLede = node?.children?.some((c: any) => c.type === 'element' && c.tagName === 'em');
                           if (isLede) {
-                            return <p className="font-sans font-normal text-[24px] leading-[1.0] text-white my-10" {...props}>{children}</p>;
+                            return <p className="font-sans font-normal text-[24px] leading-snug text-white my-10" {...props}>{children}</p>;
                           }
-                          return <h3 className="font-charter text-[26px] font-normal leading-[1.0] mt-[2em] mb-[0.5em] text-white" {...props}>{children}</h3>;
+                          return <h3 className="font-charter text-[26px] font-normal leading-tight mt-[2em] mb-[0.5em] text-white" {...props}>{children}</h3>;
                         },
                         h4: ({ node, children, ...props }) => {
-                          return <h3 className="font-charter text-[26px] font-normal leading-[1.0] mt-[2em] mb-[0.5em] text-white" {...props}>{children}</h3>;
+                          return <h3 className="font-charter text-[26px] font-normal leading-tight mt-[2em] mb-[0.5em] text-white" {...props}>{children}</h3>;
                         },
                         p: ({ node, children, ...props }) => {
                           const hasOnlyImage = node?.children?.every((c: any) => c.type === 'element' && c.tagName === 'img');
                           if (hasOnlyImage) return <p {...props}>{children}</p>;
-                          return <p className="font-sans font-normal text-[19px] leading-[1.0] mb-[1.5em] text-on-surface-variant font-normal" {...props}>{children}</p>;
+                          return <p className="font-sans font-normal text-[19px] leading-relaxed mb-[1.5em] text-on-surface-variant" {...props}>{children}</p>;
                         },
                         hr: () => {
                           return <hr className="w-[40px] mx-auto border-t border-white/20 my-16 clear-both" />;

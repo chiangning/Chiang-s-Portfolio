@@ -118,7 +118,7 @@ export function ProjectDetailContent({ project }: { project: ProjectData }) {
           </div>
 
           {project.contentParagraphs.length > 0 && (
-            <div className="text-on-surface-variant text-[18px] leading-[1.0] max-w-[640px] font-sans space-y-6">
+            <div className="text-on-surface-variant text-[18px] leading-relaxed max-w-[640px] font-sans space-y-6">
               {project.contentParagraphs.map((paragraph, i) => (
                 <p key={i}>{paragraph}</p>
               ))}
@@ -133,7 +133,7 @@ export function ProjectDetailContent({ project }: { project: ProjectData }) {
                     <span className="font-[Helvetica,Arial,sans-serif] text-[14px] font-bold text-white uppercase tracking-[0.04em]">
                       {item.title}
                     </span>
-                    <span className="font-sans text-[16px] leading-[1.0] text-on-surface-variant">
+                    <span className="font-sans text-[16px] leading-relaxed text-on-surface-variant">
                       {item.description}
                     </span>
                   </li>
@@ -158,73 +158,73 @@ export function ProjectDetailContent({ project }: { project: ProjectData }) {
             
             <div className="flex flex-col gap-6">
               <div className="border-t border-white/10 pt-4 flex flex-col gap-2">
-                <span className="font-[Helvetica,Arial,sans-serif] text-[11px] uppercase tracking-[0.1em] text-on-surface-variant">
+                <span className="font-[Helvetica,Arial,sans-serif] text-[12px] uppercase tracking-[0.1em] text-on-surface-variant">
                   Location
                 </span>
-                <span className="font-sans text-[18px] text-white font-normal whitespace-pre-line leading-[1.0]">
+                <span className="font-sans text-[18px] text-white font-normal whitespace-pre-line leading-snug">
                   {project.info.location}
                 </span>
               </div>
               <div className="border-t border-white/10 pt-4 flex flex-col gap-2">
-                <span className="font-[Helvetica,Arial,sans-serif] text-[11px] uppercase tracking-[0.1em] text-on-surface-variant">
+                <span className="font-[Helvetica,Arial,sans-serif] text-[12px] uppercase tracking-[0.1em] text-on-surface-variant">
                   Year
                 </span>
-                <span className="font-sans text-[18px] text-white font-normal leading-[1.0]">
+                <span className="font-sans text-[18px] text-white font-normal leading-snug">
                   {project.info.year}
                 </span>
               </div>
               <div className="border-t border-white/10 pt-4 flex flex-col gap-2">
-                <span className="font-[Helvetica,Arial,sans-serif] text-[11px] uppercase tracking-[0.1em] text-on-surface-variant">
+                <span className="font-[Helvetica,Arial,sans-serif] text-[12px] uppercase tracking-[0.1em] text-on-surface-variant">
                   Client
                 </span>
-                <span className="font-sans text-[18px] text-white font-normal whitespace-pre-line leading-[1.0]">
+                <span className="font-sans text-[18px] text-white font-normal whitespace-pre-line leading-snug">
                   {project.info.client}
                 </span>
               </div>
               <div className="border-t border-white/10 pt-4 flex flex-col gap-2">
-                <span className="font-[Helvetica,Arial,sans-serif] text-[11px] uppercase tracking-[0.1em] text-on-surface-variant">
+                <span className="font-[Helvetica,Arial,sans-serif] text-[12px] uppercase tracking-[0.1em] text-on-surface-variant">
                   Scale
                 </span>
-                <span className="font-sans text-[18px] text-white font-normal leading-[1.0]">
+                <span className="font-sans text-[18px] text-white font-normal leading-snug">
                   {project.info.scale}
                 </span>
               </div>
               {project.info.role && (
                 <div className="border-t border-white/10 pt-4 flex flex-col gap-2">
-                  <span className="font-[Helvetica,Arial,sans-serif] text-[11px] uppercase tracking-[0.1em] text-on-surface-variant">
+                  <span className="font-[Helvetica,Arial,sans-serif] text-[12px] uppercase tracking-[0.1em] text-on-surface-variant">
                     Role
                   </span>
-                  <span className="font-sans text-[18px] text-white font-normal leading-[1.0]">
+                  <span className="font-sans text-[18px] text-white font-normal leading-snug">
                     {project.info.role}
                   </span>
                 </div>
               )}
               {project.info.deliveryPartner && (
                 <div className="border-t border-white/10 pt-4 flex flex-col gap-2">
-                  <span className="font-[Helvetica,Arial,sans-serif] text-[11px] uppercase tracking-[0.1em] text-on-surface-variant">
+                  <span className="font-[Helvetica,Arial,sans-serif] text-[12px] uppercase tracking-[0.1em] text-on-surface-variant">
                     Delivery Partner
                   </span>
-                  <span className="font-sans text-[18px] text-white font-normal leading-[1.0]">
+                  <span className="font-sans text-[18px] text-white font-normal leading-snug">
                     {project.info.deliveryPartner}
                   </span>
                 </div>
               )}
               {project.info.mainContractor && (
                 <div className="border-t border-white/10 pt-4 flex flex-col gap-2">
-                  <span className="font-[Helvetica,Arial,sans-serif] text-[11px] uppercase tracking-[0.1em] text-on-surface-variant">
+                  <span className="font-[Helvetica,Arial,sans-serif] text-[12px] uppercase tracking-[0.1em] text-on-surface-variant">
                     Main Contractor
                   </span>
-                  <span className="font-sans text-[18px] text-white font-normal leading-[1.0]">
+                  <span className="font-sans text-[18px] text-white font-normal leading-snug">
                     {project.info.mainContractor}
                   </span>
                 </div>
               )}
               {project.info.procurement && (
                 <div className="border-t border-white/10 pt-4 flex flex-col gap-2">
-                  <span className="font-[Helvetica,Arial,sans-serif] text-[11px] uppercase tracking-[0.1em] text-on-surface-variant">
+                  <span className="font-[Helvetica,Arial,sans-serif] text-[12px] uppercase tracking-[0.1em] text-on-surface-variant">
                     Procurement
                   </span>
-                  <span className="font-sans text-[18px] text-white font-normal leading-[1.0]">
+                  <span className="font-sans text-[18px] text-white font-normal leading-snug">
                     {project.info.procurement}
                   </span>
                 </div>

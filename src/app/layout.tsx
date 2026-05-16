@@ -43,7 +43,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
       </head>
-      <body suppressHydrationWarning className="flex flex-col md:flex-row min-h-screen bg-surface text-on-surface font-sans leading-none selection:bg-primary/30 relative">
+      <body suppressHydrationWarning className="flex flex-col md:flex-row min-h-screen bg-surface text-on-surface font-sans selection:bg-primary/30 relative">
         {children}
       </body>
     </html>
