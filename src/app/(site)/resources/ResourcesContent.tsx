@@ -105,7 +105,7 @@ export function ResourcesContent() {
                       {resource.date}
                     </span>
                   </div>
-                  <h2 className="text-2xl font-sans font-medium text-white group-hover:text-primary transition-colors pointer-events-auto">
+                  <h2 className="text-base font-sans font-medium text-white group-hover:text-primary transition-colors pointer-events-auto">
                     {resource.title}
                   </h2>
                 </div>

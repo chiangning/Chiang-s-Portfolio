@@ -27,7 +27,7 @@ export default function Home() {
           
           {/* Text Overlay */}
           <div className="absolute inset-0 p-8 flex items-end z-20 pointer-events-none">
-            <h2 className="text-white font-sans font-normal text-xl md:text-2xl leading-tight max-w-[95%]">
+            <h2 className="text-white font-sans font-normal text-base md:text-lg leading-snug max-w-[95%]">
               Unlock AI in Architecture & Project Management without compromising Human Accountability & Creativity
             </h2>
           </div>
@@ -62,7 +62,7 @@ export default function Home() {
             
             {/* Title */}
             <div className="absolute bottom-0 left-0 p-8 w-full z-20 pointer-events-none">
-              <h2 className="text-white font-sans font-normal text-xl md:text-2xl leading-tight max-w-[95%]">
+              <h2 className="text-white font-sans font-normal text-base md:text-lg leading-snug max-w-[95%]">
                 {project.title}
               </h2>
             </div>

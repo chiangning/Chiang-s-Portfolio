@@ -45,7 +45,7 @@ export function ResourceDetailContent({ resource }: { resource: Resource }) {
   const bgImage = bgProject?.heroImage || bgProject?.gallery?.[0] || 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2560';
 
   const isFullWidthCarousel = resource.id === 'arbv-reforms-2026' || resource.id === 'ncc-2025-reforms';
-  const showRelatedBelow = resource.id === 'ncc-2025-reforms';
+  const showRelatedBelow = resource.id === 'ncc-2025-reforms' || resource.id === 'arbv-reforms-2026';
   const relatedResources = resources
     .filter(r => r.id !== resource.id)
     .sort((a, b) => {
@@ -190,9 +190,9 @@ export function ResourceDetailContent({ resource }: { resource: Resource }) {
 
                   {resource.carousel && (
                     <div className={`${isFullWidthCarousel ? `${showRelatedBelow ? '-mx-6 md:-mx-12 lg:-mx-24' : ''} mb-16 bg-[#0a0a0a] border-y border-white/5` : 'w-full mb-10'}`}>
-                      <ImageCarousel 
-                        images={resource.carousel} 
-                        className={isFullWidthCarousel ? 'aspect-[4/3] w-full mx-auto border-none shadow-none bg-transparent' : 'rounded-xl'} 
+                      <ImageCarousel
+                        images={resource.carousel}
+                        className={isFullWidthCarousel ? 'h-[90vh] w-full border-none shadow-none bg-[#0a0a0a]' : 'aspect-[4/3] rounded-xl'}
                         objectFit={isFullWidthCarousel ? 'contain' : 'contain'}
                       />
                     </div>
@@ -215,17 +215,17 @@ export function ResourceDetailContent({ resource }: { resource: Resource }) {
                         h3: ({ node, children, ...props }) => {
                           const isLede = node?.children?.some((c: any) => c.type === 'element' && c.tagName === 'em');
                           if (isLede) {
-                            return <p className="font-sans font-normal text-[24px] leading-snug text-white my-10" {...props}>{children}</p>;
+                            return <p className="font-sans font-normal text-[20px] leading-snug text-white my-10" {...props}>{children}</p>;
                           }
-                          return <h3 className="font-charter text-[26px] font-normal leading-tight mt-[2em] mb-[0.5em] text-white" {...props}>{children}</h3>;
+                          return <h3 className="font-charter text-[30px] font-normal leading-tight mt-[2em] mb-[0.5em] text-white" {...props}>{children}</h3>;
                         },
                         h4: ({ node, children, ...props }) => {
-                          return <h3 className="font-charter text-[26px] font-normal leading-tight mt-[2em] mb-[0.5em] text-white" {...props}>{children}</h3>;
+                          return <h3 className="font-charter text-[30px] font-normal leading-tight mt-[2em] mb-[0.5em] text-white" {...props}>{children}</h3>;
                         },
                         p: ({ node, children, ...props }) => {
                           const hasOnlyImage = node?.children?.every((c: any) => c.type === 'element' && c.tagName === 'img');
                           if (hasOnlyImage) return <p {...props}>{children}</p>;
-                          return <p className="font-sans font-normal text-[19px] leading-relaxed mb-[1.5em] text-on-surface-variant" {...props}>{children}</p>;
+                          return <p className="font-sans font-normal text-[15px] leading-[1.45] mb-[1.5em] text-on-surface-variant" {...props}>{children}</p>;
                         },
                         hr: () => {
                           return <hr className="w-[40px] mx-auto border-t border-white/20 my-16 clear-both" />;

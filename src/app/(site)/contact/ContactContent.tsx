@@ -17,7 +17,7 @@ export function ContactContent() {
           Touch
         </h1>
         
-        <p className="text-xl md:text-2xl leading-relaxed mb-16 text-on-surface-variant font-sans font-normal">
+        <p className="text-lg md:text-xl leading-snug mb-16 text-on-surface-variant font-sans font-normal">
           Whether you're looking to discuss a potential project, explore AI integration in your architectural practice, or inquire about project management consultancy—I'm looking forward to connecting.
         </p>
         

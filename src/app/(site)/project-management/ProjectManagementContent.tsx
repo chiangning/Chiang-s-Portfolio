@@ -32,24 +32,24 @@ export function ProjectManagementContent() {
               </div>
             </div>
 
-            <div className="prose prose-invert prose-lg max-w-none text-on-surface-variant">
-              <p className="text-2xl leading-relaxed mb-8 text-white font-sans font-normal">
+            <div className="prose prose-invert prose-sm max-w-none text-on-surface-variant">
+              <p className="text-xl leading-snug mb-4 text-white font-sans font-normal">
                 Your portfolio. Your capital. Unlocked.
               </p>
               
-              <p className="leading-relaxed mb-6">
+              <p className="leading-relaxed mb-3">
                 I'm a Project Management Professional (PMP) specialising in portfolio oversight, capital planning, and project governance for large-scale developments. I work with one clear goal: to bring discipline, clarity, and strategic alignment to your most complex projects.
               </p>
               
-              <h2 className="text-3xl font-display font-semibold text-white mt-12 mb-6">What I bring to your organisation:</h2>
-              <p className="leading-relaxed mb-6">
+              <h2 className="text-4xl font-display font-bold text-white tracking-tight mt-8 mb-3">What I bring to your organisation:</h2>
+              <p className="leading-relaxed mb-3">
                 As General Manager (Project) for <Link href="/project/tropicana-miyu" className="text-primary hover:text-white transition-colors underline decoration-primary/30 underline-offset-4">Tropicana Corporation</Link> and Senior Development Manager for <Link href="/project/pavilion-damansara-heights" className="text-primary hover:text-white transition-colors underline decoration-primary/30 underline-offset-4">Pavilion Damansara Heights</Link>, I have held direct accountability for the governance and oversight of concurrent capital portfolios. My focus is on balancing resources, cash flow, and delivery priorities to ensure your projects align with both strategic and financial objectives — at every stage.
               </p>
-              <p className="leading-relaxed mb-8">
+              <p className="leading-relaxed mb-3">
                 I excel in standardising project management frameworks, directing capital prioritisation workshops, and maintaining rigorous oversight across cost, time, quality, and risk. The result is consistent, accountable delivery from inception to completion.
               </p>
               
-              <h2 className="text-3xl font-display font-semibold text-white mt-12 mb-6">How I unlock value across your portfolio:</h2>
+              <h2 className="text-4xl font-display font-bold text-white tracking-tight mt-8 mb-3">How I unlock value across your portfolio:</h2>
               <ul className="list-disc pl-6 space-y-4 mb-8">
                 <li><strong>Portfolio & Program Oversight —</strong> I provide whole-of-portfolio visibility to ensure every project aligns with organisational priorities and risk controls. You always know where your capital is going and why.</li>
                 <li><strong>Cash Flow & Capital Planning —</strong> I connect schedule management directly to cash flow requirements, delivering clear cost reporting to manage drawn-down profiles against contingencies.</li>

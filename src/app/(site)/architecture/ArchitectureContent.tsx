@@ -31,24 +31,24 @@ export function ArchitectureContent() {
               </div>
             </div>
 
-            <div className="prose prose-invert prose-lg max-w-none text-on-surface-variant">
-              <p className="text-2xl leading-relaxed mb-8 text-white font-sans font-normal">
+            <div className="prose prose-invert prose-sm max-w-none text-on-surface-variant">
+              <p className="text-xl leading-snug mb-4 text-white font-sans font-normal">
                 Your project. Your budget. Unlocked.
               </p>
               
-              <p className="leading-relaxed mb-6">
+              <p className="leading-relaxed mb-3">
                 I'm a Registered Architect (ARBV) and Senior Project Architect with 20+ years of experience delivering complex built environments across education, commercial, and residential sectors. I work with one clear goal: to help you extract maximum value from every stage of your project.
               </p>
               
-              <h2 className="text-3xl font-display font-semibold text-white mt-12 mb-6">What I bring to your project:</h2>
-              <p className="leading-relaxed mb-6">
+              <h2 className="text-4xl font-display font-bold text-white tracking-tight mt-8 mb-3">What I bring to your project:</h2>
+              <p className="leading-relaxed mb-3">
                 Through meticulous documentation optimisation and strategic planning, I have a proven track record of achieving tender prices up to 15% below budget — without compromising quality or compliance with planning schemes, the NCC, or Australian Standards.
               </p>
-              <p className="leading-relaxed mb-8">
+              <p className="leading-relaxed mb-3">
                 My portfolio spans major education infrastructure, including <Link href="/project/christway-college" className="text-primary hover:text-white transition-colors underline decoration-primary/30 underline-offset-4">Christway College</Link> and John Monash Science School, large-scale commercial developments, and bespoke residential projects. This breadth means I bring a comprehensive understanding of diverse architectural typologies to every engagement.
               </p>
               
-              <h2 className="text-3xl font-display font-semibold text-white mt-12 mb-6">How I unlock value across the full project lifecycle:</h2>
+              <h2 className="text-4xl font-display font-bold text-white tracking-tight mt-8 mb-3">How I unlock value across the full project lifecycle:</h2>
               <ul className="list-disc pl-6 space-y-4 mb-8">
                 <li><strong>End-to-End Delivery —</strong> I lead projects from initial planning and funding submissions (including VISBGA) through design, documentation, construction, and post-delivery close-out. You get continuity and accountability at every stage.</li>
                 <li><strong>Value Engineering —</strong> I optimise documentation and design to achieve significant budget efficiencies without sacrificing quality. A 15% reduction on tender price is not an anomaly; it's a methodology.</li>

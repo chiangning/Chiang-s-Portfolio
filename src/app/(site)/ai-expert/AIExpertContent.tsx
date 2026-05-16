@@ -31,20 +31,20 @@ export function AIExpertContent() {
               </div>
             </div>
 
-            <div className="prose prose-invert prose-lg max-w-none text-on-surface-variant">
-              <p className="text-2xl leading-relaxed mb-8 text-white font-sans font-normal">
+            <div className="prose prose-invert prose-sm max-w-none text-on-surface-variant">
+              <p className="text-xl leading-snug mb-4 text-white font-sans font-normal">
                 "I help architects & PMs unlock productivity through AI augmentation without replacing human accountability and creativity"
               </p>
               
-              <p className="leading-relaxed mb-6">
+              <p className="leading-relaxed mb-3">
                 In an increasingly complex built environment, leveraging cutting-edge technology is essential for pushing the boundaries of design. My approach integrates emerging AI tools to rapidly generate, evaluate, and refine architectural concepts, significantly accelerating the early stages of design.
               </p>
               
-              <p className="leading-relaxed mb-6">
+              <p className="leading-relaxed mb-3">
                 By utilizing AI for fast iterations, I enable teams to explore a wider range of spatial configurations, material palettes, and environmental responses in a fraction of the time. This allows for more informed decision-making and ultimately leads to more innovative and optimized architectural solutions before moving into traditional documentation phases.
               </p>
               
-              <h2 className="text-3xl font-display font-semibold text-white mt-12 mb-6">AI Capabilities</h2>
+              <h2 className="text-4xl font-display font-bold text-white tracking-tight mt-8 mb-3">AI Capabilities</h2>
               <ul className="list-disc pl-6 space-y-4 mb-8">
                 <li><strong>Rapid Concept Iteration:</strong> Utilizing AI image generators and spatial algorithms to quickly visualize and test multiple architectural massing and facade options.</li>
                 <li><strong>Design Optimization:</strong> Applying AI-driven analysis to evaluate environmental factors, daylighting, and spatial efficiency during the conceptual phase.</li>
