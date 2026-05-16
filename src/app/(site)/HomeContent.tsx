@@ -40,7 +40,7 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: (index + 1) * 0.15, ease: [0.25, 0.1, 0.25, 1] }}
-          className="relative group overflow-hidden bg-surface-low aspect-[4/3]"
+          className="relative group overflow-hidden bg-surface-low aspect-square"
         >
           <Link href={`/project/${project.id}`} className="block w-full h-full relative z-10">
             {project.heroVideo ? (
