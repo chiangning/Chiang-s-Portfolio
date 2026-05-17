@@ -19,55 +19,73 @@ export function Sidebar() {
 
   return (
     <aside
-      className="md:fixed relative top-0 left-0 md:h-screen h-auto flex flex-col overflow-y-auto shrink-0 z-40 transition-all duration-500 w-full md:w-1/3 lg:w-80 bg-[#2a2a2a] p-8 md:p-12"
+      className={cn(
+        "md:fixed relative top-0 left-0 md:h-screen flex flex-col overflow-y-auto shrink-0 z-40 transition-all duration-500",
+        "w-full md:w-1/3 lg:w-80",
+        "bg-[#2a2a2a]",
+        // mobile: tight padding | tablet+: generous padding
+        "p-4 md:p-12"
+      )}
     >
       {/* Logo */}
-      <div className="flex flex-col gap-2">
-        <Link href="/" className="text-[28px] font-sans font-medium tracking-tight text-white block leading-none">
+      <div className="flex flex-col gap-1 md:gap-2">
+        <Link
+          href="/"
+          className="font-sans font-medium tracking-tight text-white block leading-none
+                     text-[18px] md:text-[28px]"
+        >
           Chiang Ning
         </Link>
-        <span className="text-[10px] font-sans uppercase tracking-[0.15em] text-[#9ca3af] whitespace-nowrap">
+        <span className="font-sans uppercase text-[#9ca3af] whitespace-nowrap
+                         text-[8px] tracking-[0.12em] md:text-[10px] md:tracking-[0.15em]">
           Architect · PM · AI
         </span>
       </div>
 
-      {/* Bottom Section */}
-      <div className="mt-12 md:mt-auto flex flex-col gap-12 md:gap-24">
-        
-        {/* Navigation Area */}
-        <div className="flex flex-col gap-8">
-          <nav className="flex flex-col gap-0">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.path;
-              return (
-                <Link
-                  key={link.name}
-                  href={link.path}
-                  className={cn(
-                    "text-[17px] leading-none transition-all hover:text-white block w-full py-2 pl-3 border-l-2",
-                    isActive
-                      ? "text-white font-medium border-[#efbc98]"
-                      : "text-[#9ca3af] border-transparent hover:border-white/20"
-                  )}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
-          </nav>
+      {/* Bottom section */}
+      <div className="mt-4 md:mt-auto flex flex-col gap-6 md:gap-24">
+
+        {/* Navigation */}
+        <nav className="flex flex-col gap-0">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.path;
+            return (
+              <Link
+                key={link.name}
+                href={link.path}
+                className={cn(
+                  "leading-none transition-all hover:text-white hover:font-medium block w-full border-l-2",
+                  // mobile: tight | tablet+: spacious
+                  "text-[11px] py-px pl-2 md:text-[20px] md:py-px md:pl-3 leading-[1.1]",
+                  isActive
+                    ? "text-white font-medium border-[#efbc98]"
+                    : "text-[#9ca3af] border-transparent hover:border-white/20"
+                )}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* Social icons */}
+        <div className="flex items-center gap-3 md:gap-5">
+          <a
+            href="https://www.linkedin.com/in/chiangning"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#9ca3af] hover:text-white transition-colors"
+          >
+            <Linkedin className="w-4 h-4 md:w-5 md:h-5 stroke-[1.5]" />
+          </a>
+          <a
+            href="mailto:chiangning@gmail.com"
+            className="text-[#9ca3af] hover:text-white transition-colors"
+          >
+            <Mail className="w-4 h-4 md:w-5 md:h-5 stroke-[1.5]" />
+          </a>
         </div>
 
-        {/* Footer / Social */}
-        <div className="flex flex-col gap-5 mt-6">
-          <div className="flex items-center gap-5">
-            <a href="https://www.linkedin.com/in/chiangning" target="_blank" rel="noopener noreferrer" className="text-[#9ca3af] hover:text-white transition-colors">
-              <Linkedin className="w-5 h-5 stroke-[1.5]" />
-            </a>
-            <a href="mailto:chiangning@gmail.com" className="text-[#9ca3af] hover:text-white transition-colors">
-              <Mail className="w-5 h-5 stroke-[1.5]" />
-            </a>
-          </div>
-        </div>
       </div>
     </aside>
   );

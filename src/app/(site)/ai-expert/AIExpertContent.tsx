@@ -1,82 +1,117 @@
 "use client";
 
-import { motion } from "motion/react";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
-import { resources } from "@/data/resources";
-
+import { motion } from "motion/react";
 import { VideoPlayer } from "@/components/VideoPlayer";
 
+const capabilities = [
+  { num: "01", title: "Rapid Concept Iteration",   body: "AI image generators and spatial algorithms to quickly visualise and test multiple architectural massing and façade options — exploring more configurations in less time." },
+  { num: "02", title: "Design Optimisation",        body: "AI-driven analysis to evaluate environmental factors, daylighting, and spatial efficiency during the conceptual phase, enabling more informed design decisions." },
+  { num: "03", title: "Workflow Automation",         body: "Streamlining the transition from conceptual AI sketches to workable architectural directions, reducing manual drafting time and accelerating project timelines." },
+  { num: "04", title: "Enhanced Visualisation",     body: "AI upscaling and style transfer to produce compelling, high-quality conceptual renderings for stakeholder presentations and design reviews." },
+];
+
+const VIDEO_SRC = "https://res.cloudinary.com/dphq33wah/video/upload/v1775630024/Portrait3_yzbgod.mp4";
+
 export function AIExpertContent() {
-  const aiResources = resources.filter(r => r.tags?.includes("AI"));
-
   return (
-    <div className="flex-1 ml-0 md:ml-[33.333333%] lg:ml-80 min-h-screen bg-surface p-6 md:p-12 lg:p-24">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-        className="max-w-7xl mx-auto"
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 xl:gap-16">
-          <div className="lg:col-span-9 flex flex-col gap-12">
-            <div className="w-full overflow-hidden shadow-2xl relative">
-              <VideoPlayer src="https://res.cloudinary.com/dphq33wah/video/upload/v1775630024/Portrait3_yzbgod.mp4" className="w-full h-auto block" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-              <div className="absolute inset-0 p-8 md:p-12 flex items-end">
-                <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-none">
-                  <span className="italic text-[#9ca3af] font-normal pr-2" style={{ fontFamily: 'Charter, "Bitstream Charter", "Sitka Text", Cambria, serif' }}>Unlock</span>
-                  AI Expertise
-                </h1>
-              </div>
-            </div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      className="flex-1 ml-0 md:ml-[33.333333%] lg:ml-80 min-h-screen bg-surface overflow-y-auto"
+    >
 
-            <div className="prose prose-invert prose-sm max-w-none text-on-surface-variant">
-              <p className="text-xl leading-snug mb-4 text-white font-charter italic">
-                "I help architects & PMs unlock productivity through AI augmentation without replacing human accountability and creativity"
-              </p>
-              
-              <p className="leading-relaxed mb-3">
-                In an increasingly complex built environment, leveraging cutting-edge technology is essential for pushing the boundaries of design. My approach integrates emerging AI tools to rapidly generate, evaluate, and refine architectural concepts, significantly accelerating the early stages of design.
-              </p>
-              
-              <p className="leading-relaxed mb-3">
-                By utilizing AI for fast iterations, I enable teams to explore a wider range of spatial configurations, material palettes, and environmental responses in a fraction of the time. This allows for more informed decision-making and ultimately leads to more innovative and optimized architectural solutions before moving into traditional documentation phases.
-              </p>
-              
-              <h2 className="text-4xl font-display font-bold text-white tracking-tight mt-4 mb-2">AI Capabilities</h2>
-              <ul className="list-disc pl-6 space-y-4 mb-8">
-                <li><strong>Rapid Concept Iteration:</strong> Utilizing AI image generators and spatial algorithms to quickly visualize and test multiple architectural massing and facade options.</li>
-                <li><strong>Design Optimization:</strong> Applying AI-driven analysis to evaluate environmental factors, daylighting, and spatial efficiency during the conceptual phase.</li>
-                <li><strong>Workflow Automation:</strong> Streamlining the transition from conceptual AI sketches to workable architectural directions, reducing manual drafting time.</li>
-                <li><strong>Enhanced Visualization:</strong> Leveraging AI upscaling and style transfer to produce compelling, high-quality conceptual renderings for stakeholder presentations.</li>
-              </ul>
-            </div>
-          </div>
+      {/* ── Label strip ─────────────────────────────────────────────── */}
+      <div className="h-12 lg:h-14 flex items-center gap-4 px-6 md:px-8 lg:px-10 border-b border-white/[0.07]">
+        <span className="w-5 h-px bg-primary flex-shrink-0" />
+        <span className="text-[9px] font-sans uppercase tracking-[0.22em] text-primary whitespace-nowrap">
+          Technology
+        </span>
+        <span className="hidden md:inline text-[9px] font-sans uppercase tracking-[0.18em] text-white/35 whitespace-nowrap ml-2">
+          AI Integration · Workflow Automation · Concept Generation · Architecture & PM
+        </span>
+      </div>
 
-          <div className="lg:col-span-3 flex flex-col gap-8 mt-12 lg:mt-0">
-            <div>
-              <h3 className="text-sm font-bold tracking-[0.15em] text-primary uppercase mb-6">
-                Related Articles
-              </h3>
-              <div className="flex flex-col gap-8">
-                {aiResources.map(resource => (
-                  <Link key={resource.id} href={`/resources/${resource.id}`} className="group block relative w-full aspect-video overflow-hidden mb-3 bg-surface-variant z-10">
-                    <img src={resource.image} alt={resource.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 absolute inset-0 z-0" referrerPolicy="no-referrer" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
-                    <div className="absolute inset-0 p-4 flex flex-col justify-end z-20 pointer-events-none">
-                      <h4 className="text-lg font-sans font-medium text-white group-hover:text-primary transition-colors line-clamp-2">
-                        {resource.title}
-                      </h4>
-                      <p className="text-xs text-white/70 mt-1">{resource.date}</p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
+      {/* ── Hero video ──────────────────────────────────────────────── */}
+      <div className="relative overflow-hidden w-full h-[50vw] md:h-[38vw] lg:h-[58vh]">
+        <VideoPlayer
+          src={VIDEO_SRC}
+          className="absolute inset-0 w-full h-full object-cover object-top"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 p-6 md:p-8 lg:p-10">
+          <h1 className="font-sans font-bold tracking-tight text-white leading-[0.90]
+                         text-[32px] md:text-[44px] lg:text-[52px]">
+            <span
+              className="block font-normal italic text-white/55 mb-1.5
+                         text-[14px] md:text-[18px] lg:text-[20px]"
+              style={{ fontFamily: 'Charter, "Bitstream Charter", "Sitka Text", Cambria, serif' }}
+            >
+              Unlock
+            </span>
+            AI Ex&shy;pertise
+          </h1>
         </div>
-      </motion.div>
-    </div>
+      </div>
+
+      {/* ── Two text boxes — 1 col mobile / 2 col tablet + desktop ─── */}
+      <div className="grid grid-cols-1 md:grid-cols-2">
+
+        {/* Box 1 — subtitle + both body paragraphs */}
+        <div className="px-6 py-8 md:px-8 lg:px-10 lg:py-10 flex flex-col gap-4
+                        lg:border-t lg:border-white/[0.07]">
+          <p
+            className="text-[15px] lg:text-[16px] leading-snug text-white/60 mb-1"
+            style={{ fontFamily: 'Charter, "Bitstream Charter", "Sitka Text", Cambria, serif', fontStyle: "italic" }}
+          >
+            I help architects & PMs unlock productivity through AI — without replacing human accountability or creativity.
+          </p>
+          <p
+            className="text-[13px] leading-[1.55] text-on-surface-variant"
+            style={{ textAlign: "justify", textAlignLast: "left", hyphens: "auto" } as React.CSSProperties}
+          >
+            In an increasingly complex built environment, leveraging cutting-edge technology is essential for pushing the boundaries of design. My approach integrates emerging AI tools to rapidly generate, evaluate, and refine architectural concepts, significantly accelerating the early stages of design.
+          </p>
+          <p
+            className="text-[13px] leading-[1.55] text-on-surface-variant"
+            style={{ textAlign: "justify", textAlignLast: "left", hyphens: "auto" } as React.CSSProperties}
+          >
+            By utilising AI for fast iterations, I enable teams to explore a wider range of spatial configurations, material palettes, and environmental responses in a fraction of the time — leading to more informed decision-making and more innovative architectural solutions before moving into traditional documentation phases.
+          </p>
+        </div>
+
+        {/* Box 2 — capabilities */}
+        <div className="px-6 py-8 md:px-8 lg:px-10 lg:py-10 flex flex-col gap-5
+                        lg:border-t lg:border-l lg:border-white/[0.07]">
+          {capabilities.map((cap) => (
+            <div key={cap.num} className="flex flex-col gap-0.5">
+              <div className="flex items-baseline gap-2">
+                <span className="text-[9px] font-sans tabular-nums text-primary/50 tracking-widest flex-shrink-0">
+                  {cap.num}
+                </span>
+                <span className="text-[13px] font-sans font-medium text-white leading-snug">
+                  {cap.title}
+                </span>
+              </div>
+              <p
+                className="text-[13px] leading-[1.55] text-on-surface-variant pl-[18px]"
+                style={{ textAlign: "justify", textAlignLast: "left", hyphens: "auto" } as React.CSSProperties}
+              >
+                {cap.body}
+              </p>
+            </div>
+          ))}
+
+          <Link
+            href="/resources"
+            className="text-[9px] font-sans uppercase tracking-[0.2em] text-primary/60 hover:text-primary transition-colors mt-2"
+          >
+            View All Resources →
+          </Link>
+        </div>
+
+      </div>
+    </motion.div>
   );
 }

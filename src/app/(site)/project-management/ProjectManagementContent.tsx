@@ -1,87 +1,117 @@
 "use client";
 
-import { motion } from "motion/react";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
-import { resources } from "@/data/resources";
-
+import { motion } from "motion/react";
 import { VideoPlayer } from "@/components/VideoPlayer";
 
+const capabilities = [
+  { num: "01", title: "Portfolio & Program Oversight",   body: "Whole-of-portfolio visibility ensuring every project aligns with organisational priorities and risk controls. You always know where your capital is going and why." },
+  { num: "02", title: "Cash Flow & Capital Planning",    body: "Schedule management connected directly to cash flow requirements, delivering clear cost reporting to manage drawn-down profiles against contingencies." },
+  { num: "03", title: "Procurement & Contract Strategy", body: "From pre-qualification to execution of AS-Suite and bespoke agreements — protecting your commercial interests and aligning supply chains with project goals." },
+  { num: "04", title: "Stakeholder Negotiation",         body: "Central point of contact for clients and authorities, resolving critical pathway blockers and maintaining consistently high reporting and communication standards." },
+];
+
+const VIDEO_SRC = "https://res.cloudinary.com/dphq33wah/video/upload/v1775630027/Portrait4_jyncpd.mp4";
+
 export function ProjectManagementContent() {
-  const pmResources = resources.filter(r => r.tags?.includes("Project Management"));
-
   return (
-    <div className="flex-1 ml-0 md:ml-[33.333333%] lg:ml-80 min-h-screen bg-surface p-6 md:p-12 lg:p-24">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-        className="max-w-7xl mx-auto"
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 xl:gap-16">
-          <div className="lg:col-span-9 flex flex-col gap-12">
-            <div className="w-full overflow-hidden shadow-2xl relative">
-              <VideoPlayer src="https://res.cloudinary.com/dphq33wah/video/upload/v1775630027/Portrait4_jyncpd.mp4" className="w-full h-auto block" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-              <div className="absolute inset-0 p-8 md:p-12 flex items-end">
-                <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-none">
-                  <span className="italic text-[#9ca3af] font-normal pr-2" style={{ fontFamily: 'Charter, "Bitstream Charter", "Sitka Text", Cambria, serif' }}>Unlock</span>
-                  <span className="md:hidden">Project Management</span>
-                  <span className="hidden md:inline">Project<br />Management</span>
-                </h1>
-              </div>
-            </div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      className="flex-1 ml-0 md:ml-[33.333333%] lg:ml-80 min-h-screen bg-surface overflow-y-auto"
+    >
 
-            <div className="prose prose-invert prose-sm max-w-none text-on-surface-variant">
-              <p className="text-xl leading-snug mb-4 text-white font-charter italic">
-                Your portfolio. Your capital. Unlocked.
-              </p>
-              
-              <p className="leading-relaxed mb-3">
-                I'm a Project Management Professional (PMP) specialising in portfolio oversight, capital planning, and project governance for large-scale developments. I work with one clear goal: to bring discipline, clarity, and strategic alignment to your most complex projects.
-              </p>
-              
-              <h2 className="text-4xl font-display font-bold text-white tracking-tight mt-4 mb-2">What I bring to your organisation:</h2>
-              <p className="leading-relaxed mb-3">
-                As General Manager (Project) for <Link href="/project/tropicana-miyu" className="text-primary hover:text-white transition-colors underline decoration-primary/30 underline-offset-4">Tropicana Corporation</Link> and Senior Development Manager for <Link href="/project/pavilion-damansara-heights" className="text-primary hover:text-white transition-colors underline decoration-primary/30 underline-offset-4">Pavilion Damansara Heights</Link>, I have held direct accountability for the governance and oversight of concurrent capital portfolios. My focus is on balancing resources, cash flow, and delivery priorities to ensure your projects align with both strategic and financial objectives — at every stage.
-              </p>
-              <p className="leading-relaxed mb-3">
-                I excel in standardising project management frameworks, directing capital prioritisation workshops, and maintaining rigorous oversight across cost, time, quality, and risk. The result is consistent, accountable delivery from inception to completion.
-              </p>
-              
-              <h2 className="text-4xl font-display font-bold text-white tracking-tight mt-4 mb-2">How I unlock value across your portfolio:</h2>
-              <ul className="list-disc pl-6 space-y-4 mb-8">
-                <li><strong>Portfolio & Program Oversight —</strong> I provide whole-of-portfolio visibility to ensure every project aligns with organisational priorities and risk controls. You always know where your capital is going and why.</li>
-                <li><strong>Cash Flow & Capital Planning —</strong> I connect schedule management directly to cash flow requirements, delivering clear cost reporting to manage drawn-down profiles against contingencies.</li>
-                <li><strong>Procurement & Contract Strategy —</strong> I manage everything from pre-qualification to the execution of AS-Suite and bespoke agreements, protecting your commercial interests and aligning supply chains with your project goals.</li>
-                <li><strong>Stakeholder Negotiation & Governance —</strong> I act as the central point of contact for clients, resolving critical pathway blockers and ensuring that reporting and communication standards remain consistently high.</li>
-              </ul>
-            </div>
-          </div>
+      {/* ── Label strip ─────────────────────────────────────────────── */}
+      <div className="h-12 lg:h-14 flex items-center gap-4 px-6 md:px-8 lg:px-10 border-b border-white/[0.07]">
+        <span className="w-5 h-px bg-primary flex-shrink-0" />
+        <span className="text-[9px] font-sans uppercase tracking-[0.22em] text-primary whitespace-nowrap">
+          Delivery
+        </span>
+        <span className="hidden md:inline text-[9px] font-sans uppercase tracking-[0.18em] text-white/35 whitespace-nowrap ml-2">
+          PMP · Portfolio & Program · Capital Planning · Governance · Major Projects
+        </span>
+      </div>
 
-          <div className="lg:col-span-3 flex flex-col gap-8 mt-12 lg:mt-0">
-            <div>
-              <h3 className="text-sm font-bold tracking-[0.15em] text-primary uppercase mb-6">
-                Related Articles
-              </h3>
-              <div className="flex flex-col gap-8">
-                {pmResources.map(resource => (
-                  <Link key={resource.id} href={`/resources/${resource.id}`} className="group block relative w-full aspect-video overflow-hidden mb-3 bg-surface-variant z-10">
-                    <img src={resource.image} alt={resource.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 absolute inset-0 z-0" referrerPolicy="no-referrer" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
-                    <div className="absolute inset-0 p-4 flex flex-col justify-end z-20 pointer-events-none">
-                      <h4 className="text-lg font-sans font-medium text-white group-hover:text-primary transition-colors line-clamp-2">
-                        {resource.title}
-                      </h4>
-                      <p className="text-xs text-white/70 mt-1">{resource.date}</p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
+      {/* ── Hero video ──────────────────────────────────────────────── */}
+      <div className="relative overflow-hidden w-full h-[50vw] md:h-[38vw] lg:h-[58vh]">
+        <VideoPlayer
+          src={VIDEO_SRC}
+          className="absolute inset-0 w-full h-full object-cover object-top"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 p-6 md:p-8 lg:p-10">
+          <h1 className="font-sans font-bold tracking-tight text-white leading-[0.90]
+                         text-[32px] md:text-[44px] lg:text-[52px]">
+            <span
+              className="block font-normal italic text-white/55 mb-1.5
+                         text-[14px] md:text-[18px] lg:text-[20px]"
+              style={{ fontFamily: 'Charter, "Bitstream Charter", "Sitka Text", Cambria, serif' }}
+            >
+              Unlock
+            </span>
+            Project&shy; Management
+          </h1>
         </div>
-      </motion.div>
-    </div>
+      </div>
+
+      {/* ── Two text boxes — 1 col mobile / 2 col tablet + desktop ─── */}
+      <div className="grid grid-cols-1 md:grid-cols-2">
+
+        {/* Box 1 — subtitle + both body paragraphs */}
+        <div className="px-6 py-8 md:px-8 lg:px-10 lg:py-10 flex flex-col gap-4
+                        lg:border-t lg:border-white/[0.07]">
+          <p
+            className="text-[15px] lg:text-[16px] leading-snug text-white/60 mb-1"
+            style={{ fontFamily: 'Charter, "Bitstream Charter", "Sitka Text", Cambria, serif', fontStyle: "italic" }}
+          >
+            Your portfolio. Your capital. Unlocked.
+          </p>
+          <p
+            className="text-[13px] leading-[1.55] text-on-surface-variant"
+            style={{ textAlign: "justify", textAlignLast: "left", hyphens: "auto" } as React.CSSProperties}
+          >
+            I'm a Project Management Professional (PMP) specialising in portfolio oversight, capital planning, and project governance for large-scale developments. I work with one clear goal: to bring discipline, clarity, and strategic alignment to your most complex projects.
+          </p>
+          <p
+            className="text-[13px] leading-[1.55] text-on-surface-variant"
+            style={{ textAlign: "justify", textAlignLast: "left", hyphens: "auto" } as React.CSSProperties}
+          >
+            As General Manager (Project) for <Link href="/project/tropicana-miyu" className="text-primary hover:text-white transition-colors">Tropicana Corporation</Link> and Senior Development Manager for <Link href="/project/pavilion-damansara-heights" className="text-primary hover:text-white transition-colors">Pavilion Damansara Heights</Link>, I held direct accountability for concurrent capital portfolios — balancing resources, cash flow, and delivery priorities to align with both strategic and financial objectives at every stage.
+          </p>
+        </div>
+
+        {/* Box 2 — capabilities */}
+        <div className="px-6 py-8 md:px-8 lg:px-10 lg:py-10 flex flex-col gap-5
+                        lg:border-t lg:border-l lg:border-white/[0.07]">
+          {capabilities.map((cap) => (
+            <div key={cap.num} className="flex flex-col gap-0.5">
+              <div className="flex items-baseline gap-2">
+                <span className="text-[9px] font-sans tabular-nums text-primary/50 tracking-widest flex-shrink-0">
+                  {cap.num}
+                </span>
+                <span className="text-[13px] font-sans font-medium text-white leading-snug">
+                  {cap.title}
+                </span>
+              </div>
+              <p
+                className="text-[13px] leading-[1.55] text-on-surface-variant pl-[18px]"
+                style={{ textAlign: "justify", textAlignLast: "left", hyphens: "auto" } as React.CSSProperties}
+              >
+                {cap.body}
+              </p>
+            </div>
+          ))}
+
+          <Link
+            href="/resources"
+            className="text-[9px] font-sans uppercase tracking-[0.2em] text-primary/60 hover:text-primary transition-colors mt-2"
+          >
+            View All Resources →
+          </Link>
+        </div>
+
+      </div>
+    </motion.div>
   );
 }
