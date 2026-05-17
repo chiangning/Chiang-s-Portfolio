@@ -56,75 +56,82 @@ export function ArchitectureContent() {
       style={{ scrollbarWidth: "none" } as React.CSSProperties}
     >
 
-      {/* ── Panel 1: Portrait video ─────────────────────── */}
-      <div className="relative flex-shrink-0 w-[280px] h-full flex flex-col border-r border-white/[0.07]">
-        {/* video fills the top portion */}
-        <div className="flex-1 relative overflow-hidden">
+      {/* ── Panel 1: Landscape video + text below ──────── */}
+      <div className="flex-shrink-0 w-[820px] h-full flex flex-col border-r border-white/[0.07]">
+
+        {/* Landscape video — top portion */}
+        <div className="relative overflow-hidden" style={{ height: '52%' }}>
           <VideoPlayer
             src="https://res.cloudinary.com/dphq33wah/video/upload/v1775630027/Portrait2_ycdaev.mp4"
             className="absolute inset-0 w-full h-full object-cover object-top"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-surface pointer-events-none" />
-        </div>
-        {/* title sits below video */}
-        <div className="flex-shrink-0 px-8 py-7 bg-surface">
-          <span className="block text-[9px] font-sans uppercase tracking-[0.22em] text-white/30 mb-3">
-            Registered Architect · ARBV
-          </span>
-          <h1 className="font-sans text-[28px] font-bold tracking-tight text-white leading-none">
-            <span
-              className="block text-[18px] font-normal italic text-[#9ca3af] mb-0.5"
-              style={{ fontFamily: 'Charter, "Bitstream Charter", "Sitka Text", Cambria, serif' }}
-            >
-              Unlock
+          {/* meta tag */}
+          <div className="absolute top-7 left-10">
+            <span className="text-[9px] font-sans uppercase tracking-[0.22em] text-white/40">
+              Registered Architect · ARBV
             </span>
-            Architecture
-          </h1>
+          </div>
+        </div>
+
+        {/* Text row below video */}
+        <div className="flex flex-1 overflow-hidden">
+
+          {/* Title column */}
+          <div className="flex-shrink-0 w-[200px] flex flex-col justify-center px-10 py-8 border-r border-white/[0.07]">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-5 h-px bg-primary" />
+              <span className="text-[9px] font-sans uppercase tracking-[0.22em] text-primary">Practice</span>
+            </div>
+            <h1 className="font-sans text-[26px] font-bold tracking-tight text-white leading-none mb-1">
+              <span
+                className="block text-[17px] font-normal italic text-[#9ca3af] mb-0.5"
+                style={{ fontFamily: 'Charter, "Bitstream Charter", "Sitka Text", Cambria, serif' }}
+              >
+                Unlock
+              </span>
+              Archi&shy;tecture
+            </h1>
+          </div>
+
+          {/* Subtitle + two text columns */}
+          <div className="flex flex-1 overflow-hidden divide-x divide-white/[0.07]">
+
+            {/* Subtitle */}
+            <div className="flex-shrink-0 w-[180px] flex items-center px-8 py-8">
+              <p
+                className="text-[18px] leading-snug text-white"
+                style={{ fontFamily: 'Charter, "Bitstream Charter", "Sitka Text", Cambria, serif', fontStyle: "italic" }}
+              >
+                Your project.<br />Your budget.<br />Unlocked.
+              </p>
+            </div>
+
+            {/* Text col 1 */}
+            <div className="flex-1 flex items-center px-8 py-8">
+              <p
+                className="text-[13px] leading-[1.55] text-on-surface-variant"
+                style={{ textAlign: "justify", textAlignLast: "left", hyphens: "auto" } as React.CSSProperties}
+              >
+                I'm a Registered Architect (ARBV) and Senior Project Architect with 20+ years of experience delivering complex built environments across education, commercial, and residential sectors. I work with one clear goal: to help you extract maximum value from every stage of your project.
+              </p>
+            </div>
+
+            {/* Text col 2 */}
+            <div className="flex-1 flex items-center px-8 py-8">
+              <p
+                className="text-[13px] leading-[1.55] text-on-surface-variant"
+                style={{ textAlign: "justify", textAlignLast: "left", hyphens: "auto" } as React.CSSProperties}
+              >
+                Through meticulous documentation optimisation and strategic planning, I have a proven track record of achieving tender prices up to 15% below budget — without compromising quality or compliance with planning schemes, the NCC, or Australian Standards. My portfolio spans education, commercial, and residential sectors.
+              </p>
+            </div>
+
+          </div>
         </div>
       </div>
 
-      {/* ── Panel 2: Intro text ─────────────────────────── */}
-      <div className="flex-shrink-0 w-[620px] h-full flex flex-col justify-center px-14 py-16 border-r border-white/[0.07]">
-        <div className="flex items-center gap-3 mb-8">
-          <span className="w-6 h-px bg-primary" />
-          <span className="text-[9px] font-sans uppercase tracking-[0.22em] text-primary">Practice</span>
-        </div>
-
-        <p
-          className="text-[22px] leading-snug text-white mb-10"
-          style={{ fontFamily: 'Charter, "Bitstream Charter", "Sitka Text", Cambria, serif', fontStyle: "italic" }}
-        >
-          Your project.<br />Your budget.<br />Unlocked.
-        </p>
-
-        <div className="flex gap-8">
-          <p
-            className="text-[14px] leading-[1.55] text-on-surface-variant flex-1"
-            style={{ textAlign: "justify", textAlignLast: "left", hyphens: "auto" } as React.CSSProperties}
-          >
-            I'm a Registered Architect (ARBV) and Senior Project Architect with 20+ years of experience delivering complex built environments across education, commercial, and residential sectors. I work with one clear goal: to help you extract maximum value from every stage of your project.
-          </p>
-          <p
-            className="text-[14px] leading-[1.55] text-on-surface-variant flex-1"
-            style={{ textAlign: "justify", textAlignLast: "left", hyphens: "auto" } as React.CSSProperties}
-          >
-            Through meticulous documentation optimisation and strategic planning, I have a proven track record of achieving tender prices up to 15% below budget — without compromising quality or compliance with planning schemes, the NCC, or Australian Standards.
-          </p>
-        </div>
-
-        <p
-          className="text-[14px] leading-[1.55] text-on-surface-variant mt-8 pt-8 border-t border-white/[0.07]"
-          style={{ textAlign: "justify", textAlignLast: "left", hyphens: "auto" } as React.CSSProperties}
-        >
-          My portfolio spans major education infrastructure, including{" "}
-          <Link href="/project/christway-college" className="text-primary hover:text-white transition-colors underline decoration-primary/30 underline-offset-2">
-            Christway College
-          </Link>{" "}
-          and John Monash Science School, large-scale commercial developments, and bespoke residential projects — bringing a comprehensive understanding of diverse architectural typologies to every engagement.
-        </p>
-      </div>
-
-      {/* ── Panel 3: Capabilities ───────────────────────── */}
+      {/* ── Panel 2: Capabilities ───────────────────────── */}
       <div className="flex-shrink-0 w-[620px] h-full flex flex-col justify-center px-14 py-16 border-r border-white/[0.07]">
         <div className="flex items-center gap-3 mb-8">
           <span className="w-6 h-px bg-primary" />
@@ -158,7 +165,7 @@ export function ArchitectureContent() {
         </div>
       </div>
 
-      {/* ── Panel 4: Related articles ───────────────────── */}
+      {/* ── Panel 3: Related articles ───────────────────── */}
       <div className="flex-shrink-0 w-[360px] h-full flex flex-col justify-center px-12 py-16">
         <div className="flex items-center gap-3 mb-8">
           <span className="w-6 h-px bg-primary" />
@@ -196,7 +203,7 @@ export function ArchitectureContent() {
         </div>
       </div>
 
-      {/* breathing room at the end */}
+      {/* breathing room */}
       <div className="flex-shrink-0 w-16 h-full" />
 
     </motion.div>
