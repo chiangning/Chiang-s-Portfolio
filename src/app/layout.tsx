@@ -1,24 +1,46 @@
 import type { Metadata } from "next";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-text",
+  display: "swap",
+});
+
+const interDisplay = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-display-family",
+  display: "swap",
+});
+
+const jbMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono-family",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.chiangning.net'),
   title: {
-    template: "%s — (Architecture+PM)XAI",
-    default: "(Architecture+PM)XAI",
+    template: "%s · Chiang Ning",
+    default: "Chiang Ning · Architect · PM · AI",
   },
   description: "Registered Architect and Senior Project Architect with 20+ years of experience delivering complex built environments across education, commercial, and residential sectors.",
   authors: [{ name: "Chiang Ning" }],
   openGraph: {
     type: "website",
     locale: "en_AU",
-    title: "(Architecture+PM)XAI",
+    title: "Chiang Ning · Architect · PM · AI",
     description: "Registered Architect and Senior Project Architect delivering complex built environments.",
-    siteName: "(Architecture+PM)XAI",
+    siteName: "Chiang Ning",
   },
   twitter: {
     card: "summary_large_image",
-    title: "(Architecture+PM)XAI",
+    title: "Chiang Ning · Architect · PM · AI",
     description: "Registered Architect and Senior Project Architect delivering complex built environments.",
   },
   verification: {
@@ -27,7 +49,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport = {
-  themeColor: "#2a2a2a",
+  themeColor: "#FFFFFF",
 };
 
 export default function RootLayout({
@@ -36,14 +58,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${interDisplay.variable} ${jbMono.variable}`}
+    >
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
       </head>
-      <body suppressHydrationWarning className="flex flex-col md:flex-row min-h-screen bg-surface text-on-surface font-sans selection:bg-primary/30 relative">
+      <body
+        suppressHydrationWarning
+        className="min-h-screen bg-paper text-ink font-sans selection:bg-terracotta/30"
+      >
         {children}
       </body>
     </html>

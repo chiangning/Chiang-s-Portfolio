@@ -1,26 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap');
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* ------------------------------------------------------------------ */
+/* Design tokens — Decor Systems-inspired                              */
+/* Reference: DESIGN-SPEC-DECOR.md at project root                      */
+/* ------------------------------------------------------------------ */
 @theme {
-  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-serif: "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  /* Ink / surface */
+  --color-ink:        #3A3A1F;   /* dark olive — primary text & brand */
+  --color-ink-soft:   #6b6b4f;   /* meta, secondary, mono labels */
+  --color-ink-deep:   #16160e;   /* highest contrast moments only */
+  --color-paper:      #FFFFFF;   /* page background */
+  --color-paper-soft: #F2F2F2;   /* alt section background */
+
+  /* Accent rotation (use sparingly, one per section band) */
+  --color-terracotta:  #CF6C4F;
+  --color-beige:       #CFCFB0;
+  --color-blush:       #CCA99F;
+  --color-slate-blue:  #A7B6C4;
+  --color-teal:        #3a7685;
+  --color-brown-deep:  #291A16;
+  --color-navy-deep:   #042442;
+
+  /* System */
+  --color-success: #219653;
+  --color-error:   #EB5757;
+  --color-muted:   #808080;
+
+  /* --- Legacy aliases (kept so un-migrated pages still resolve) --- */
+  --color-surface:             #FFFFFF;
+  --color-surface-low:         #F2F2F2;
+  --color-surface-high:        #E8E8E8;
+  --color-primary:             #CF6C4F;
+  --color-inverse-primary:     #3A3A1F;
+  --color-on-surface:          #3A3A1F;
+  --color-on-surface-variant:  #6b6b4f;
+  --color-neo-bg:              #E8E8E8;
+  --color-neo-text:            #6b6b4f;
+  --color-secondary:           #D6D9DD;
+
+  /* Fonts — variables are injected by next/font in layout.tsx.
+     Fallback stacks ensure styling looks right before the web fonts load. */
+  --font-sans:    var(--font-text),    "Inter",  "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: var(--font-display-family), "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono:    var(--font-mono-family), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Legacy aliases for un-migrated pages */
+  --font-serif:   "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-charter: "Charter", "Bitstream Charter", "Sitka Text", Cambria, serif;
-
-  --color-surface: #131313;
-  --color-surface-low: #1b1c1c;
-  --color-surface-high: #2a2a2a;
-  
-  --color-primary: #efbc98;
-  --color-inverse-primary: #7c5639;
-  
-  --color-on-surface: #ffffff;
-  --color-on-surface-variant: #a3a3a3;
-
-  --color-neo-bg: #E8E8E8;
-  --color-neo-text: #696969;
-  --color-secondary: #D6D9DD;
 
   --spacing-10: 3.5rem;
   --spacing-20: 7rem;
@@ -33,128 +60,133 @@ html {
 }
 
 body {
-  background-color: var(--color-surface);
-  color: var(--color-on-surface);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
   font-family: var(--font-sans);
-  font-size: 0.9375rem; /* 15px */
-  line-height: 1.45;
+  font-size: 16px;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 @layer base {
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-charter);
+    font-family: var(--font-display);
+    color: var(--color-ink);
+    letter-spacing: -0.005em;
+    line-height: 1.1;
+    font-weight: 500;
   }
 }
 
-/* Typography Overrides for Design System */
+/* ------------------------------------------------------------------ */
+/* Decor-style fluid typography helpers                                */
+/* (mirrors `font-size: calc(35px + 30 * ((100vw - 320px) / 1600))`)   */
+/*                                                                      */
+/* These live in @layer components so Tailwind utilities (which sit in  */
+/* @layer utilities) can override color/size when needed.               */
+/* ------------------------------------------------------------------ */
+@layer components {
+  .fluid-display {
+    font-size: clamp(35px, calc(35px + 30 * ((100vw - 320px) / 1600)), 65px);
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+  }
+  .fluid-h1 {
+    font-size: clamp(28px, calc(28px + 20 * ((100vw - 320px) / 1600)), 48px);
+    line-height: 1.12;
+  }
+  .fluid-h2 {
+    font-size: clamp(22px, calc(22px + 14 * ((100vw - 320px) / 1600)), 36px);
+    line-height: 1.2;
+  }
+  .fluid-lead {
+    font-size: clamp(18px, calc(18px + 6 * ((100vw - 320px) / 1600)), 24px);
+    line-height: 1.45;
+  }
+
+  /* Mono label — Decor uses these for spec metadata and category tags.
+     Default color is ink-soft; override with text-* utilities (e.g. on
+     dark backgrounds use `mono-label text-paper/60`). */
+  .mono-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-soft);
+    font-weight: 400;
+  }
+  .mono-label-sm {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Prose overrides — match Decor's editorial body rhythm                */
+/* ------------------------------------------------------------------ */
 .prose p,
 .prose li,
-.prose blockquote {
-  line-height: 1.45 !important;
+.prose blockquote { line-height: 1.55 !important; color: var(--color-ink) !important; }
+
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  font-family: var(--font-display) !important;
+  color: var(--color-ink) !important;
+  font-weight: 500 !important;
 }
 
-.prose h1, 
-.prose h2, 
-.prose h3, 
-.prose h4 {
-  font-family: var(--font-charter) !important;
-}
+.prose h2 { font-size: 2.25rem !important; line-height: 1.15 !important; margin-top: 2.5em !important; margin-bottom: 1em !important; }
+.prose h3 { font-size: 1.5rem  !important; line-height: 1.2  !important; margin-top: 2em   !important; margin-bottom: 0.75em !important; }
+.prose h4 { font-size: 1.25rem !important; line-height: 1.2  !important; }
 
-.prose h2 {
-  font-size: 2.25rem !important; /* 36px */
-  line-height: 1.2 !important;
-  margin-top: 2.5em !important;
-  margin-bottom: 1em !important;
-}
+/* ------------------------------------------------------------------ */
+/* Scrollbar                                                            */
+/* ------------------------------------------------------------------ */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-paper); }
+::-webkit-scrollbar-thumb { background: #d9d9c8; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-ink-soft); }
 
-.prose h3 {
-  font-size: 1.875rem !important; /* 30px */
-  line-height: 1.2 !important;
-  margin-top: 2em !important;
-  margin-bottom: 0.8em !important;
-}
-
-.prose h4 {
-  font-size: 1.5rem !important; /* 24px */
-  line-height: 1.2 !important;
-}
-
-/* Hide scrollbar for cleaner look */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-surface);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-surface-high);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-on-surface-variant);
-}
-
-.neo-bg {
-  background-color: #E8E8E8;
-}
-
+/* ------------------------------------------------------------------ */
+/* Legacy neumorphic classes — kept so un-migrated pages still render   */
+/* (will be removed in a later phase)                                   */
+/* ------------------------------------------------------------------ */
+.neo-bg { background-color: #E8E8E8; }
 .neo-raised {
   background: #E8E8E8;
-  box-shadow:  20px 20px 60px #D3D3D3,
-               -20px -20px 60px #FFFFFF;
+  box-shadow:  20px 20px 60px #D3D3D3, -20px -20px 60px #FFFFFF;
   border: none;
 }
-
 .neo-raised-sm {
   background: #E8E8E8;
-  box-shadow:  5px 5px 10px #D3D3D3,
-               -5px -5px 10px #FFFFFF;
+  box-shadow:  5px 5px 10px #D3D3D3, -5px -5px 10px #FFFFFF;
   border: none;
 }
-
 .neo-inset {
   background: #E8E8E8;
-  box-shadow: inset 5px 5px 10px #D3D3D3,
-              inset -5px -5px 10px #FFFFFF;
+  box-shadow: inset 5px 5px 10px #D3D3D3, inset -5px -5px 10px #FFFFFF;
   border: none;
 }
-
 .neo-button {
   background: #E8E8E8;
-  box-shadow:  5px 5px 10px #D3D3D3,
-               -5px -5px 10px #FFFFFF;
+  box-shadow:  5px 5px 10px #D3D3D3, -5px -5px 10px #FFFFFF;
   transition: all 0.2s ease;
   border: none;
   color: #696969;
 }
-
-.neo-button:hover {
-  box-shadow:  7px 7px 14px #D3D3D3,
-               -7px -7px 14px #FFFFFF;
-}
-
+.neo-button:hover { box-shadow: 7px 7px 14px #D3D3D3, -7px -7px 14px #FFFFFF; }
 .neo-button:active, .neo-button.active {
-  box-shadow: inset 5px 5px 10px #D3D3D3,
-              inset -5px -5px 10px #FFFFFF;
+  box-shadow: inset 5px 5px 10px #D3D3D3, inset -5px -5px 10px #FFFFFF;
 }
-
 .neo-input {
   background: #E8E8E8;
-  box-shadow: inset 5px 5px 10px #D3D3D3,
-              inset -5px -5px 10px #FFFFFF;
+  box-shadow: inset 5px 5px 10px #D3D3D3, inset -5px -5px 10px #FFFFFF;
   border: none;
   outline: none;
   transition: all 0.2s ease;
   color: #696969;
 }
-
-.neo-input:focus {
-  box-shadow: inset 7px 7px 14px #D3D3D3,
-              inset -7px -7px 14px #FFFFFF;
-}
-
-.neo-text {
-  color: #696969;
-}
+.neo-input:focus { box-shadow: inset 7px 7px 14px #D3D3D3, inset -7px -7px 14px #FFFFFF; }
+.neo-text { color: #696969; }

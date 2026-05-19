@@ -17,12 +17,22 @@ export interface Resource {
 
 export const resources: Resource[] = [
   {
+    id: "utzon-sydney-opera-house-workflow",
+    title: "Jørn Utzon × Sydney Opera House: A 30-Second Video Workflow",
+    date: "19/5/2026",
+    tags: ["AI", "Architecture"],
+    summary: "How a 30-second AI video about the Sydney Opera House gets built end to end. The workflow, the prompts, and the editing choices that hold an architect's argument together.",
+    image: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?q=80&w=1600&auto=format&fit=crop",
+    isHtml: true,
+    content: ""
+  },
+  {
     id: "flw-guggenheim-ai-film",
     title: "30 Seconds, One Spiral: An AI Film About the Guggenheim",
     date: "16/5/2026",
     tags: ["AI", "Architecture"],
-    summary: "What happens when you put the architect back on site — using AI to make a 65-year-old building argue for itself again, in 30 seconds, in the language of 2026.",
-    image: "https://res.cloudinary.com/dphq33wah/image/upload/v1775528113/Gemini_Generated_Image_be5zllbe5zllbe5z_kfhy44.jpg",
+    summary: "What happens when you put the architect back on site. Using AI to make a 65-year-old building argue for itself again, in 30 seconds, in the language of 2026.",
+    image: "https://images.unsplash.com/photo-1643835135068-75905e3b8d21?q=80&w=1600&auto=format&fit=crop",
     isHtml: true,
     content: ""
   },

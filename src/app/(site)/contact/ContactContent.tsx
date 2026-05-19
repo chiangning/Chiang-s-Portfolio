@@ -1,58 +1,77 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Mail, Linkedin, MapPin } from "lucide-react";
+import { Mail, Linkedin, MapPin, ArrowUpRight } from "lucide-react";
 
 export function ContactContent() {
   return (
-    <div className="flex-1 ml-0 md:ml-[33.333333%] lg:ml-80 min-h-screen bg-surface p-6 md:p-12 lg:p-24 flex items-center">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-        className="max-w-3xl"
-      >
-        <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-10 leading-[1.0]">
-          <span className="italic text-[#9ca3af] font-normal pr-2" style={{ fontFamily: 'Charter, "Bitstream Charter", "Sitka Text", Cambria, serif' }}>Get in</span>
-          Touch
-        </h1>
-        
-        <p className="text-lg md:text-xl leading-snug mb-16 text-on-surface-variant font-sans font-normal">
-          Whether you're looking to discuss a potential project, explore AI integration in your architectural practice, or inquire about project management consultancy—I'm looking forward to connecting.
-        </p>
-        
-        <div className="flex flex-col gap-8">
-          <a href="mailto:chiangning@gmail.com" className="flex items-center gap-6 group w-fit cursor-pointer">
-            <div className="w-14 h-14 rounded-full border border-white/10 bg-surface-low flex items-center justify-center group-hover:border-primary group-hover:text-primary transition-colors text-white">
-              <Mail className="w-6 h-6 stroke-[1.5]" />
-            </div>
-            <div>
-              <span className="text-[12px] font-bold tracking-[0.15em] text-on-surface-variant uppercase block mb-1">Email</span>
-              <span className="text-xl md:text-2xl text-white group-hover:text-primary transition-colors font-medium">chiangning@gmail.com</span>
-            </div>
-          </a>
+    <div className="bg-paper text-ink">
+      <section className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-14 pt-16 md:pt-28 lg:pt-36 pb-24 md:pb-32">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+          className="max-w-4xl"
+        >
+          <span className="mono-label">Contact</span>
+          <h1 className="fluid-display mt-6 md:mt-8 font-display text-ink font-medium">
+            Get in touch.
+          </h1>
+          <p className="fluid-lead mt-8 max-w-2xl text-ink-soft">
+            For a project conversation, a second opinion on a brief, or a
+            consult on bringing AI into your practice. I&apos;ll come back
+            within the day.
+          </p>
 
-          <a href="https://linkedin.com/in/chiangning" target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 group w-fit cursor-pointer">
-            <div className="w-14 h-14 rounded-full border border-white/10 bg-surface-low flex items-center justify-center group-hover:border-primary group-hover:text-primary transition-colors text-white">
-              <Linkedin className="w-6 h-6 stroke-[1.5]" />
-            </div>
-            <div>
-              <span className="text-[12px] font-bold tracking-[0.15em] text-on-surface-variant uppercase block mb-1">LinkedIn</span>
-              <span className="text-xl md:text-2xl text-white group-hover:text-primary transition-colors font-medium">linkedin.com/in/chiangning</span>
-            </div>
-          </a>
+          <div className="mt-14 md:mt-16 flex flex-col divide-y divide-ink/10 border-t border-b border-ink/10">
+            <a
+              href="mailto:chiangning@gmail.com"
+              className="group flex items-center gap-6 py-6 md:py-8 hover:text-terracotta transition-colors"
+            >
+              <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-ink/15 flex items-center justify-center text-ink-soft group-hover:border-terracotta group-hover:text-terracotta transition-colors">
+                <Mail className="w-5 h-5 stroke-[1.5]" />
+              </div>
+              <div className="flex-1">
+                <span className="mono-label">Email</span>
+                <div className="mt-1 font-display text-[22px] md:text-[26px] text-ink group-hover:text-terracotta transition-colors font-medium">
+                  chiangning@gmail.com
+                </div>
+              </div>
+              <ArrowUpRight className="w-5 h-5 stroke-[1.5] text-ink-soft group-hover:text-terracotta transition-colors" />
+            </a>
 
-          <div className="flex items-center gap-6 group w-fit">
-            <div className="w-14 h-14 rounded-full border border-white/10 bg-surface-low flex items-center justify-center text-white">
-              <MapPin className="w-6 h-6 stroke-[1.5]" />
-            </div>
-            <div>
-              <span className="text-[12px] font-bold tracking-[0.15em] text-on-surface-variant uppercase block mb-1">Location</span>
-              <span className="text-xl md:text-2xl text-white font-medium">Melbourne, Australia</span>
+            <a
+              href="https://linkedin.com/in/chiangning"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-6 py-6 md:py-8 hover:text-terracotta transition-colors"
+            >
+              <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-ink/15 flex items-center justify-center text-ink-soft group-hover:border-terracotta group-hover:text-terracotta transition-colors">
+                <Linkedin className="w-5 h-5 stroke-[1.5]" />
+              </div>
+              <div className="flex-1">
+                <span className="mono-label">LinkedIn</span>
+                <div className="mt-1 font-display text-[22px] md:text-[26px] text-ink group-hover:text-terracotta transition-colors font-medium">
+                  linkedin.com/in/chiangning
+                </div>
+              </div>
+              <ArrowUpRight className="w-5 h-5 stroke-[1.5] text-ink-soft group-hover:text-terracotta transition-colors" />
+            </a>
+
+            <div className="flex items-center gap-6 py-6 md:py-8">
+              <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border border-ink/15 flex items-center justify-center text-ink-soft">
+                <MapPin className="w-5 h-5 stroke-[1.5]" />
+              </div>
+              <div className="flex-1">
+                <span className="mono-label">Location</span>
+                <div className="mt-1 font-display text-[22px] md:text-[26px] text-ink font-medium">
+                  Melbourne, Australia
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </section>
     </div>
   );
 }
