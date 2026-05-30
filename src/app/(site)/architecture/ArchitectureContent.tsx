@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import { VideoPlayer } from "@/components/VideoPlayer";
+import { LineReveal } from "@/components/Reveal";
 
 const capabilities = [
   { num: "01", title: "End-to-End Delivery",  body: "From initial planning and funding submissions through design, documentation, construction, and post-delivery close-out. You get continuity and accountability at every stage." },
@@ -19,7 +20,7 @@ export function ArchitectureContent() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="flex-1 ml-0 md:ml-[33.333333%] lg:ml-80 min-h-screen bg-surface overflow-y-auto"
+      className="bg-paper"
     >
 
       {/* ── Label strip ─────────────────────────────────────────────── */}
@@ -55,12 +56,14 @@ export function ArchitectureContent() {
         </div>
       </div>
 
+      {/* ── Edge-to-edge animated rule ─────────────────────────────── */}
+      <LineReveal />
+
       {/* ── Two text boxes — 1 col mobile / 2 col tablet + desktop ─── */}
-      <div className="grid grid-cols-1 md:grid-cols-2">
+      <div className="mx-auto max-w-[1440px] grid grid-cols-1 md:grid-cols-2">
 
         {/* Box 1 — subtitle + both body paragraphs */}
-        <div className="px-6 py-8 md:px-8 lg:px-10 lg:py-10 flex flex-col gap-4
-                        lg:border-t lg:border-ink/10">
+        <div className="px-6 py-8 md:px-8 lg:px-14 lg:py-12 flex flex-col gap-4">
           <p
             className="text-[15px] lg:text-[16px] leading-snug text-ink mb-1"
             style={{ fontFamily: 'Charter, "Bitstream Charter", "Sitka Text", Cambria, serif', fontStyle: "italic" }}
@@ -82,8 +85,8 @@ export function ArchitectureContent() {
         </div>
 
         {/* Box 2 — capabilities, text styled to match body */}
-        <div className="px-6 py-8 md:px-8 lg:px-10 lg:py-10 flex flex-col gap-5
-                        lg:border-t lg:border-l lg:border-ink/10">
+        <div className="px-6 py-8 md:px-8 lg:px-14 lg:py-12 flex flex-col gap-5
+                        lg:border-l lg:border-ink/10">
           {capabilities.map((cap) => (
             <div key={cap.num} className="flex flex-col gap-0.5">
               <div className="flex items-baseline gap-2">
