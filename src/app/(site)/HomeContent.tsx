@@ -277,10 +277,10 @@ export default function Home() {
                       </>
                     )}
                   </div>
-                  <h3 className="mt-3 font-display text-[18px] md:text-[20px] text-ink font-bold tracking-tighter leading-[1.05] group-hover:text-terracotta transition-colors">
+                  <h3 className="mt-3 font-display text-[18px] md:text-[20px] text-ink font-bold tracking-tighter leading-[1.05] line-clamp-3 min-h-[57px] md:min-h-[63px] group-hover:text-terracotta transition-colors">
                     {r.title}
                   </h3>
-                  <p className="mt-3 text-ink-soft leading-relaxed line-clamp-3">
+                  <p className="mt-3 text-ink-soft leading-tight line-clamp-3">
                     {r.summary}
                   </p>
                 </div>
