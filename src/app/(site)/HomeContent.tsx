@@ -175,12 +175,12 @@ export default function Home() {
                 <h3 className="fluid-h2 mt-4 font-display font-bold tracking-tighter text-ink">
                   {d.label}
                 </h3>
-                <p className="mt-4 text-ink-soft leading-relaxed max-w-md">
+                <p className="mt-4 text-ink-soft leading-tight max-w-md">
                   {d.blurb}
                 </p>
                 <Link
                   href={d.href}
-                  className="group mono-label mt-6 text-ink hover:text-terracotta transition-colors inline-flex items-center gap-2 self-start"
+                  className="group mono-label mt-6 md:mt-auto md:pt-6 text-ink hover:text-terracotta transition-colors inline-flex items-center gap-2 self-start"
                 >
                   Explore
                   <ArrowUpRight className="w-3.5 h-3.5 stroke-[1.5] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
