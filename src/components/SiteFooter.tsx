@@ -9,14 +9,13 @@ export function SiteFooter() {
           {/* Brand */}
           <div className="md:col-span-2">
             <Link href="/" className="block leading-none">
-              <span className="font-display text-ink font-medium text-[22px] md:text-[26px] tracking-tight">
+              <span className="font-display text-ink font-bold text-[22px] md:text-[26px] tracking-tighter">
                 Chiang Ning
               </span>
             </Link>
-            <p className="mt-3 text-ink-soft max-w-md leading-relaxed">
-              Registered Architect and Senior Project Architect. 20+ years across
-              education, commercial, and residential, with a working interest
-              in AI as a daily instrument of practice.
+            <p className="mt-3 text-ink-soft max-w-md leading-snug">
+              Melbourne-based Registered Architect &amp; Project Manager with 20+
+              years across education, civic, commercial, and residential work.
             </p>
           </div>
 
@@ -32,18 +31,26 @@ export function SiteFooter() {
           {/* Contact */}
           <div className="flex flex-col gap-3">
             <span className="mono-label text-ink">Contact</span>
-            <a href="mailto:chiangning@gmail.com" className="text-ink-soft hover:text-ink transition-colors">
-              chiangning@gmail.com
+            <a
+              href="mailto:chiangning@gmail.com"
+              className="group flex items-center gap-2.5 text-ink-soft hover:text-ink transition-colors"
+            >
+              <Mail className="w-4 h-4 stroke-[1.5] shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:text-terracotta" />
+              <span>chiangning@gmail.com</span>
             </a>
             <a
               href="https://www.linkedin.com/in/chiangning"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-ink-soft hover:text-ink transition-colors"
+              className="group flex items-center gap-2.5 text-ink-soft hover:text-ink transition-colors"
             >
-              LinkedIn
+              <Linkedin className="w-4 h-4 stroke-[1.5] shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:text-terracotta" />
+              <span>LinkedIn</span>
             </a>
-            <span className="text-ink-soft">Melbourne, Australia</span>
+            <span className="group flex items-center gap-2.5 text-ink-soft">
+              <MapPin className="w-4 h-4 stroke-[1.5] shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:text-terracotta" />
+              <span>Melbourne, Australia</span>
+            </span>
           </div>
         </div>
 
