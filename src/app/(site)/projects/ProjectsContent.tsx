@@ -40,7 +40,6 @@ export default function ProjectsContent() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-8 md:gap-x-3 md:gap-y-10">
           {projects.map((project, i) => {
             const idx = String(i + 1).padStart(2, "0");
-            const total = String(projects.length).padStart(2, "0");
             return (
               <motion.div
                 key={project.id}
@@ -75,7 +74,7 @@ export default function ProjectsContent() {
                         {formatLocation(project.info.location)} · {project.info.year}
                       </p>
                     </div>
-                    <span className="mono-label-sm text-ink-soft shrink-0 pt-0.5">{idx} / {total}</span>
+                    <span className="mono-label-sm text-ink-soft shrink-0 pt-0.5">{idx}</span>
                   </div>
                 </Link>
               </motion.div>

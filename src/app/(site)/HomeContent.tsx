@@ -105,7 +105,6 @@ export default function Home() {
         <div className="flex gap-2 md:gap-3 overflow-x-auto snap-x snap-mandatory pb-2 -mr-6 md:-mr-10 lg:-mr-14 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {featuredProjects.map((project, i) => {
             const idx = String(i + 1).padStart(2, "0");
-            const total = String(projects.length).padStart(2, "0");
             return (
               <motion.div
                 key={project.id}
@@ -141,7 +140,7 @@ export default function Home() {
                         {formatLocation(project.info.location)} · {project.info.year}
                       </p>
                     </div>
-                    <span className="mono-label-sm text-ink-soft shrink-0 pt-0.5">{idx} / {total}</span>
+                    <span className="mono-label-sm text-ink-soft shrink-0 pt-0.5">{idx}</span>
                   </div>
                 </Link>
               </motion.div>
@@ -203,9 +202,9 @@ export default function Home() {
               Specialist advice, at speed.
             </h2>
             <p className="mt-6 text-paper/80 leading-relaxed max-w-2xl">
-              For a project conversation, a second opinion on a brief, or a
-              consult on bringing AI into your practice. Get in touch and
-              I&apos;ll come back within the day.
+              Want to unlock AI in your organisation without compromising human
+              accountability and creativity? Get in touch and I&apos;ll come
+              back within the day.
             </p>
             <div className="mt-10 flex flex-wrap gap-x-6 gap-y-4 items-center">
               <a
