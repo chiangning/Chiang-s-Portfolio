@@ -102,7 +102,7 @@ export default function Home() {
           </Link>
         </Reveal>
 
-        <div className="flex gap-2 md:gap-3 overflow-x-auto snap-x snap-mandatory pb-2 -mr-6 md:-mr-10 lg:-mr-14 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {featuredProjects.map((project, i) => {
             const idx = String(i + 1).padStart(2, "0");
             return (
@@ -112,7 +112,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.6, delay: (i % 3) * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-                className="flex-none w-[80%] sm:w-[45%] lg:w-[30.5%] xl:w-[22%] snap-start"
+                className="flex-none w-[78%] md:w-[calc((100%-1.5rem)/3)] snap-start"
               >
                 <Link href={`/project/${project.id}`} className="group block">
                   <div className="relative aspect-[4/5] overflow-hidden bg-paper-soft">
@@ -248,7 +248,7 @@ export default function Home() {
           </Link>
         </Reveal>
 
-        <div className="flex gap-2 md:gap-3 overflow-x-auto snap-x snap-mandatory pb-2 -mr-6 md:-mr-10 lg:-mr-14 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {featuredResources.map((r, i) => (
             <motion.div
               key={r.id}

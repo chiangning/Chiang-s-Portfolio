@@ -39,7 +39,7 @@ export function ResourcesContent() {
       >
         <div className="flex flex-col xl:flex-row xl:items-end justify-between mb-12 gap-6">
           <div className="max-w-2xl">
-            <h1 className="text-4xl md:text-5xl font-charter text-on-surface-variant mb-4">
+            <h1 className="fluid-display font-sans text-ink font-bold tracking-tighter mb-4">
               Resources
             </h1>
             <p className="text-lg text-on-surface/70 leading-relaxed">
