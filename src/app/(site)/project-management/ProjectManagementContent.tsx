@@ -114,6 +114,76 @@ export function ProjectManagementContent() {
         </div>
 
       </div>
+
+      {/* ── Selected delivery — featured projects ──────────────────── */}
+      <LineReveal />
+
+      <div className="mx-auto max-w-[1440px] px-6 py-10 md:px-8 lg:px-14 lg:py-14">
+        <div className="flex items-baseline gap-3 mb-8 lg:mb-10">
+          <span className="w-5 h-px bg-primary flex-shrink-0" />
+          <span className="text-[9px] font-sans uppercase tracking-[0.22em] text-primary whitespace-nowrap">
+            Selected Delivery
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-10 lg:gap-x-10">
+
+          {/* Tropicana Miyu */}
+          <Link href="/project/tropicana-miyu" className="group block">
+            <div className="relative aspect-[4/3] overflow-hidden bg-paper-soft">
+              <img
+                src="https://res.cloudinary.com/dphq33wah/image/upload/v1774350932/Generated_Image_March_24_2026_-_9_00PM_kgrhfi.jpg"
+                alt="Tropicana Miyu, Petaling Jaya"
+                referrerPolicy="no-referrer"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-[800ms] ease-out group-hover:scale-[1.03]"
+              />
+            </div>
+            <span className="mt-4 block text-[9px] font-sans uppercase tracking-[0.2em] text-primary">
+              Development & Project Management
+            </span>
+            <h3 className="mt-2 font-sans font-bold tracking-tighter text-ink text-[19px] md:text-[21px] leading-[1.05] group-hover:text-primary transition-colors">
+              Tropicana Miyu
+            </h3>
+            <p className="mt-1 text-[11px] text-ink/55">
+              Petaling Jaya, Selangor · 2020 - 2024 · 271 Units
+            </p>
+            <p
+              className="mt-3 text-[13px] leading-[1.55] text-on-surface-variant"
+              style={{ textAlign: "justify", textAlignLast: "left", hyphens: "auto" } as React.CSSProperties}
+            >
+              As General Manager (Project) for Tropicana Corporation, I held end-to-end accountability for Miyu, a premium boutique residential tower of 271 units across 40 levels on a 2.9-acre site. I was the principal point of contact for the project control group, shareholders, and senior management, reporting monthly on progress, cost, and risk. Disciplined cost control and variation management kept the project on budget and helped drive profit-before-tax margins above 20%, with the development reaching 100% sell-through.
+            </p>
+          </Link>
+
+          {/* Sunway Penang @ Anson */}
+          <Link href="/project/sunway-property-penang" className="group block">
+            <div className="relative aspect-[4/3] overflow-hidden bg-paper-soft">
+              <img
+                src="https://res.cloudinary.com/dphq33wah/image/upload/v1774740210/ED013._Sunway_Anson_11_amkgme.jpg"
+                alt="Sunway Penang @ Anson, Georgetown"
+                referrerPolicy="no-referrer"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-[800ms] ease-out group-hover:scale-[1.03]"
+              />
+            </div>
+            <span className="mt-4 block text-[9px] font-sans uppercase tracking-[0.2em] text-primary">
+              Design & Project Management
+            </span>
+            <h3 className="mt-2 font-sans font-bold tracking-tighter text-ink text-[19px] md:text-[21px] leading-[1.05] group-hover:text-primary transition-colors">
+              Sunway Penang @ Anson
+            </h3>
+            <p className="mt-1 text-[11px] text-ink/55">
+              Anson Road, Georgetown · 2013 - 2017 · GFA 20,400 sq ft
+            </p>
+            <p
+              className="mt-3 text-[13px] leading-[1.55] text-on-surface-variant"
+              style={{ textAlign: "justify", textAlignLast: "left", hyphens: "auto" } as React.CSSProperties}
+            >
+              As project lead for Sunway Penang @ Anson, I delivered the flagship regional office and showroom that launched Sunway Property's expansion into Penang. Working on Anson Road within UNESCO World Heritage-listed Georgetown, I coordinated architecture, landscape, and interior design through to completion, managed every authority approval, and steered procurement and construction. The result was the first GBI Gold-certified showroom in Northern Malaysia, setting the tone for a five-year pipeline targeting RM5 billion in combined GDV.
+            </p>
+          </Link>
+
+        </div>
+      </div>
     </motion.div>
   );
 }
