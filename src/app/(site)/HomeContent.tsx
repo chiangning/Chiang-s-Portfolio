@@ -7,6 +7,7 @@ import { projects } from "@/data/projects";
 import { resources } from "@/data/resources";
 import { VideoPlayer } from "@/components/VideoPlayer";
 import { FlutedGlass } from "@/components/FlutedGlass";
+import { Reveal, LineReveal } from "@/components/Reveal";
 
 const disciplines = [
   {
@@ -67,17 +68,17 @@ export default function Home() {
           <div className="mt-10 md:mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
             <Link
               href="/architecture"
-              className="inline-flex items-center gap-2 bg-ink text-paper px-6 py-3 mono-label hover:bg-ink-deep transition-colors"
+              className="group inline-flex items-center gap-2 bg-ink text-paper px-6 py-3 mono-label hover:bg-ink-deep transition-colors"
             >
               View the work
-              <ArrowUpRight className="w-3.5 h-3.5 stroke-[1.5]" />
+              <ArrowUpRight className="w-3.5 h-3.5 stroke-[1.5] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
             <a
               href="mailto:chiangning@gmail.com"
-              className="mono-label text-ink hover:text-terracotta transition-colors inline-flex items-center gap-2"
+              className="group mono-label text-ink hover:text-terracotta transition-colors inline-flex items-center gap-2"
             >
               chiangning@gmail.com
-              <ArrowUpRight className="w-3.5 h-3.5 stroke-[1.5]" />
+              <ArrowUpRight className="w-3.5 h-3.5 stroke-[1.5] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
           </div>
         </motion.div>
@@ -88,16 +89,18 @@ export default function Home() {
       {/* SELECTED PROJECTS - three featured                            */}
       {/* ============================================================ */}
       <section className="bg-paper">
+        <LineReveal />
         <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-14 py-16 md:py-24">
-        <div className="flex items-baseline justify-between mb-10 md:mb-14 pt-6 border-t border-ink/10">
+        <Reveal className="flex items-baseline justify-between mb-10 md:mb-14">
           <span className="mono-label">Selected Projects</span>
           <Link
             href="/projects"
-            className="mono-label hover:text-terracotta transition-colors"
+            className="group mono-label hover:text-terracotta transition-colors"
           >
-            View all {projects.length} projects →
+            View all {projects.length} projects{" "}
+            <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
           </Link>
-        </div>
+        </Reveal>
 
         <div className="flex gap-2 md:gap-3 overflow-x-auto snap-x snap-mandatory pb-2 -mr-6 md:-mr-10 lg:-mr-14 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {featuredProjects.map((project, i) => {
@@ -152,11 +155,12 @@ export default function Home() {
       {/* DISCIPLINES BAND                                              */}
       {/* ============================================================ */}
       <section className="bg-paper-soft">
+        <LineReveal />
         <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-14 py-20 md:py-28">
-          <div className="flex items-baseline justify-between mb-10 md:mb-14 pt-6 border-t border-ink/10">
+          <Reveal className="flex items-baseline justify-between mb-10 md:mb-14">
             <span className="mono-label">Disciplines</span>
             <span className="mono-label text-ink-soft">03 / 03</span>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 md:divide-x md:divide-ink/10">
             {disciplines.map((d, i) => (
@@ -177,10 +181,10 @@ export default function Home() {
                 </p>
                 <Link
                   href={d.href}
-                  className="mono-label mt-6 text-ink hover:text-terracotta transition-colors inline-flex items-center gap-2 self-start"
+                  className="group mono-label mt-6 text-ink hover:text-terracotta transition-colors inline-flex items-center gap-2 self-start"
                 >
                   Explore
-                  <ArrowUpRight className="w-3.5 h-3.5 stroke-[1.5]" />
+                  <ArrowUpRight className="w-3.5 h-3.5 stroke-[1.5] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
               </motion.div>
             ))}
@@ -206,19 +210,19 @@ export default function Home() {
             <div className="mt-10 flex flex-wrap gap-x-6 gap-y-4 items-center">
               <a
                 href="mailto:chiangning@gmail.com"
-                className="inline-flex items-center gap-2 bg-paper text-ink px-6 py-3 mono-label hover:bg-paper-soft transition-colors"
+                className="group inline-flex items-center gap-2 bg-paper text-ink px-6 py-3 mono-label hover:bg-paper-soft transition-colors"
               >
                 Email
-                <ArrowUpRight className="w-3.5 h-3.5 stroke-[1.5]" />
+                <ArrowUpRight className="w-3.5 h-3.5 stroke-[1.5] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
               <a
                 href="https://www.linkedin.com/in/chiangning"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mono-label text-paper hover:text-terracotta transition-colors inline-flex items-center gap-2"
+                className="group mono-label text-paper hover:text-terracotta transition-colors inline-flex items-center gap-2"
               >
                 LinkedIn
-                <ArrowUpRight className="w-3.5 h-3.5 stroke-[1.5]" />
+                <ArrowUpRight className="w-3.5 h-3.5 stroke-[1.5] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
             </div>
           </div>
@@ -229,16 +233,18 @@ export default function Home() {
       {/* RESOURCES                                                     */}
       {/* ============================================================ */}
       <section className="bg-paper">
+        <LineReveal />
         <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-14 py-16 md:py-24">
-        <div className="flex items-baseline justify-between mb-10 md:mb-14 pt-6 border-t border-ink/10">
+        <Reveal className="flex items-baseline justify-between mb-10 md:mb-14">
           <span className="mono-label">Resources</span>
           <Link
             href="/resources"
-            className="mono-label hover:text-terracotta transition-colors"
+            className="group mono-label hover:text-terracotta transition-colors"
           >
-            All articles →
+            All articles{" "}
+            <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
           </Link>
-        </div>
+        </Reveal>
 
         <div className="flex gap-2 md:gap-3 overflow-x-auto snap-x snap-mandatory pb-2 -mr-6 md:-mr-10 lg:-mr-14 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {featuredResources.map((r, i) => (

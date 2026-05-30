@@ -58,8 +58,11 @@ export function TopNav() {
                   key={link.name}
                   href={link.path}
                   className={cn(
-                    "mono-label transition-colors hover:text-ink",
-                    active ? "text-ink" : "text-ink-soft"
+                    "mono-label transition-colors hover:text-ink relative inline-block py-1",
+                    "after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:bg-ink after:origin-left after:transition-transform after:duration-300 after:ease-out",
+                    active
+                      ? "text-ink after:scale-x-100"
+                      : "text-ink-soft after:scale-x-0 hover:after:scale-x-100"
                   )}
                 >
                   {link.name}
