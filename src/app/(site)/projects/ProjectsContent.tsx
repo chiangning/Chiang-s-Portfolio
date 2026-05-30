@@ -22,7 +22,7 @@ export default function ProjectsContent() {
           className="max-w-4xl"
         >
           <span className="mono-label">Index · {projects.length} works</span>
-          <h1 className="fluid-display mt-6 md:mt-8 font-display text-ink font-bold tracking-tight">
+          <h1 className="fluid-display mt-6 md:mt-8 font-sans text-ink font-bold tracking-tighter">
             Projects.
           </h1>
           <p className="fluid-lead mt-8 max-w-2xl text-ink-soft">
