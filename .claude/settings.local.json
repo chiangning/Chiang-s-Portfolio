@@ -16,7 +16,23 @@
       "Bash(git remote *)",
       "Bash(ls -la .gitignore)",
       "Bash(cat .gitignore)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git rm *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git branch *)",
+      "Bash(git push *)",
+      "Bash(git config *)",
+      "Bash(git -C \"/Users/chiangning/Library/CloudStorage/OneDrive-StantonDahlArchitects/Gemini/Website - Portfolio\" push -u origin main)",
+      "Bash(git pull *)",
+      "Bash(git merge *)",
+      "Bash(git checkout *)",
+      "Bash(git reset *)",
+      "Bash(awk '{print $2}')",
+      "Bash(curl -s --max-time 10 -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(curl -s --max-time 5 -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(xargs kill -9)",
+      "Bash(grep -n \"content: \\\\`\" \"/Users/chiangning/Library/CloudStorage/OneDrive-StantonDahlArchitects/Gemini/Website - Portfolio/src/data/resources.ts\")"
     ]
   }
 }

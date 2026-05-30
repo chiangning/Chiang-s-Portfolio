@@ -14,6 +14,7 @@ const fragmentShaderSource = `
   uniform vec2 u_resolution;
   uniform float u_time;
   uniform vec2 u_mouse;
+  uniform float u_dark;
 
   // Pseudo-random helper
   float random(vec2 st) {
@@ -98,12 +99,14 @@ const fragmentShaderSource = `
       float n1 = fbm(fluidUv * 2.0 + fbm(fluidUv * 4.0));
       float n2 = fbm(fluidUv * 4.0 - u_time * 0.05);
       
-      // Monochrome light color palette
-      vec3 darkTone = vec3(0.75);
-      vec3 deepTone = vec3(0.85);
-      vec3 midTone = vec3(0.95);
-      vec3 lightTone = vec3(1.0);
-      vec3 accentTone = vec3(0.65);
+      // Palette: monochrome light (default) vs dark olive (u_dark = 1.0)
+      float D = u_dark;
+      vec3 darkTone   = mix(vec3(0.75), vec3(0.150, 0.150, 0.085), D);
+      vec3 deepTone   = mix(vec3(0.85), vec3(0.190, 0.190, 0.105), D);
+      vec3 midTone    = mix(vec3(0.95), vec3(0.260, 0.260, 0.150), D);
+      vec3 lightTone  = mix(vec3(1.0),  vec3(0.420, 0.420, 0.250), D);
+      vec3 accentTone = mix(vec3(0.65), vec3(0.100, 0.100, 0.055), D);
+      vec3 hiTone     = mix(vec3(1.0),  vec3(0.520, 0.520, 0.310), D);
       
       // Layering the colors based on noise
       vec3 color = mix(darkTone, deepTone, n1 * 1.5);
@@ -116,7 +119,7 @@ const fragmentShaderSource = `
       
       // Extreme white blowout area matching right edge of reference
       float rightGlowArea = smoothstep(0.6, 1.0, uv.x) * smoothstep(0.2, 0.8, fbm(fluidUv*3.0));
-      color = mix(color, vec3(1.0), rightGlowArea * 0.95);
+      color = mix(color, hiTone, rightGlowArea * 0.95);
       
       // Add subtle darker spot near bottom left instead of "warm spot"
       float distAccent = distance(refractedUv, vec2(0.2, 0.1));
@@ -137,8 +140,8 @@ const fragmentShaderSource = `
       float crevice = smoothstep(1.0, 0.96, abs(nx)); 
       
       // Composite the lighting over the fluid color
-      color = color * (0.85 + 0.15 * diffuse); 
-      color += vec3(1.0) * specular * crevice; // Bright specular highlights for glass
+      color = color * (0.85 + 0.15 * diffuse);
+      color += hiTone * specular * crevice; // Bright specular highlights for glass
       
       // Deepen the shadows in the gaps between ridges (make the gap line very fine and thin)
       float fineJoint = smoothstep(1.0, 0.98, abs(nx));
@@ -148,8 +151,10 @@ const fragmentShaderSource = `
   }
 `;
 
-export const FlutedGlass: React.FC = () => {
+export const FlutedGlass: React.FC<{ dark?: boolean }> = ({ dark = false }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const darkRef = useRef(dark);
+  darkRef.current = dark;
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -214,6 +219,7 @@ export const FlutedGlass: React.FC = () => {
     const resolutionLocation = gl.getUniformLocation(program, 'u_resolution');
     const timeLocation = gl.getUniformLocation(program, 'u_time');
     const mouseLocation = gl.getUniformLocation(program, 'u_mouse');
+    const darkLocation = gl.getUniformLocation(program, 'u_dark');
 
     let animationFrameId: number;
     let mouseX = 0.5;
@@ -250,6 +256,7 @@ export const FlutedGlass: React.FC = () => {
       gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
       gl.uniform1f(timeLocation, (Date.now() - startTime) / 1000.0);
       gl.uniform2f(mouseLocation, mouseX, mouseY);
+      gl.uniform1f(darkLocation, darkRef.current ? 1.0 : 0.0);
 
       gl.drawArrays(gl.TRIANGLES, 0, 6);
       animationFrameId = requestAnimationFrame(render);
@@ -267,7 +274,7 @@ export const FlutedGlass: React.FC = () => {
   return (
     <canvas 
       ref={canvasRef} 
-      className="absolute inset-0 w-full h-full object-cover block bg-white z-0 pointer-events-none"
+      className={`absolute inset-0 w-full h-full object-cover block z-0 pointer-events-none ${dark ? "bg-ink" : "bg-white"}`}
     />
   );
 };
