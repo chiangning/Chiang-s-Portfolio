@@ -68,7 +68,7 @@ export default function ProjectsContent() {
                   <div className="mt-5 pt-4 border-t border-ink/10 flex items-start justify-between gap-4">
                     <div className="min-w-0">
                       <span className="mono-label">{project.category}</span>
-                      <h3 className="mt-3 font-display text-[20px] md:text-[22px] text-ink font-bold tracking-tight leading-[1.05] group-hover:text-terracotta transition-colors">
+                      <h3 className="mt-3 font-display text-[20px] md:text-[22px] text-ink font-bold tracking-tighterleading-[1.05] group-hover:text-terracotta transition-colors">
                         {project.title}
                       </h3>
                       <p className="mt-2 mono-label-sm text-ink-soft">

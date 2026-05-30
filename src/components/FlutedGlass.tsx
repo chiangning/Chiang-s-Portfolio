@@ -67,7 +67,7 @@ const fragmentShaderSource = `
       numRidges = clamp(numRidges, 10.0, 60.0);
 
       // Slow horizontal drift of the ridges themselves — keeps the glass feeling alive
-      float ridgeDrift = u_time * 0.005;
+      float ridgeDrift = u_time * 0.013;
       // Add a tiny bit of noise to make them feel slightly organic, almost imperceptible
       float ridgePos = fract(uv.x * numRidges + ridgeDrift + noise(vec2(uv.y * 5.0, 0.0)) * 0.05);
       
@@ -91,12 +91,12 @@ const fragmentShaderSource = `
       fluidUv.y *= 0.15; // heavily stretch vertically
       
       // Constant drift upwards and sideways, entirely non-interactive
-      fluidUv.x -= u_time * 0.012;
-      fluidUv.y -= u_time * 0.03;
+      fluidUv.x -= u_time * 0.03;
+      fluidUv.y -= u_time * 0.08;
 
       // Base organic movement
       float n1 = fbm(fluidUv * 2.0 + fbm(fluidUv * 4.0));
-      float n2 = fbm(fluidUv * 4.0 - u_time * 0.02);
+      float n2 = fbm(fluidUv * 4.0 - u_time * 0.05);
       
       // Monochrome light color palette
       vec3 darkTone = vec3(0.75);
@@ -110,7 +110,7 @@ const fragmentShaderSource = `
       color = mix(color, midTone, smoothstep(0.3, 0.8, n2));
       
       // Create strong highly contrasted vertical bright streaks
-      float streakNoise = fbm(vec2(refractedUv.x * 20.0, u_time * 0.04));
+      float streakNoise = fbm(vec2(refractedUv.x * 20.0, u_time * 0.10));
       float streak = smoothstep(0.6, 1.0, streakNoise);
       color = mix(color, lightTone, streak * 0.8);
       

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Mail, Linkedin, MapPin } from "lucide-react";
 
 export function SiteFooter() {
   return (

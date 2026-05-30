@@ -134,7 +134,7 @@ export default function Home() {
                   <div className="mt-5 pt-4 border-t border-ink/10 flex items-start justify-between gap-4">
                     <div className="min-w-0">
                       <span className="mono-label">{project.category}</span>
-                      <h3 className="mt-3 font-display text-[20px] md:text-[22px] text-ink font-bold tracking-tight leading-[1.05] group-hover:text-terracotta transition-colors">
+                      <h3 className="mt-3 font-display text-[20px] md:text-[22px] text-ink font-bold tracking-tighterleading-[1.05] group-hover:text-terracotta transition-colors">
                         {project.title}
                       </h3>
                       <p className="mt-2 mono-label-sm text-ink-soft">
@@ -173,7 +173,7 @@ export default function Home() {
                 className="flex flex-col py-10 md:py-0 md:px-10 first:md:pl-0 last:md:pr-0"
               >
                 <span className="mono-label-sm text-ink-soft">0{i + 1} / 03</span>
-                <h3 className="fluid-h2 mt-4 font-display font-bold tracking-tight text-ink">
+                <h3 className="fluid-h2 mt-4 font-display font-bold tracking-tightertext-ink">
                   {d.label}
                 </h3>
                 <p className="mt-4 text-ink-soft leading-relaxed max-w-md">
@@ -199,7 +199,7 @@ export default function Home() {
         <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-14 py-20 md:py-28">
           <div className="max-w-3xl">
             <span className="mono-label text-paper/60">Get in touch</span>
-            <h2 className="fluid-h1 mt-6 font-display font-bold tracking-tight text-paper">
+            <h2 className="fluid-h1 mt-6 font-display font-bold tracking-tightertext-paper">
               Specialist advice, at speed.
             </h2>
             <p className="mt-6 text-paper/80 leading-relaxed max-w-2xl">
@@ -275,7 +275,7 @@ export default function Home() {
                       </>
                     )}
                   </div>
-                  <h3 className="mt-3 font-display text-[18px] md:text-[20px] text-ink font-bold tracking-tight leading-[1.05] group-hover:text-terracotta transition-colors">
+                  <h3 className="mt-3 font-display text-[18px] md:text-[20px] text-ink font-bold tracking-tighterleading-[1.05] group-hover:text-terracotta transition-colors">
                     {r.title}
                   </h3>
                   <p className="mt-3 text-ink-soft leading-relaxed line-clamp-3">

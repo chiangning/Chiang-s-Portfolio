@@ -14,7 +14,7 @@ export function ContactContent() {
           className="max-w-4xl"
         >
           <span className="mono-label">Contact</span>
-          <h1 className="fluid-display mt-6 md:mt-8 font-display text-ink font-medium">
+          <h1 className="fluid-display mt-6 md:mt-8 font-display text-ink font-bold tracking-tighter">
             Get in touch.
           </h1>
           <p className="fluid-lead mt-8 max-w-2xl text-ink-soft">

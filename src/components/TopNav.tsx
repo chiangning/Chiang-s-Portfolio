@@ -41,7 +41,7 @@ export function TopNav() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href="/" className="flex flex-col leading-none">
-            <span className="font-display text-ink font-medium text-[18px] md:text-[20px] tracking-tight">
+            <span className="font-display text-ink font-medium text-[18px] md:text-[20px] tracking-tighter">
               Chiang Ning
             </span>
             <span className="mono-label-sm text-ink-soft mt-1">

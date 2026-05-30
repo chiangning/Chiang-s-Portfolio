@@ -137,7 +137,7 @@ export function ResourceDetailContent({ resource }: { resource: Resource }) {
 
               {/* ── Title (dark on white, always legible) ─────────────────── */}
               <div className="mx-auto w-full max-w-7xl px-6 md:px-12 lg:px-24 pt-10 md:pt-14">
-                <h1 className="font-display font-bold tracking-tight text-ink leading-[1.05] text-[28px] md:text-[40px] lg:text-[48px]">
+                <h1 className="font-display font-bold tracking-tighter text-ink leading-[1.05] text-[28px] md:text-[40px] lg:text-[48px]">
                   {resource.title}
                 </h1>
               </div>

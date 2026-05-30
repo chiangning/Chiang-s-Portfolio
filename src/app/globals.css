@@ -73,7 +73,7 @@ body {
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     color: var(--color-ink);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.035em;
     line-height: 1.05;
     font-weight: 700;
   }
@@ -89,18 +89,18 @@ body {
 @layer components {
   .fluid-display {
     font-size: clamp(35px, calc(35px + 30 * ((100vw - 320px) / 1600)), 65px);
-    letter-spacing: -0.03em;
-    line-height: 1.02;
+    letter-spacing: -0.045em;
+    line-height: 1.0;
   }
   .fluid-h1 {
     font-size: clamp(28px, calc(28px + 20 * ((100vw - 320px) / 1600)), 48px);
-    letter-spacing: -0.025em;
-    line-height: 1.08;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
   }
   .fluid-h2 {
     font-size: clamp(22px, calc(22px + 14 * ((100vw - 320px) / 1600)), 36px);
-    letter-spacing: -0.02em;
-    line-height: 1.12;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
   }
   .fluid-lead {
     font-size: clamp(18px, calc(18px + 6 * ((100vw - 320px) / 1600)), 24px);
