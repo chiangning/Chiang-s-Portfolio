@@ -112,7 +112,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.6, delay: (i % 3) * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-                className="flex-none w-[80%] sm:w-[45%] lg:w-[30.5%] snap-start"
+                className="flex-none w-[80%] sm:w-[45%] lg:w-[30.5%] xl:w-[22%] snap-start"
               >
                 <Link href={`/project/${project.id}`} className="group block">
                   <div className="relative aspect-[4/5] overflow-hidden bg-paper-soft">
@@ -253,7 +253,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6, delay: (i % 3) * 0.1 }}
-              className="flex-none w-[80%] sm:w-[45%] lg:w-[30.5%] snap-start"
+              className="flex-none w-[80%] sm:w-[45%] lg:w-[30.5%] xl:w-[22%] snap-start"
             >
               <Link href={`/resources/${r.id}`} className="group block">
                 <div className="relative aspect-[4/3] overflow-hidden bg-paper-soft">
