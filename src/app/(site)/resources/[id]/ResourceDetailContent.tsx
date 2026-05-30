@@ -7,6 +7,7 @@ import Markdown from "react-markdown";
 import { Resource, resources } from "@/data/resources";
 import { projects } from "@/data/projects";
 import { ImageCarousel } from "@/components/ImageCarousel";
+import { GptImage2Article } from "./GptImage2Article";
 import GanttChartTool from "@/components/GanttChartTool";
 import dynamic from "next/dynamic";
 import { useState } from "react";
@@ -90,7 +91,9 @@ export function ResourceDetailContent({ resource }: { resource: Resource }) {
         </div>
       </nav>
 
-      {resource.isHtml ? (
+      {resource.id === "prompting-gpt-image-2" ? (
+        <GptImage2Article />
+      ) : resource.isHtml ? (
         <div className="w-full flex-1">
           <iframe
             src={`/data/${resource.id}.html`}

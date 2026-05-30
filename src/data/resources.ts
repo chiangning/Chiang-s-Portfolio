@@ -196,8 +196,8 @@ This approach allows us to maintain full ownership of our tools while continuous
     title: "Prompting GPT Image 2: A Field Guide for Architects & Interior Designers",
     date: "24/4/2026",
     tags: ["AI", "Architecture"],
-    summary: "A working field guide for architects and interior designers — ten principles, three applied workflows, and the honest limits of a model that has finally learned to listen.",
-    image: "https://res.cloudinary.com/dphq33wah/image/upload/v1777534722/gpt-2_j7v5yh.png",
+    summary: "A working field guide for architects and interior designers: ten principles, three applied workflows, and the honest limits of a model that has finally learned to listen.",
+    image: "/articles/gpt-image-2/hero.jpg",
     content: "",
     isHtml: true
   },
