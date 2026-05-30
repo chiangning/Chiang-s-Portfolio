@@ -60,7 +60,7 @@ export default function Home() {
             Unlock AI in Architecture &amp; Project Management without
             compromising Human Accountability &amp; Creativity.
           </h1>
-          <p className="fluid-lead mt-8 md:mt-10 max-w-2xl text-ink">
+          <p className="fluid-lead mt-8 md:mt-10 max-w-2xl text-ink-deep font-semibold">
             Chiang Ning is a Melbourne-based Registered Architect &amp; Project
             Manager with 20+ years across education, civic, commercial, and
             residential work.
