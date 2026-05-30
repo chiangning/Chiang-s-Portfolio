@@ -22,7 +22,7 @@ export default function ProjectsContent() {
           className="max-w-4xl"
         >
           <span className="mono-label">Index · {projects.length} works</span>
-          <h1 className="fluid-display mt-6 md:mt-8 font-display text-ink font-medium">
+          <h1 className="fluid-display mt-6 md:mt-8 font-display text-ink font-bold tracking-tight">
             Projects.
           </h1>
           <p className="fluid-lead mt-8 max-w-2xl text-ink-soft">
@@ -37,7 +37,7 @@ export default function ProjectsContent() {
       {/* GRID - 2-up on tablet, 3-up on desktop                        */}
       {/* ============================================================ */}
       <section className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-14 pb-24 md:pb-32">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-14 md:gap-y-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-8 md:gap-x-3 md:gap-y-10">
           {projects.map((project, i) => {
             const idx = String(i + 1).padStart(2, "0");
             const total = String(projects.length).padStart(2, "0");
@@ -68,7 +68,7 @@ export default function ProjectsContent() {
                   <div className="mt-5 pt-4 border-t border-ink/10 flex items-start justify-between gap-4">
                     <div className="min-w-0">
                       <span className="mono-label">{project.category}</span>
-                      <h3 className="mt-3 font-display text-[20px] md:text-[22px] text-ink font-medium leading-snug group-hover:text-terracotta transition-colors">
+                      <h3 className="mt-3 font-display text-[20px] md:text-[22px] text-ink font-bold tracking-tight leading-[1.05] group-hover:text-terracotta transition-colors">
                         {project.title}
                       </h3>
                       <p className="mt-2 mono-label-sm text-ink-soft">

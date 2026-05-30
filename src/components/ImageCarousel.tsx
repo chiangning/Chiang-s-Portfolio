@@ -13,7 +13,7 @@ export function ImageCarousel({ images, className, objectFit = 'contain' }: { im
   if (!images?.length) return null;
 
   return (
-    <div className={`relative w-full overflow-hidden group bg-surface-variant border border-white/10 shadow-xl ${className || ''}`}>
+    <div className={`relative w-full overflow-hidden group bg-paper-soft border border-ink/10 ${className || ''}`}>
       <div className="w-full h-full relative">
         <AnimatePresence mode="wait">
           <motion.img

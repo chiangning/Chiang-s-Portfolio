@@ -34,16 +34,16 @@ export function ProjectDetailContent({ project }: { project: ProjectData }) {
                 ? '/project-management' 
                 : '/architecture'
             } 
-            className="text-on-surface-variant hover:text-white transition-colors"
+            className="text-on-surface-variant hover:text-ink transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
           </Link>
-          <span className="text-sm font-medium text-white">{project.title}</span>
+          <span className="text-sm font-medium text-ink">{project.title}</span>
         </div>
         <div className="flex items-center gap-6">
           <button 
             onClick={handleShare}
-            className="text-on-surface-variant hover:text-white transition-colors relative group"
+            className="text-on-surface-variant hover:text-ink transition-colors relative group"
             title="Share URL"
           >
             {copied ? <Check className="w-5 h-5 text-green-500" /> : <Share2 className="w-5 h-5" />}
@@ -55,7 +55,7 @@ export function ProjectDetailContent({ project }: { project: ProjectData }) {
           </button>
           <button 
             onClick={() => setBookmarked(prev => !prev)}
-            className="text-on-surface-variant hover:text-white transition-colors"
+            className="text-on-surface-variant hover:text-ink transition-colors"
             title="Bookmark"
           >
             <Bookmark className={`w-5 h-5 transition-colors ${bookmarked ? 'fill-primary text-primary' : ''}`} />
@@ -112,7 +112,7 @@ export function ProjectDetailContent({ project }: { project: ProjectData }) {
             <span className="text-[13px] font-[Helvetica,Arial,sans-serif] uppercase tracking-[0.08em] text-on-surface-variant">
               {project.contentTitle}
             </span>
-            <h1 className="font-charter text-[36px] md:text-[56px] font-normal leading-[1.0] tracking-[-0.01em] text-white">
+            <h1 className="font-charter text-[36px] md:text-[56px] font-normal leading-[1.0] tracking-[-0.01em] text-ink">
               {project.title}
             </h1>
           </div>
@@ -130,7 +130,7 @@ export function ProjectDetailContent({ project }: { project: ProjectData }) {
               <ul className="space-y-8">
                 {project.contentList.items.map((item, i) => (
                   <li key={i} className="flex flex-col gap-2">
-                    <span className="font-[Helvetica,Arial,sans-serif] text-[14px] font-bold text-white uppercase tracking-[0.04em]">
+                    <span className="font-[Helvetica,Arial,sans-serif] text-[14px] font-bold text-ink uppercase tracking-[0.04em]">
                       {item.title}
                     </span>
                     <span className="font-sans text-[14px] leading-[1.45] text-on-surface-variant">
@@ -157,74 +157,74 @@ export function ProjectDetailContent({ project }: { project: ProjectData }) {
             </h3>
             
             <div className="flex flex-col gap-6">
-              <div className="border-t border-white/10 pt-4 flex flex-col gap-2">
+              <div className="border-t border-ink/15 pt-4 flex flex-col gap-2">
                 <span className="font-[Helvetica,Arial,sans-serif] text-[12px] uppercase tracking-[0.1em] text-on-surface-variant">
                   Location
                 </span>
-                <span className="font-sans text-[15px] text-white font-normal whitespace-pre-line leading-snug">
+                <span className="font-sans text-[15px] text-ink font-normal whitespace-pre-line leading-snug">
                   {project.info.location}
                 </span>
               </div>
-              <div className="border-t border-white/10 pt-4 flex flex-col gap-2">
+              <div className="border-t border-ink/15 pt-4 flex flex-col gap-2">
                 <span className="font-[Helvetica,Arial,sans-serif] text-[12px] uppercase tracking-[0.1em] text-on-surface-variant">
                   Year
                 </span>
-                <span className="font-sans text-[15px] text-white font-normal leading-snug">
+                <span className="font-sans text-[15px] text-ink font-normal leading-snug">
                   {project.info.year}
                 </span>
               </div>
-              <div className="border-t border-white/10 pt-4 flex flex-col gap-2">
+              <div className="border-t border-ink/15 pt-4 flex flex-col gap-2">
                 <span className="font-[Helvetica,Arial,sans-serif] text-[12px] uppercase tracking-[0.1em] text-on-surface-variant">
                   Client
                 </span>
-                <span className="font-sans text-[15px] text-white font-normal whitespace-pre-line leading-snug">
+                <span className="font-sans text-[15px] text-ink font-normal whitespace-pre-line leading-snug">
                   {project.info.client}
                 </span>
               </div>
-              <div className="border-t border-white/10 pt-4 flex flex-col gap-2">
+              <div className="border-t border-ink/15 pt-4 flex flex-col gap-2">
                 <span className="font-[Helvetica,Arial,sans-serif] text-[12px] uppercase tracking-[0.1em] text-on-surface-variant">
                   Scale
                 </span>
-                <span className="font-sans text-[15px] text-white font-normal leading-snug">
+                <span className="font-sans text-[15px] text-ink font-normal leading-snug">
                   {project.info.scale}
                 </span>
               </div>
               {project.info.role && (
-                <div className="border-t border-white/10 pt-4 flex flex-col gap-2">
+                <div className="border-t border-ink/15 pt-4 flex flex-col gap-2">
                   <span className="font-[Helvetica,Arial,sans-serif] text-[12px] uppercase tracking-[0.1em] text-on-surface-variant">
                     Role
                   </span>
-                  <span className="font-sans text-[15px] text-white font-normal leading-snug">
+                  <span className="font-sans text-[15px] text-ink font-normal leading-snug">
                     {project.info.role}
                   </span>
                 </div>
               )}
               {project.info.deliveryPartner && (
-                <div className="border-t border-white/10 pt-4 flex flex-col gap-2">
+                <div className="border-t border-ink/15 pt-4 flex flex-col gap-2">
                   <span className="font-[Helvetica,Arial,sans-serif] text-[12px] uppercase tracking-[0.1em] text-on-surface-variant">
                     Delivery Partner
                   </span>
-                  <span className="font-sans text-[15px] text-white font-normal leading-snug">
+                  <span className="font-sans text-[15px] text-ink font-normal leading-snug">
                     {project.info.deliveryPartner}
                   </span>
                 </div>
               )}
               {project.info.mainContractor && (
-                <div className="border-t border-white/10 pt-4 flex flex-col gap-2">
+                <div className="border-t border-ink/15 pt-4 flex flex-col gap-2">
                   <span className="font-[Helvetica,Arial,sans-serif] text-[12px] uppercase tracking-[0.1em] text-on-surface-variant">
                     Main Contractor
                   </span>
-                  <span className="font-sans text-[15px] text-white font-normal leading-snug">
+                  <span className="font-sans text-[15px] text-ink font-normal leading-snug">
                     {project.info.mainContractor}
                   </span>
                 </div>
               )}
               {project.info.procurement && (
-                <div className="border-t border-white/10 pt-4 flex flex-col gap-2">
+                <div className="border-t border-ink/15 pt-4 flex flex-col gap-2">
                   <span className="font-[Helvetica,Arial,sans-serif] text-[12px] uppercase tracking-[0.1em] text-on-surface-variant">
                     Procurement
                   </span>
-                  <span className="font-sans text-[15px] text-white font-normal leading-snug">
+                  <span className="font-sans text-[15px] text-ink font-normal leading-snug">
                     {project.info.procurement}
                   </span>
                 </div>

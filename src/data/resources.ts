@@ -193,7 +193,7 @@ This approach allows us to maintain full ownership of our tools while continuous
   },
   {
     id: "prompting-gpt-image-2",
-    title: "Prompting GPT Image 2 — A Field Guide for Architects & Interior Designers",
+    title: "Prompting GPT Image 2: A Field Guide for Architects & Interior Designers",
     date: "24/4/2026",
     tags: ["AI", "Architecture"],
     summary: "A working field guide for architects and interior designers — ten principles, three applied workflows, and the honest limits of a model that has finally learned to listen.",

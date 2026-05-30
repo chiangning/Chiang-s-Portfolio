@@ -23,12 +23,12 @@ export function ArchitectureContent() {
     >
 
       {/* ── Label strip ─────────────────────────────────────────────── */}
-      <div className="h-12 lg:h-14 flex items-center gap-4 px-6 md:px-8 lg:px-10 border-b border-white/[0.07]">
+      <div className="h-12 lg:h-14 flex items-center gap-4 px-6 md:px-8 lg:px-10 border-b border-ink/10">
         <span className="w-5 h-px bg-primary flex-shrink-0" />
         <span className="text-[9px] font-sans uppercase tracking-[0.22em] text-primary whitespace-nowrap">
           Practice
         </span>
-        <span className="hidden md:inline text-[9px] font-sans uppercase tracking-[0.18em] text-white/35 whitespace-nowrap ml-2">
+        <span className="hidden md:inline text-[9px] font-sans uppercase tracking-[0.18em] text-ink/55 whitespace-nowrap ml-2">
           Registered Architect · ARBV · Melbourne, VIC · 20+ Years · Education · Commercial · Residential
         </span>
       </div>
@@ -60,9 +60,9 @@ export function ArchitectureContent() {
 
         {/* Box 1 — subtitle + both body paragraphs */}
         <div className="px-6 py-8 md:px-8 lg:px-10 lg:py-10 flex flex-col gap-4
-                        lg:border-t lg:border-white/[0.07]">
+                        lg:border-t lg:border-ink/10">
           <p
-            className="text-[15px] lg:text-[16px] leading-snug text-white/60 mb-1"
+            className="text-[15px] lg:text-[16px] leading-snug text-ink mb-1"
             style={{ fontFamily: 'Charter, "Bitstream Charter", "Sitka Text", Cambria, serif', fontStyle: "italic" }}
           >
             Your project. Your budget. Unlocked.
@@ -83,14 +83,14 @@ export function ArchitectureContent() {
 
         {/* Box 2 — capabilities, text styled to match body */}
         <div className="px-6 py-8 md:px-8 lg:px-10 lg:py-10 flex flex-col gap-5
-                        lg:border-t lg:border-l lg:border-white/[0.07]">
+                        lg:border-t lg:border-l lg:border-ink/10">
           {capabilities.map((cap) => (
             <div key={cap.num} className="flex flex-col gap-0.5">
               <div className="flex items-baseline gap-2">
-                <span className="text-[9px] font-sans tabular-nums text-primary/50 tracking-widest flex-shrink-0">
+                <span className="text-[9px] font-sans tabular-nums text-ink tracking-widest flex-shrink-0">
                   {cap.num}
                 </span>
-                <span className="text-[13px] font-sans font-medium text-white leading-snug">
+                <span className="text-[13px] font-sans font-medium text-ink leading-snug">
                   {cap.title}
                 </span>
               </div>

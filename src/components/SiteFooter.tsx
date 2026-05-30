@@ -50,9 +50,6 @@ export function SiteFooter() {
           <span className="mono-label-sm text-ink-soft">
             © {new Date().getFullYear()} Chiang Ning
           </span>
-          <span className="mono-label-sm text-ink-soft">
-            Designed in the spirit of Decor Systems · Built with Next.js
-          </span>
         </div>
       </div>
     </footer>

@@ -6,6 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/data/projects";
 import { resources } from "@/data/resources";
 import { VideoPlayer } from "@/components/VideoPlayer";
+import { FlutedGlass } from "@/components/FlutedGlass";
 
 const disciplines = [
   {
@@ -29,35 +30,39 @@ const disciplines = [
 ];
 
 export default function Home() {
-  const featuredProjects = projects.slice(0, 3);
-  const featuredResources = resources.slice(0, 3);
+  const featuredProjects = projects;
+  const featuredResources = resources.slice(0, 8);
 
   const formatLocation = (loc: string) =>
     loc.replace(/,?\s*\n\s*/g, ", ").trim();
 
   return (
     <div className="bg-paper text-ink">
+
       {/* ============================================================ */}
-      {/* HERO                                                          */}
+      {/* HERO  (the only section with the fluted-glass shader behind it) */}
       {/* ============================================================ */}
-      <section className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-14 pt-16 md:pt-28 lg:pt-36 pb-20 md:pb-28">
+      <section className="relative overflow-hidden bg-paper">
+        {/* Fluted glass shader — confined to the hero section only */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <FlutedGlass />
+        </div>
+        <div className="relative z-10 mx-auto max-w-[1440px] px-6 md:px-10 lg:px-14 pt-16 md:pt-24 lg:pt-32 pb-20 md:pb-24">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           className="max-w-5xl"
         >
-          <span className="mono-label">01 / Practice / 2026</span>
-          <h1 className="fluid-display mt-6 md:mt-8 font-display text-ink font-medium">
-            We sculpt buildings, programmes,
-            <br className="hidden md:block" /> and intelligence, for clients who
-            <br className="hidden md:block" /> need all three working in step.
+          <span className="mono-label text-ink">01 / Practice / 2026</span>
+          <h1 className="fluid-display mt-6 md:mt-8 font-display text-ink font-bold tracking-tight">
+            Unlock AI in Architecture &amp; Project Management without
+            compromising Human Accountability &amp; Creativity.
           </h1>
-          <p className="fluid-lead mt-8 md:mt-10 max-w-2xl text-ink-soft">
-            Chiang Ning is a Melbourne-based architect and project director
-            with twenty years across education, civic, commercial, and
-            residential work. Now applying AI as a daily instrument of
-            practice.
+          <p className="fluid-lead mt-8 md:mt-10 max-w-2xl text-ink">
+            Chiang Ning is a Melbourne-based Registered Architect &amp; Project
+            Manager with 20+ years across education, civic, commercial, and
+            residential work.
           </p>
           <div className="mt-10 md:mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
             <Link
@@ -76,12 +81,14 @@ export default function Home() {
             </a>
           </div>
         </motion.div>
+        </div>
       </section>
 
       {/* ============================================================ */}
       {/* SELECTED PROJECTS - three featured                            */}
       {/* ============================================================ */}
-      <section className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-14 pb-20 md:pb-28">
+      <section className="bg-paper">
+        <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-14 py-16 md:py-24">
         <div className="flex items-baseline justify-between mb-10 md:mb-14 pt-6 border-t border-ink/10">
           <span className="mono-label">Selected Projects</span>
           <Link
@@ -92,7 +99,7 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+        <div className="flex gap-2 md:gap-3 overflow-x-auto snap-x snap-mandatory pb-2 -mr-6 md:-mr-10 lg:-mr-14 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {featuredProjects.map((project, i) => {
             const idx = String(i + 1).padStart(2, "0");
             const total = String(projects.length).padStart(2, "0");
@@ -102,7 +109,8 @@ export default function Home() {
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.6, delay: i * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+                transition={{ duration: 0.6, delay: (i % 3) * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+                className="flex-none w-[80%] sm:w-[45%] lg:w-[30.5%] snap-start"
               >
                 <Link href={`/project/${project.id}`} className="group block">
                   <div className="relative aspect-[4/5] overflow-hidden bg-paper-soft">
@@ -123,7 +131,7 @@ export default function Home() {
                   <div className="mt-5 pt-4 border-t border-ink/10 flex items-start justify-between gap-4">
                     <div className="min-w-0">
                       <span className="mono-label">{project.category}</span>
-                      <h3 className="mt-3 font-display text-[20px] md:text-[22px] text-ink font-medium leading-snug group-hover:text-terracotta transition-colors">
+                      <h3 className="mt-3 font-display text-[20px] md:text-[22px] text-ink font-bold tracking-tight leading-[1.05] group-hover:text-terracotta transition-colors">
                         {project.title}
                       </h3>
                       <p className="mt-2 mono-label-sm text-ink-soft">
@@ -136,6 +144,7 @@ export default function Home() {
               </motion.div>
             );
           })}
+        </div>
         </div>
       </section>
 
@@ -160,7 +169,7 @@ export default function Home() {
                 className="flex flex-col py-10 md:py-0 md:px-10 first:md:pl-0 last:md:pr-0"
               >
                 <span className="mono-label-sm text-ink-soft">0{i + 1} / 03</span>
-                <h3 className="fluid-h2 mt-4 font-display font-medium text-ink">
+                <h3 className="fluid-h2 mt-4 font-display font-bold tracking-tight text-ink">
                   {d.label}
                 </h3>
                 <p className="mt-4 text-ink-soft leading-relaxed max-w-md">
@@ -186,7 +195,7 @@ export default function Home() {
         <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-14 py-20 md:py-28">
           <div className="max-w-3xl">
             <span className="mono-label text-paper/60">Get in touch</span>
-            <h2 className="fluid-h1 mt-6 font-display font-medium text-paper">
+            <h2 className="fluid-h1 mt-6 font-display font-bold tracking-tight text-paper">
               Specialist advice, at speed.
             </h2>
             <p className="mt-6 text-paper/80 leading-relaxed max-w-2xl">
@@ -219,7 +228,8 @@ export default function Home() {
       {/* ============================================================ */}
       {/* RESOURCES                                                     */}
       {/* ============================================================ */}
-      <section className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-14 py-20 md:py-28">
+      <section className="bg-paper">
+        <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-14 py-16 md:py-24">
         <div className="flex items-baseline justify-between mb-10 md:mb-14 pt-6 border-t border-ink/10">
           <span className="mono-label">Resources</span>
           <Link
@@ -230,14 +240,15 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+        <div className="flex gap-2 md:gap-3 overflow-x-auto snap-x snap-mandatory pb-2 -mr-6 md:-mr-10 lg:-mr-14 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {featuredResources.map((r, i) => (
             <motion.div
               key={r.id}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
+              transition={{ duration: 0.6, delay: (i % 3) * 0.1 }}
+              className="flex-none w-[80%] sm:w-[45%] lg:w-[30.5%] snap-start"
             >
               <Link href={`/resources/${r.id}`} className="group block">
                 <div className="relative aspect-[4/3] overflow-hidden bg-paper-soft">
@@ -258,7 +269,7 @@ export default function Home() {
                       </>
                     )}
                   </div>
-                  <h3 className="mt-3 font-display text-[18px] md:text-[20px] text-ink font-medium leading-snug group-hover:text-terracotta transition-colors">
+                  <h3 className="mt-3 font-display text-[18px] md:text-[20px] text-ink font-bold tracking-tight leading-[1.05] group-hover:text-terracotta transition-colors">
                     {r.title}
                   </h3>
                   <p className="mt-3 text-ink-soft leading-relaxed line-clamp-3">
@@ -269,7 +280,9 @@ export default function Home() {
             </motion.div>
           ))}
         </div>
+        </div>
       </section>
+
     </div>
   );
 }

@@ -53,7 +53,7 @@ export function ResourcesContent() {
               <select 
                 value={selectedTag}
                 onChange={(e) => setSelectedTag(e.target.value)}
-                className="bg-surface-variant border border-white/10 rounded-md px-3 py-1.5 text-sm text-on-surface focus:outline-none focus:border-primary cursor-pointer"
+                className="bg-surface-variant border border-ink/15 rounded-md px-3 py-1.5 text-sm text-on-surface focus:outline-none focus:border-primary cursor-pointer"
               >
                 {tags.map(tag => (
                   <option key={tag} value={tag}>{tag}</option>
@@ -66,7 +66,7 @@ export function ResourcesContent() {
               <select 
                 value={sortOrder}
                 onChange={(e) => setSortOrder(e.target.value)}
-                className="bg-surface-variant border border-white/10 rounded-md px-3 py-1.5 text-sm text-on-surface focus:outline-none focus:border-primary cursor-pointer"
+                className="bg-surface-variant border border-ink/15 rounded-md px-3 py-1.5 text-sm text-on-surface focus:outline-none focus:border-primary cursor-pointer"
               >
                 <option value="newest">Newest First</option>
                 <option value="oldest">Oldest First</option>
