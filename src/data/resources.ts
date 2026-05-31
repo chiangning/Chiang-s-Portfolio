@@ -43,7 +43,7 @@ export const resources: Resource[] = [
     date: "16/5/2026",
     tags: ["AI", "Architecture"],
     summary: "What happens when you put the architect back on site. Using AI to make a 65-year-old building argue for itself again, in 30 seconds, in the language of 2026.",
-    image: "https://images.unsplash.com/photo-1643835135068-75905e3b8d21?q=80&w=1600&auto=format&fit=crop",
+    image: "https://res.cloudinary.com/dphq33wah/image/upload/v1780209875/a51f00e9-0501-4837-b7dc-20ecc3c827cc.png",
     isHtml: true,
     content: ""
   },
