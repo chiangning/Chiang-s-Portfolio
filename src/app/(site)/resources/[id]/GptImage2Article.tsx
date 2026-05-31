@@ -168,15 +168,7 @@ export function GptImage2Article() {
     <article className="bg-paper text-ink pb-24">
       {/* ── HERO ─────────────────────────────────────────────────── */}
       <header className="mx-auto max-w-5xl px-6 pt-10 md:pt-16">
-        <Link
-          href="/resources"
-          className="group mono-label inline-flex items-center gap-2 text-ink-soft hover:text-terracotta transition-colors"
-        >
-          <ArrowLeft className="w-3.5 h-3.5 transition-transform duration-300 group-hover:-translate-x-0.5" />
-          All resources
-        </Link>
-
-        <div className="mt-10 flex flex-wrap items-center gap-x-4 gap-y-2 mono-label text-ink-soft">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mono-label text-ink-soft">
           <span className="text-terracotta">Field Guide № 01</span>
           <span>·</span>
           <span>Field notes for architects</span>

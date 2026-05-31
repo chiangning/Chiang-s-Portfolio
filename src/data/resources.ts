@@ -17,6 +17,17 @@ export interface Resource {
 
 export const resources: Resource[] = [
   {
+    id: "aerial-drone-ai-workflow",
+    title: "Flight Path vs Storyboard: Testing Seedance 2 and Google Omni Flash on the Same Aerial Brief",
+    date: "31/5/2026",
+    tags: ["AI", "Architecture"],
+    summary: "Getting an AI video model to follow a flight path over a real city is harder than it looks. Two models, one Yarra River brief, and the input that mattered most.",
+    image: "https://res.cloudinary.com/dphq33wah/image/upload/v1780209829/52d4ba7b-afb6-4efb-9288-41deb58eb798.png",
+    content: "",
+    isHtml: true,
+    videoUrl: "https://res.cloudinary.com/dphq33wah/video/upload/v1780181508/P253_aerial_drone_dxvrdl.mp4",
+  },
+  {
     id: "utzon-sydney-opera-house-workflow",
     title: "Jørn Utzon × Sydney Opera House: A 30-Second Video Workflow",
     date: "19/5/2026",
