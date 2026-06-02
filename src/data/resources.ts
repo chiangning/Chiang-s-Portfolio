@@ -19,7 +19,7 @@ export const resources: Resource[] = [
   {
     id: "gantt-chart-ai-workflow",
     title: "A Gantt Chart in Half an Hour: AI Applied to a Sample Schedule",
-    date: "21/5/2026",
+    date: "3/6/2026",
     tags: ["AI", "Project Management", "Architecture"],
     summary: "A professional, logically sequenced work program in front of a client in half an hour. Four downloadable React codebases you attach to AI, plus the workflow and the prompt.",
     image: "/articles/gantt-chart/dark-mode.jpg",
