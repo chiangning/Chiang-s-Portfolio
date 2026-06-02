@@ -22,8 +22,8 @@ export function SiteFooter() {
           {/* Link columns — grouped together */}
           <div className="flex gap-12 sm:gap-16 lg:gap-20 shrink-0">
             {/* Nav */}
-            <div className="flex flex-col gap-3">
-              <span className="mono-label text-ink">Explore</span>
+            <div className="flex flex-col gap-1.5">
+              <span className="mono-label text-ink mb-1.5">Explore</span>
               <Link href="/architecture"       className="text-ink-soft hover:text-ink transition-colors">Architecture</Link>
               <Link href="/project-management" className="text-ink-soft hover:text-ink transition-colors">Project Management</Link>
               <Link href="/ai-expert"          className="text-ink-soft hover:text-ink transition-colors">AI Expertise</Link>
@@ -31,8 +31,8 @@ export function SiteFooter() {
             </div>
 
             {/* Contact */}
-            <div className="flex flex-col gap-3">
-              <span className="mono-label text-ink">Contact</span>
+            <div className="flex flex-col gap-1.5">
+              <span className="mono-label text-ink mb-1.5">Contact</span>
               <a
                 href="mailto:chiangning@gmail.com"
                 className="group flex items-center gap-2.5 text-ink-soft hover:text-ink transition-colors"
