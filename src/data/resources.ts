@@ -17,6 +17,16 @@ export interface Resource {
 
 export const resources: Resource[] = [
   {
+    id: "gantt-chart-ai-workflow",
+    title: "A Gantt Chart in Half an Hour: AI Applied to a Sample Schedule",
+    date: "21/5/2026",
+    tags: ["AI", "Project Management", "Architecture"],
+    summary: "A professional, logically sequenced work program in front of a client in half an hour. Four downloadable React codebases you attach to AI, plus the workflow and the prompt.",
+    image: "/articles/gantt-chart/dark-mode.jpg",
+    content: "",
+    isHtml: true,
+  },
+  {
     id: "aerial-drone-ai-workflow",
     title: "Flight Path vs Storyboard: Testing Seedance 2 and Google Omni Flash on the Same Aerial Brief",
     date: "31/5/2026",

@@ -9,6 +9,7 @@ import { projects } from "@/data/projects";
 import { ImageCarousel } from "@/components/ImageCarousel";
 import { GptImage2Article } from "./GptImage2Article";
 import { AerialDroneArticle } from "./AerialDroneArticle";
+import { GanttChartArticle } from "./GanttChartArticle";
 import GanttChartTool from "@/components/GanttChartTool";
 import dynamic from "next/dynamic";
 import { useState } from "react";
@@ -92,7 +93,9 @@ export function ResourceDetailContent({ resource }: { resource: Resource }) {
         </div>
       </nav>
 
-      {resource.id === "aerial-drone-ai-workflow" ? (
+      {resource.id === "gantt-chart-ai-workflow" ? (
+        <GanttChartArticle />
+      ) : resource.id === "aerial-drone-ai-workflow" ? (
         <AerialDroneArticle />
       ) : resource.id === "prompting-gpt-image-2" ? (
         <GptImage2Article />
