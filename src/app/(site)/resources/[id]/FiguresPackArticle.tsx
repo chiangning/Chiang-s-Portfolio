@@ -56,17 +56,10 @@ export function FiguresPackArticle() {
           <span>Resources</span>
         </div>
 
-        <h1 className="mt-6 fluid-display font-display font-bold tracking-tighter text-ink">
-          100+ Illustrated Human Figures
-        </h1>
-        <p className="mt-4 fluid-h2 font-display font-semibold tracking-tighter text-ink-soft">
-          Free transparent PNG cutouts for architects.
-        </p>
-
-        <div className="mt-6 mono-label text-ink-soft">By Chiang Ning · chiangning.net</div>
+        <div className="mt-4 mono-label text-ink-soft">By Chiang Ning · chiangning.net</div>
       </header>
 
-      <figure className="mx-auto max-w-4xl px-6 mt-10 md:mt-14">
+      <figure className="mx-auto max-w-4xl px-6 mt-8 md:mt-10">
         <img
           src="/articles/figures/promo.jpg"
           alt="A collection of over 100 illustrated human figures as transparent PNG cutouts"
