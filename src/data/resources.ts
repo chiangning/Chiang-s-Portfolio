@@ -17,6 +17,16 @@ export interface Resource {
 
 export const resources: Resource[] = [
   {
+    id: "architect-figures-pack",
+    title: "100+ Illustrated Human Figures: Free Transparent PNG Cutouts",
+    date: "4/6/2026",
+    tags: ["Architecture", "Free Download"],
+    summary: "More than one hundred flat, contemporary scale figures as transparent PNGs. Free for architectural diagrams, collages, and presentation boards. No sign-up.",
+    image: "/articles/figures/promo.jpg",
+    content: "",
+    isHtml: true,
+  },
+  {
     id: "pmi-ai-standard-construction",
     title: "AI Just Became Part of the Job: What the New PMI Standard Means for Construction PMs",
     date: "3/6/2026",
