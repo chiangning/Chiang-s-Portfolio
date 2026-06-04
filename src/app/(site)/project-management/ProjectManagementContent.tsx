@@ -184,6 +184,47 @@ export function ProjectManagementContent() {
 
         </div>
       </div>
+
+      {/* ── Featured resource ──────────────────────────────────────── */}
+      <LineReveal />
+
+      <div className="mx-auto max-w-[1440px] px-6 py-10 md:px-8 lg:px-14 lg:py-14">
+        <div className="flex items-baseline gap-3 mb-8 lg:mb-10">
+          <span className="w-5 h-px bg-primary flex-shrink-0" />
+          <span className="text-[9px] font-sans uppercase tracking-[0.22em] text-primary whitespace-nowrap">
+            From the Resources
+          </span>
+        </div>
+
+        <Link
+          href="/resources/construction-cost-update-march-2026"
+          className="group grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 items-center"
+        >
+          <div className="relative aspect-[16/10] overflow-hidden bg-paper-soft">
+            <img
+              src="https://res.cloudinary.com/dphq33wah/image/upload/v1775538291/1c6a4785e255aa05d7be71da940e6f92_jr14vx.jpg"
+              alt="Construction Cost Update March 2026"
+              referrerPolicy="no-referrer"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-[800ms] ease-out group-hover:scale-[1.03]"
+            />
+          </div>
+          <div>
+            <span className="block text-[9px] font-sans uppercase tracking-[0.2em] text-primary">
+              Project Management · Construction · 15/3/2026
+            </span>
+            <h3 className="mt-2 font-sans font-bold tracking-tighter text-ink text-[22px] md:text-[26px] leading-[1.05] group-hover:text-primary transition-colors">
+              Construction Cost Update, March 2026
+            </h3>
+            <p className="mt-3 text-[13px] leading-[1.55] text-on-surface-variant max-w-prose">
+              A brief overview of the latest construction cost trends and material pricing updates for Q1 2026: the shift from material to labour constraints, the Brisbane Olympic squeeze, and sustainability premiums moving from voluntary to mandatory.
+            </p>
+            <span className="mt-5 inline-flex items-center gap-2 text-[9px] font-sans uppercase tracking-[0.2em] text-primary group-hover:text-ink transition-colors">
+              Read the update
+              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </span>
+          </div>
+        </Link>
+      </div>
     </motion.div>
   );
 }
