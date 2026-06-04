@@ -44,7 +44,7 @@ function Principle({
 }) {
   return (
     <div className="grid md:grid-cols-[5rem_1fr] gap-x-6 gap-y-3 py-9 border-t border-ink/10">
-      <div className="font-display text-5xl md:text-6xl font-bold tracking-tighter leading-none text-ink/15 tabular-nums">
+      <div className="font-display text-5xl md:text-6xl font-bold tracking-tighter leading-none text-ink tabular-nums">
         {num}
       </div>
       <div>

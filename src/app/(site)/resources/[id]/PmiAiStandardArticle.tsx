@@ -36,7 +36,7 @@ function Shift({
 }) {
   return (
     <div className="grid md:grid-cols-[5rem_1fr] gap-x-6 gap-y-4 py-9 border-t border-ink/10">
-      <div className="font-display text-5xl md:text-6xl font-bold tracking-tighter leading-none text-ink/15 tabular-nums">
+      <div className="font-display text-5xl md:text-6xl font-bold tracking-tighter leading-none text-ink tabular-nums">
         {num}
       </div>
       <div>
@@ -164,6 +164,31 @@ export function PmiAiStandardArticle() {
 
         <div className="mt-6 mono-label text-ink-soft">By Chiang Ning · chiangning.net</div>
       </header>
+
+      {/* ── HERO IMAGE — book cover, using its own negative space ──── */}
+      <figure className="mx-auto max-w-5xl px-6 mt-10 md:mt-14">
+        <div className="relative overflow-hidden bg-paper-soft">
+          <img
+            src="/articles/pmi-ai-standard/book-cover.jpg"
+            alt="The Standard for Artificial Intelligence in Portfolio, Program, and Project Management, published by the Project Management Institute"
+            className="w-full h-auto block"
+          />
+          {/* Caption tucked into the empty wall space on the left */}
+          <figcaption className="absolute top-[8%] left-[6%] max-w-[42%] hidden sm:block">
+            <div className="mono-label-sm text-ink/70 mb-2">ANSI/PMI 25-007-2025</div>
+            <p
+              className="text-[15px] md:text-[18px] leading-snug text-ink/80"
+              style={{ fontFamily: SERIF, fontStyle: "italic" }}
+            >
+              An ANSI-approved national standard. No longer an experiment, a professional baseline.
+            </p>
+          </figcaption>
+        </div>
+        <figcaption className="mt-3 mono-label-sm text-ink-soft normal-case tracking-normal sm:hidden">
+          The Standard for Artificial Intelligence in Portfolio, Program, and Project Management. PMI ·
+          ANSI/PMI 25-007-2025.
+        </figcaption>
+      </figure>
 
       {/* ── INTRO ────────────────────────────────────────────────── */}
       <Text>
