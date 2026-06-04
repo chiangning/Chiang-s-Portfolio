@@ -17,6 +17,16 @@ export interface Resource {
 
 export const resources: Resource[] = [
   {
+    id: "pmi-ai-standard-construction",
+    title: "AI Just Became Part of the Job: What the New PMI Standard Means for Construction PMs",
+    date: "3/6/2026",
+    tags: ["Project Management", "AI"],
+    summary: "PMI's new ANSI-approved AI standard moves the question from whether you use AI to how responsibly you govern it. Five shifts every construction PM must master.",
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop",
+    content: "",
+    isHtml: true,
+  },
+  {
     id: "gantt-chart-ai-workflow",
     title: "A Gantt Chart in Half an Hour: AI Applied to a Sample Schedule",
     date: "3/6/2026",
