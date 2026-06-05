@@ -12,6 +12,7 @@ import { AerialDroneArticle } from "./AerialDroneArticle";
 import { GanttChartArticle } from "./GanttChartArticle";
 import { PmiAiStandardArticle } from "./PmiAiStandardArticle";
 import { FiguresPackArticle } from "./FiguresPackArticle";
+import { GaudiTestArticle } from "./GaudiTestArticle";
 import GanttChartTool from "@/components/GanttChartTool";
 import dynamic from "next/dynamic";
 import { useState } from "react";
@@ -95,7 +96,9 @@ export function ResourceDetailContent({ resource }: { resource: Resource }) {
         </div>
       </nav>
 
-      {resource.id === "architect-figures-pack" ? (
+      {resource.id === "designing-for-your-absence" ? (
+        <GaudiTestArticle />
+      ) : resource.id === "architect-figures-pack" ? (
         <FiguresPackArticle />
       ) : resource.id === "pmi-ai-standard-construction" ? (
         <PmiAiStandardArticle />

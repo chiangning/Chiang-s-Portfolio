@@ -17,6 +17,16 @@ export interface Resource {
 
 export const resources: Resource[] = [
   {
+    id: "designing-for-your-absence",
+    title: "Designing for Your Absence: The Gaudí Test",
+    date: "5/6/2026",
+    tags: ["Architecture", "AI", "Design Method"],
+    summary: "The hardest communication problem in architecture is making a design legible enough to survive without you. A framework drawn from how Gaudí designed a basilica he knew he would never see finished.",
+    image: "/articles/gaudi-test/sagrada-lego.jpg",
+    content: "",
+    isHtml: true,
+  },
+  {
     id: "architect-figures-pack",
     title: "100+ Illustrated Human Figures: Free Transparent PNG Cutouts",
     date: "4/6/2026",
