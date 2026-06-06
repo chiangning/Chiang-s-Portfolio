@@ -91,7 +91,7 @@ export function FiguresPackArticle() {
           className="group inline-flex items-center gap-3 bg-ink text-paper px-7 py-4 mono-label hover:bg-ink-deep transition-colors"
         >
           <Download className="w-4 h-4 stroke-[1.5] transition-transform duration-300 group-hover:translate-y-0.5" />
-          Download the pack (PNG · 19 MB)
+          Download the pack (PNG · 5 MB)
         </a>
         <p className="mt-3 mono-label-sm text-ink-soft normal-case tracking-normal">
           103 transparent PNG figures in a single zip. Free for personal and commercial project use.
@@ -150,7 +150,7 @@ export function FiguresPackArticle() {
           className="group inline-flex items-center gap-3 bg-ink text-paper px-7 py-4 mono-label hover:bg-ink-deep transition-colors"
         >
           <Download className="w-4 h-4 stroke-[1.5] transition-transform duration-300 group-hover:translate-y-0.5" />
-          Download the pack (PNG · 19 MB)
+          Download the pack (PNG · 5 MB)
         </a>
       </div>
 
