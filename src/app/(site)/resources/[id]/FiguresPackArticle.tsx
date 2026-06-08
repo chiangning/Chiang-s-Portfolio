@@ -66,7 +66,7 @@ export function FiguresPackArticle() {
       <figure className="mx-auto max-w-4xl px-6 mt-8 md:mt-10">
         <img
           src="/articles/figures/promo.jpg"
-          alt="A collection of over 100 illustrated human figures as transparent PNG cutouts"
+          alt="A collection of over 100 illustrated human figures as transparent PNG and SVG cutouts"
           className="w-full h-auto block bg-paper-soft"
         />
       </figure>
@@ -81,8 +81,9 @@ export function FiguresPackArticle() {
         </p>
         <p>
           So I put together a set of more than one hundred illustrated human figures and I am giving them
-          away. Flat, contemporary, and neutral enough to sit in almost any drawing. Every figure is a
-          transparent PNG, ready to drop straight onto a plan, section, collage, or presentation board.
+          away. Flat, contemporary, and neutral enough to sit in almost any drawing. Every figure comes
+          three ways: a transparent PNG to drop straight onto a plan or board, a white-background PNG, and
+          a fully scalable SVG you can recolour and resize without ever losing an edge.
         </p>
         <p>No sign-up, no email wall. Download the pack and use it on your projects.</p>
       </Text>
@@ -95,10 +96,11 @@ export function FiguresPackArticle() {
           className="group inline-flex items-center gap-3 bg-ink text-paper px-7 py-4 mono-label hover:bg-ink-deep transition-colors"
         >
           <Download className="w-4 h-4 stroke-[1.5] transition-transform duration-300 group-hover:translate-y-0.5" />
-          Download the pack (PNG · 5 MB)
+          Download the pack (PNG + SVG · 11 MB)
         </a>
         <p className="mt-3 mono-label-sm text-ink-soft normal-case tracking-normal">
-          103 transparent PNG figures in a single zip. Free for personal and commercial project use.
+          103 figures in a single zip, each as a transparent PNG, a white-background PNG, and an SVG. Free
+          for personal and commercial project use.
         </p>
       </div>
 
@@ -154,7 +156,7 @@ export function FiguresPackArticle() {
           className="group inline-flex items-center gap-3 bg-ink text-paper px-7 py-4 mono-label hover:bg-ink-deep transition-colors"
         >
           <Download className="w-4 h-4 stroke-[1.5] transition-transform duration-300 group-hover:translate-y-0.5" />
-          Download the pack (PNG · 5 MB)
+          Download the pack (PNG + SVG · 11 MB)
         </a>
       </div>
 

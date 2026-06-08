@@ -38,10 +38,10 @@ export const resources: Resource[] = [
   },
   {
     id: "architect-figures-pack",
-    title: "100+ Illustrated Human Figures: Free Transparent PNG Cutouts",
+    title: "100+ Illustrated Human Figures: Free Transparent PNG & SVG Cutouts",
     date: "4/6/2026",
     tags: ["Architecture", "Free Download"],
-    summary: "More than one hundred flat, contemporary scale figures as transparent PNGs. Free for architectural diagrams, collages, and presentation boards. No sign-up.",
+    summary: "More than one hundred flat, contemporary scale figures as transparent PNGs and scalable SVGs. Free for architectural diagrams, collages, and presentation boards. No sign-up.",
     image: "/articles/figures/promo.jpg",
     content: "",
     isHtml: true,
