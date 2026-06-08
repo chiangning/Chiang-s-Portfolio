@@ -41,6 +41,10 @@ const samples = [
   "/articles/figures/sample-4.png",
   "/articles/figures/sample-5.png",
   "/articles/figures/sample-6.png",
+  "/articles/figures/sample-7.png",
+  "/articles/figures/sample-8.png",
+  "/articles/figures/sample-9.png",
+  "/articles/figures/sample-10.png",
 ];
 
 export function FiguresPackArticle() {
@@ -101,10 +105,10 @@ export function FiguresPackArticle() {
       {/* ── SAMPLES ──────────────────────────────────────────────── */}
       <LineReveal className="mt-16" />
       <SectionHead kicker="A look inside" title="A few of the figures." />
-      <div className="mx-auto max-w-4xl px-6 mt-8 grid grid-cols-2 sm:grid-cols-3 gap-4">
+      <div className="mx-auto max-w-4xl px-6 mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-3">
         {samples.map((src, i) => (
-          <div key={src} className="bg-paper-soft border border-ink/10 aspect-[3/4] flex items-end justify-center p-4">
-            <img src={src} alt={`Illustrated figure sample ${i + 1}`} className="max-h-full w-auto object-contain" />
+          <div key={src} className="bg-paper-soft border border-ink/10 aspect-[3/4] flex items-center justify-center p-1.5">
+            <img src={src} alt={`Illustrated figure sample ${i + 1}`} className="max-h-full max-w-full w-auto object-contain" />
           </div>
         ))}
       </div>
