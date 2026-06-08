@@ -17,6 +17,16 @@ export interface Resource {
 
 export const resources: Resource[] = [
   {
+    id: "mirror-court-storyboard",
+    title: "The Mirror Court: A Storyboard from Drawing to Dusk",
+    date: "7/6/2026",
+    tags: ["Architecture", "AI", "Storyboard"],
+    summary: "An open-air art pavilion of reflection and light in Fitzroy Gardens. The six-scene storyboard for a short film tracing the project from presentation board to the pavilion alive at night.",
+    image: "/articles/mirror-court/doubling.jpg",
+    content: "",
+    isHtml: true,
+  },
+  {
     id: "designing-for-your-absence",
     title: "Designing for Your Absence: The Gaudí Test",
     date: "5/6/2026",
