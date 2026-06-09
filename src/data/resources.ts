@@ -17,6 +17,16 @@ export interface Resource {
 
 export const resources: Resource[] = [
   {
+    id: "anchor-strategy-ai-consistency",
+    title: "The Anchor Strategy: Achieving Consistency in AI Architectural Visualisation",
+    date: "9/6/2026",
+    tags: ["AI", "Architecture", "Workflow"],
+    summary: "A procedural workflow for locking down spatial geometry and aesthetic variables across multiple generative outputs, holding one greenhouse consistent from master shot to exploded section.",
+    image: "/articles/anchor-strategy/img-09.jpg",
+    content: "",
+    isHtml: true,
+  },
+  {
     id: "mirror-court-storyboard",
     title: "The Mirror Court: A Storyboard from Drawing to Dusk",
     date: "7/6/2026",
