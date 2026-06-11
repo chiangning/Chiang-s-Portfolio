@@ -17,6 +17,16 @@ export interface Resource {
 
 export const resources: Resource[] = [
   {
+    id: "design-development-visualisation-workflow",
+    title: "Architectural Design Development Visualisation Workflow",
+    date: "11/6/2026",
+    tags: ["AI", "Architecture", "Workflow"],
+    summary: "One heritage Melbourne corner building taken from a satellite screenshot to a resolved scheme in nine scenes. Every step a GPT Image 2 prompt, every transition a Kling 3 camera move.",
+    image: "/articles/design-workflow/station-09.jpg",
+    content: "",
+    isHtml: true,
+  },
+  {
     id: "anchor-strategy-ai-consistency",
     title: "The Anchor Strategy: Achieving Consistency in AI Architectural Visualisation",
     date: "9/6/2026",

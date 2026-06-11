@@ -15,6 +15,7 @@ import { FiguresPackArticle } from "./FiguresPackArticle";
 import { GaudiTestArticle } from "./GaudiTestArticle";
 import { MirrorCourtArticle } from "./MirrorCourtArticle";
 import { AnchorStrategyArticle } from "./AnchorStrategyArticle";
+import { DesignWorkflowArticle } from "./DesignWorkflowArticle";
 import GanttChartTool from "@/components/GanttChartTool";
 import dynamic from "next/dynamic";
 import { useState } from "react";
@@ -98,7 +99,9 @@ export function ResourceDetailContent({ resource }: { resource: Resource }) {
         </div>
       </nav>
 
-      {resource.id === "anchor-strategy-ai-consistency" ? (
+      {resource.id === "design-development-visualisation-workflow" ? (
+        <DesignWorkflowArticle />
+      ) : resource.id === "anchor-strategy-ai-consistency" ? (
         <AnchorStrategyArticle />
       ) : resource.id === "mirror-court-storyboard" ? (
         <MirrorCourtArticle />
