@@ -12,6 +12,7 @@ const navLinks = [
   { name: "AI Expertise",       path: "/ai-expert" },
   { name: "Projects",           path: "/projects" },
   { name: "Resources",          path: "/resources" },
+  { name: "Shop",               path: "/shop" },
   { name: "Contact",            path: "/contact" },
 ];
 

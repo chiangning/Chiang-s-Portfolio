@@ -28,6 +28,7 @@ export function SiteFooter() {
               <Link href="/project-management" className="text-ink-soft hover:text-ink transition-colors">Project Management</Link>
               <Link href="/ai-expert"          className="text-ink-soft hover:text-ink transition-colors">AI Expertise</Link>
               <Link href="/resources"          className="text-ink-soft hover:text-ink transition-colors">Resources</Link>
+              <Link href="/shop"               className="text-ink-soft hover:text-ink transition-colors">Shop</Link>
             </div>
 
             {/* Contact */}
