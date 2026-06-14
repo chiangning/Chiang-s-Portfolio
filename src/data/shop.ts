@@ -95,7 +95,7 @@ export const shopItems: ShopItem[] = [
       "A library of photorealistic, cut-out planting assets drawn as straight-on elevations for architectural sections, elevations, renders, and collage. Every specimen comes two ways: a clean transparent PNG to drop straight into a drawing, and the original white-background render. Planting is weighted toward Sydney and Australian landscape practice, with evergreen and deciduous trees, shrubs, palms, and a dedicated set of Australian natives.",
     price: 0,
     currency: "AUD",
-    image: "/articles/landscape/promo.jpg",
+    image: "/articles/landscape/poster.jpg",
     gallery: [
       "/articles/landscape/sample-1.png",
       "/articles/landscape/sample-2.png",
