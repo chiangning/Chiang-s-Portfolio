@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "motion/react";
 import { shopItems } from "@/data/shop";
-import { formatPrice } from "@/lib/shop-config";
+import { formatPrice, formatFromPrice } from "@/lib/shop-config";
 
 export function ShopContent() {
   return (
@@ -47,7 +47,7 @@ export function ShopContent() {
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-[800ms] ease-out group-hover:scale-[1.03]"
                   />
                   <span className="absolute top-4 left-4 bg-paper/95 text-ink px-3 py-1.5 mono-label-sm">
-                    {formatPrice(item.price, item.currency)}
+                    {item.price === 0 ? formatFromPrice(0) : formatPrice(item.price, item.currency)}
                   </span>
                 </div>
                 <div className="mt-5 pt-4 border-t border-ink/10 flex items-start justify-between gap-4">

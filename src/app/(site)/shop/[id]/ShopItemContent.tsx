@@ -1,15 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Check, X } from "lucide-react";
 import { motion } from "motion/react";
-import type { ShopItem } from "@/data/shop";
-import { formatPrice } from "@/lib/shop-config";
+import { shopItems, type ShopItem } from "@/data/shop";
+import { formatPrice, formatFromPrice } from "@/lib/shop-config";
 import { FreeDownloadForm } from "@/components/FreeDownloadForm";
 import { BuyButton } from "@/components/BuyButton";
 
 export function ShopItemContent({ item }: { item: ShopItem }) {
   const isFree = item.price === 0;
+  const others = shopItems.filter((s) => s.id !== item.id);
 
   return (
     <div className="bg-paper text-ink pb-24">
@@ -60,9 +61,31 @@ export function ShopItemContent({ item }: { item: ShopItem }) {
 
           <div className="mt-6 flex items-baseline gap-3">
             <span className="font-display text-3xl font-bold tracking-tighter text-ink">
-              {formatPrice(item.price, item.currency)}
+              {isFree ? formatFromPrice(0) : formatPrice(item.price, item.currency)}
             </span>
-            {item.formats && <span className="mono-label-sm text-ink-soft">{item.formats}</span>}
+            {isFree && <span className="mono-label-sm text-ink-soft">Pay what you want</span>}
+          </div>
+
+          {/* Spec stats */}
+          <div className="mt-6 flex flex-wrap gap-x-8 gap-y-3 border-y border-ink/10 py-4">
+            {item.assetCount && (
+              <div>
+                <div className="font-display text-xl font-bold tracking-tighter text-ink">{item.assetCount}</div>
+                <div className="mono-label-sm text-ink-soft">Assets</div>
+              </div>
+            )}
+            {item.formats && (
+              <div>
+                <div className="font-display text-xl font-bold tracking-tighter text-ink">{item.formats}</div>
+                <div className="mono-label-sm text-ink-soft">Formats</div>
+              </div>
+            )}
+            {item.fileSize && (
+              <div>
+                <div className="font-display text-xl font-bold tracking-tighter text-ink">{item.fileSize}</div>
+                <div className="mono-label-sm text-ink-soft">Download</div>
+              </div>
+            )}
           </div>
 
           {/* Acquire */}
@@ -99,6 +122,41 @@ export function ShopItemContent({ item }: { item: ShopItem }) {
             </div>
           )}
 
+          {/* License agreement */}
+          {item.license && (
+            <div className="mt-10 pt-8 border-t border-ink/10">
+              <div className="mono-label text-terracotta mb-1">Basic license agreement</div>
+              <p className="text-[14px] text-ink-soft leading-relaxed mb-5">
+                Single-user licence. The full terms ship inside the download as{" "}
+                <span className="text-ink">LICENSE.txt</span>.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-6">
+                <div>
+                  <div className="mono-label-sm text-ink mb-3">You can</div>
+                  <ul className="space-y-2.5">
+                    {item.license.can.map((line) => (
+                      <li key={line} className="flex gap-2.5 text-[14px] leading-relaxed text-ink-soft">
+                        <Check className="w-4 h-4 text-terracotta shrink-0 mt-0.5" />
+                        <span>{line}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <div className="mono-label-sm text-ink mb-3">You cannot</div>
+                  <ul className="space-y-2.5">
+                    {item.license.cannot.map((line) => (
+                      <li key={line} className="flex gap-2.5 text-[14px] leading-relaxed text-ink-soft">
+                        <X className="w-4 h-4 text-ink-soft shrink-0 mt-0.5" />
+                        <span>{line}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          )}
+
           {item.relatedArticle && (
             <div className="mt-10 pt-6 border-t border-ink/10">
               <Link
@@ -112,6 +170,41 @@ export function ShopItemContent({ item }: { item: ShopItem }) {
           )}
         </div>
       </motion.div>
+
+      {/* Related items */}
+      {others.length > 0 && (
+        <section className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-14 mt-20 md:mt-28">
+          <div className="flex items-baseline justify-between mb-8 md:mb-10">
+            <span className="mono-label">More from the shop</span>
+            <Link href="/shop" className="group mono-label hover:text-terracotta transition-colors">
+              View all{" "}
+              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-3 gap-y-8">
+            {others.slice(0, 3).map((it) => (
+              <Link key={it.id} href={`/shop/${it.id}`} className="group block">
+                <div className="relative aspect-[4/5] overflow-hidden bg-paper-soft">
+                  <img
+                    src={it.image}
+                    alt={it.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-[800ms] ease-out group-hover:scale-[1.03]"
+                  />
+                  <span className="absolute top-4 left-4 bg-paper/95 text-ink px-3 py-1.5 mono-label-sm">
+                    {it.price === 0 ? formatFromPrice(0) : formatPrice(it.price, it.currency)}
+                  </span>
+                </div>
+                <div className="mt-4 pt-3 border-t border-ink/10">
+                  <span className="mono-label">{it.category}</span>
+                  <h3 className="mt-2 font-display text-[19px] text-ink font-bold tracking-tighter leading-[1.05] group-hover:text-terracotta transition-colors">
+                    {it.title}
+                  </h3>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 }

@@ -17,3 +17,8 @@ export function formatPrice(price: number, currency = "AUD"): string {
   if (price === 0) return "Free";
   return `${SHOP_CURRENCY_SYMBOL}${price} ${currency}`;
 }
+
+/** "From $0.00" style label, matching pay-what-you-want shops. */
+export function formatFromPrice(price: number): string {
+  return `From ${SHOP_CURRENCY_SYMBOL}${price.toFixed(2)}`;
+}

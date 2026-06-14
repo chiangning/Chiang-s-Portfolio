@@ -31,6 +31,16 @@ export interface ShopItem {
   stripePaymentLink?: string;
   /** Link to a related resources article, if any. */
   relatedArticle?: string;
+  /** Number of assets in the pack, shown as a stat (e.g. 103). */
+  assetCount?: number;
+  /**
+   * On-page license summary. Rendered as a "Basic license agreement" block on
+   * the item page; the full text also ships inside the download as LICENSE.txt.
+   */
+  license?: {
+    can: string[];
+    cannot: string[];
+  };
 }
 
 export const shopItems: ShopItem[] = [
@@ -60,7 +70,20 @@ export const shopItems: ShopItem[] = [
     ],
     downloadFile: "/articles/figures/architect-figures-pack.zip",
     fileSize: "11 MB",
-    formats: "PNG + SVG",
+    formats: "PNG · SVG",
+    assetCount: 103,
     relatedArticle: "architect-figures-pack",
+    license: {
+      can: [
+        "Use in unlimited personal and commercial projects: diagrams, collages, boards, renders, client documents.",
+        "Modify, recolour, scale, and combine the figures to suit your work.",
+        "Use as a single user. No attribution required (though appreciated).",
+      ],
+      cannot: [
+        "Resell, redistribute, sublicense, rent, lease, or transfer the figures as is, modified or not.",
+        "Repackage the figures into another asset pack, template, or stock library.",
+        "Claim authorship of the original figures.",
+      ],
+    },
   },
 ];
