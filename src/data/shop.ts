@@ -86,4 +86,46 @@ export const shopItems: ShopItem[] = [
       ],
     },
   },
+  {
+    id: "landscape-entourage-library",
+    title: "Landscape Entourage Library",
+    category: "Asset Pack",
+    tagline: "Free cut-out trees, palms, and shrubs for architectural drawings.",
+    description:
+      "A library of photorealistic, cut-out planting assets drawn as straight-on elevations for architectural sections, elevations, renders, and collage. Every specimen comes two ways: a clean transparent PNG to drop straight into a drawing, and the original white-background render. Planting is weighted toward Sydney and Australian landscape practice, with evergreen and deciduous trees, shrubs, palms, and a dedicated set of Australian natives.",
+    price: 0,
+    currency: "AUD",
+    image: "/articles/landscape/promo.jpg",
+    gallery: [
+      "/articles/landscape/sample-1.png",
+      "/articles/landscape/sample-2.png",
+      "/articles/landscape/sample-3.png",
+      "/articles/landscape/sample-4.png",
+      "/articles/landscape/sample-5.png",
+      "/articles/landscape/sample-6.png",
+    ],
+    includes: [
+      "103 unique specimens: evergreen and deciduous trees and shrubs, palms, and grass trees",
+      "Two layers for every asset: a transparent cut-out plus the white-background original (290 PNG files in total)",
+      "A dedicated Australian natives set, mirrored for quick specification",
+      "Sorted into folders by habit and type, plus an illustrated asset manifest and a license agreement",
+      "Square 1024 px PNGs, ready to drag into any drawing, render, or board",
+    ],
+    downloadFile: "/articles/landscape/landscape-entourage-library.zip",
+    fileSize: "57 MB",
+    formats: "PNG",
+    assetCount: 103,
+    license: {
+      can: [
+        "Use in unlimited personal and commercial projects: drawings, elevations, sections, plans, renders, and client deliverables.",
+        "Modify, recolour, scale, and composite the assets to suit your work.",
+        "Use across competition entries, planning submissions, presentations, and portfolios. Attribution appreciated, not required.",
+      ],
+      cannot: [
+        "Resell, sub-license, share, or redistribute the assets on their own.",
+        "Include the assets in any stock-image, template, or asset library, or any competing product.",
+        "Represent the assets, in unmodified form, as your own original artwork.",
+      ],
+    },
+  },
 ];
